@@ -52,6 +52,7 @@
 			'reinhold.is/not-done-yet',
 			'reinhold.is/getting-there',
 			'reinhold.is/making-stuff-happen',
+			'reinhold.is/on-twitter-⬇'
 		];
 		var lateSentences = [
 			'So, why are you still here?',
@@ -60,29 +61,24 @@
 			"Don't you have anything else to do?",
 			"You've spent too much time here",
 		];
+		var randomSentence = sentences[0];
 
-		//Initialize baffle, and start a 2 second baffle on page load
+		//init baffle
 		var message = window.baffle('#message')
 			.start()
 			.reveal(2000);
 
-		//The loop that keeps changing text
-		// curText is the message currently shown, to make sure we don't show the same thing twice
 		function baffleLoop(curSentence) {
-			//Get a random sentence from the list, MINUS the current
-			var randomSentence = getRandomSentence(curSentence);
-			//baffle the text for BAFFLE_DURATION_MS milliseconds
+			randomSentence = getRandomSentence(curSentence);
 			message
 				.start()
-				.text(function () {
+				.text(function (current) {
 					return randomSentence;
 				})
 				.reveal(BAFFLE_DURATION_MS, 1000);
 		}
 
-		//Returns a random sentence from the list, minus the current sentence
 		function getRandomSentence(currentSentence) {
-			//Make a copy of the original list
 			var withoutCurrent = sentences.slice();
 			//Remove current text
 			withoutCurrent.splice(withoutCurrent.indexOf(currentSentence), 1);
@@ -91,9 +87,8 @@
 			return randomSentence;
 		}
 
-		//Start loop with a random sentence, it MUST be in the list.
 		var loop = setInterval(function () {
-			baffleLoop(sentences[0]);
+			baffleLoop(randomSentence);
 		}, BAFFLE_DELAY_MS);
 
 		setTimeout(function () {
