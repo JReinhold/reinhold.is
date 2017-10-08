@@ -28,6 +28,22 @@
 			justify-content: center;
 			align-items: center;
 		}
+
+		#progress-bar-container {
+			margin-top: 8px;
+			margin-bottom: 16px;
+			width: 300px;
+		}
+
+		#progress-bar {
+			display: flex;
+			justify-content: center;
+		}
+
+		#progress-bar > .bar {
+			width: 100%;
+			transition: width 5s linear;
+		}
 	</style>
 </head>
 
@@ -36,11 +52,24 @@
 		<span id='message'>
 		  reinhold.is/working-on-it
 	  </span>
-		<br/>
+		<div id="progress-bar-container"></div>
 		<a href="https://twitter.com/drreinhold">@DrReinhold</a>
 	</div>
 	<script src="baffle.min.js" type="text/javascript"></script>
+	<script src="nanobar.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
+		var options = {
+			classname: 'progress',
+			id: 'progress-bar',
+			target: document.getElementById('progress-bar-container')
+		};
+
+		var nanobar = new Nanobar(options);
+
+		setTimeout(function() {
+			nanobar.go(0);
+		}, 2000);
+
 		var BAFFLE_DELAY_MS = 7 * 1000;
 		var BAFFLE_DURATION_MS = 4 * 1000;
 
