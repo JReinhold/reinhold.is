@@ -1,30 +1,34 @@
 {
-	"name": "gatsby-starter-hello-world",
-	"description": "Gatsby hello world starter",
+	"name": "reinhold.is",
+	"version": "1.0.0",
+	"description": "Jeppe Reinhold's personal website",
+	"author": "jreinhold <jeppereinhold@gmail.com>",
 	"license": "MIT",
 	"scripts": {
 		"start": "gatsby develop",
+		"develop": "gatsby develop",
 		"build": "gatsby build",
-		"serve": "gatsby serve",
-		"format": "prettier --write \"src/**/*.js\""
+		"typecheck": "tsc --noEmit",
+		"lint": "tslint --project .",
+		"format": "prettier --write \"src/**/*.ts\""
 	},
 	"dependencies": {
-		"baffle-react": "^0.0.2",
-		"emotion": "^8.0.5",
-		"emotion-server": "^8.0.5",
-		"gatsby": "^1.9.52",
-		"gatsby-link": "^1.6.20",
-		"gatsby-plugin-emotion": "^1.1.8",
-		"gatsby-plugin-typography": "^1.7.10",
-		"react-emotion": "^8.0.5",
-		"typography-theme-lawton": "^0.15.10"
+		"@types/node": "^10.3.1",
+		"@types/react": "16.3.16",
+		"@types/react-dom": "16.0.6",
+		"emotion": "^9.2.5",
+		"emotion-server": "^9.2.5",
+		"gatsby": "next",
+		"gatsby-plugin-emotion": "next",
+		"gatsby-plugin-typescript": "next",
+		"react": "^16.4.0",
+		"react-dom": "^16.4.0",
+		"react-emotion": "^9.2.5"
 	},
 	"devDependencies": {
-		"prettier": "^1.7.4"
-	},
-	"prettier": {
-		"singleQuote": true,
-		"trailingComma": "all",
-		"useTabs": true
+		"tslint": "^5.10.0",
+		"tslint-config-prettier": "^1.13.0",
+		"tslint-react": "^3.6.0",
+		"typescript": "^2.9.1"
 	}
 }

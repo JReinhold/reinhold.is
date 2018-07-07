@@ -1,11 +1,6 @@
 module.exports = {
-	plugins: [
-		'gatsby-plugin-emotion',
-		{
-			resolve: `gatsby-plugin-typography`,
-			options: {
-				pathToConfigModule: `src/utils/typography.js`,
-			},
-		},
-	],
+	siteMetadata: {
+		siteName: `reinhold.is`,
+	},
+	plugins: [`gatsby-plugin-typescript`, 'gatsby-plugin-emotion'],
 };
