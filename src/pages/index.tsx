@@ -1,57 +1,34 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-import { injectGlobal } from 'emotion';
+import { css } from 'emotion';
+import { WelcomeSection } from '../components/welcome-section';
+import { section, injectGlobalStyles, sectionHeader } from '../styles';
+import { BioSection } from '../components/bio-section';
 
-// Please note that you can use https://github.com/dotansimha/graphql-code-generator
-// to generate all types from graphQL schema
-interface IndexPageProps {
-	data: {
-		site: {
-			siteMetadata: {
-				siteName: string;
-			};
-		};
-	};
-}
+injectGlobalStyles();
 
-export const pageQuery = graphql`
-	query IndexQuery {
-		site {
-			siteMetadata {
-				siteName
-			}
-		}
-	}
-`;
-
-injectGlobal({
-	'*': {
-		fontFamily: `'American Typewriter',
-			'Lucida Console',
-			'Monaco',
-			'Courier',
-			monospace,
-			'Apple Color Emoji',
-			'Segoe UI Emoji'`,
-	},
-});
-
-
-
-export default ({ data }: IndexPageProps) => {
-	const { siteName } = data.site.siteMetadata;
+export default () => {
 	return (
-		<>
+		<div className={container}>
+			<WelcomeSection />
+			<BioSection/>
+
 			<section>
-				<h1>Hi, Reinhold is me!</h1>
-				<p>
-					I’m a developer, designer, entrepreneur. I’m addicted to mindful
-					running, mostly in Aarhus, Denmark, where I live.
-				</p>
-				<div>social icons here</div>
+				<div>
+					<h1 className={sectionHeader}>Work</h1>
+					<p>
+						Longer text about me. I could write pages and pages about myself,
+						but that would be useless. True value comes in interaction with
+						other people, likeminded or not. So, what do YOU think that I am?
+						What defines me, from your perspective? Let’s do an exercise. In the
+						textbox below, write the first thing that comes to mind when you
+						think of me. I’ve written a little something to get you started,
+						just don’t get caried away with flattery.
+					</p>
+				</div>
 			</section>
 			<section>
-				<h1>Bio</h1>
+				<h1 className={sectionHeader}>Talks</h1>
 				<p>
 					Longer text about me. I could write pages and pages about myself, but
 					that would be useless. True value comes in interaction with other
@@ -62,6 +39,41 @@ export default ({ data }: IndexPageProps) => {
 					get caried away with flattery.
 				</p>
 			</section>
-		</>
+			<section>
+				<h1 className={sectionHeader}>Writing</h1>
+				<p>
+					Longer text about me. I could write pages and pages about myself, but
+					that would be useless. True value comes in interaction with other
+					people, likeminded or not. So, what do YOU think that I am? What
+					defines me, from your perspective? Let’s do an exercise. In the
+					textbox below, write the first thing that comes to mind when you think
+					of me. I’ve written a little something to get you started, just don’t
+					get caried away with flattery.
+				</p>
+			</section>
+			<section>
+				<h1 className={sectionHeader}>Personal Mission Statement</h1>
+				<p>
+					Longer text about me. I could write pages and pages about myself, but
+					that would be useless. True value comes in interaction with other
+					people, likeminded or not. So, what do YOU think that I am? What
+					defines me, from your perspective? Let’s do an exercise. In the
+					textbox below, write the first thing that comes to mind when you think
+					of me. I’ve written a little something to get you started, just don’t
+					get caried away with flattery.
+				</p>
+			</section>
+		</div>
 	);
 };
+
+const container = css({
+	display: 'flex',
+	flexDirection: 'column',
+	'& > section:nth-child(2n)': {
+		background: '#fdfdfd'
+	},
+	'& > section:nth-child(2n+1)': {
+		background: ['#00b09b', 'linear-gradient(to bottom, #96c93d, #00b09b)'], //first is fallback color for old browsers
+	}
+});
