@@ -1,32 +1,51 @@
 import { css, injectGlobal } from 'emotion';
 
+export enum Breakpoints {
+	PhoneOnly = '@media (max-width: 599px)',
+	TabletPortraitUp = '@media (min-width: 600px)',
+	TabletLandscapeUp = '@media (min-width: 900px)',
+	DesktopUp = '@media (min-width: 1200px)',
+	GiantUp = '@media (min-width: 1800px)',
+}
+
+export const colors = {
+	primaryFirst: '#134E5E', //dark blue
+	primarySecond: '#71B280', //light green
+	primaryGradient: '',
+	accent: '#f0a70a' //orange
+}
+colors.primaryGradient = `linear-gradient(to top right, ${colors.primaryFirst}, ${colors.primarySecond})`
+
 //add something with reusable breakpoints here, maybe as a const enum something?
 //add some overscroll styles
 export const injectGlobalStyles = () => {
 	injectGlobal({
 		body: {
-			fontFamily: `'American Typewriter',
+			fontFamily: `
+			'Courier',
 			'Lucida Console',
 			'Monaco',
-			'Courier',
 			monospace,
 			'Apple Color Emoji',
 			'Segoe UI Emoji'`,
-			lineHeight: 1.5,
-			color: '#333333',
+			color: '#eeeeee',
 			margin: 0,
 			overflowX: 'hidden', //hide sections sticking out to the right
-			overflowY: 'scroll', //make sure we can still scroll vertically,
+			overflowY: 'scroll', //make sure we can still scroll vertically
 		},
 		'h1, h2, h3, h4, h5, h6': {
 			margin: 0,
 		},
-		'a:link, a:visited, a:active': {
-			color: '#333333'
+		a: {
+			fontWeight: 600,
+			textDecoration: 'none',
+			'&:link, :visited, :active, :hover': {
+				color: colors.accent,
+			},
+			'&:hover': {
+				textDecoration: 'underline',
+			},
 		},
-		'a:hover': {
-			color: '#cccccc'
-		}
 	});
 };
 
@@ -34,11 +53,15 @@ export const indexContainer = css({
 	display: 'flex',
 	flexDirection: 'column',
 	'& > section:nth-child(2n)': {
-		background: '#fdfdfd'
+		background: '#fdfdfd',
+		color: '#333'
 	},
 	'& > section:nth-child(2n+1)': {
-		background: ['#00b09b', 'linear-gradient(to bottom right, #96c93d, #00b09b)'], //first is fallback color for old browsers
-	}
+		background: [
+			colors.primaryFirst,
+			colors.primaryGradient,
+		], //first is fallback color for older browsers
+	},
 });
 
 export const section = css({
@@ -50,7 +73,6 @@ export const section = css({
 	margin: '-3% 0 3% -4%',
 	'& > div': {
 		width: '75%',
-		minWidth: '1000px',
 		transform: 'rotate(-3deg)',
 	},
 	transform: 'rotate(3deg)',

@@ -6,6 +6,5 @@
 
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
-declare module "*.jpg";
-declare module "*.svg";
-declare module "simple-icons";
+declare module '*.jpg';
+declare module '*.svg';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 import portraitImg from '../../static/jeppe-reinhold.jpg';
-import { section } from '../styles';
+import { section, Breakpoints } from '../styles';
 import instagramIcon from '../../static/social-icons/instagram.svg';
 import twitterIcon from '../../static/social-icons/twitter.svg';
 import mailIcon from '../../static/social-icons/mail.svg';
@@ -14,13 +14,21 @@ export const WelcomeSection: React.SFC = () => (
 		<div className={container}>
 			<h1 className={header}>Hi, Reinhold is me!</h1>
 			<div className={introText}>
-			<p>
-				I’m a developer, 👨‍💻 product designer 🎨 and entrepreneur. 🚀</p><p>
-				I’m hooked on mindful 🧠 running, 🏃‍♂️ mostly in{' '}
-				<a href="https://goo.gl/maps/ae3A6dXX89v" target="_blank">
-					Aarhus, Denmark 🇩🇰
-				</a>, where I live.
-			</p>
+				<p>I’m a developer, 👨‍💻 product designer 🎨 and entrepreneur. 🚀</p>
+				<p>
+					I’m hooked on{' '}
+					<a
+						href="https://news.nike.com/news/nike-headspace-partnership"
+						target="_blank"
+					>
+						mindful running, 🧠
+					</a>{' '}
+					mostly in{' '}
+					<a href="https://goo.gl/maps/ae3A6dXX89v" target="_blank">
+						Aarhus, Denmark, 🇩🇰
+					</a>{' '}
+					where I live.
+				</p>
 			</div>
 			<img className={portrait} src={portraitImg} />
 			<div className={socialIcons}>
@@ -44,18 +52,28 @@ export const WelcomeSection: React.SFC = () => (
 );
 
 const container = css({
-	marginTop: '8em',
 	display: 'grid',
-	gridTemplateColumns: '60% auto',
+	gridTemplateColumns: '100%',
 	gridTemplateAreas: `
-	"header			portrait"
-	"text			portrait"
-	"socialIcons	........"
+	"header"
+	"text"
+	"portrait"
+	"socialIcons"
 	`,
+	'@media (min-width: 900px)': {
+		marginTop: '4em',
+		gridTemplateColumns: '60% auto',
+		gridTemplateAreas: `
+		"header			portrait"
+		"text			portrait"
+		"socialIcons	........"
+		`,
+		fontSize: '1.6em',
+	},
 });
 
-const header = css({ fontSize: '3em', gridArea: 'header' });
-const introText = css({ fontSize: '1.8em', gridArea: 'text' });
+const header = css({ fontSize: '2em', gridArea: 'header' });
+const introText = css({ gridArea: 'text' });
 const socialIcons = css({
 	gridArea: 'socialIcons',
 	display: 'flex',
@@ -64,7 +82,7 @@ const socialIcons = css({
 		width: 32,
 		height: 32,
 		margin: 8,
-		'& :hover': {fill: 'red'},
+		'& :hover': { fill: 'red' },
 	},
 });
 const portrait = css({ margin: 'auto', gridArea: 'portrait' });

@@ -1,40 +1,38 @@
 import React from 'react';
-import { sectionHeader, section } from '../styles';
+import { sectionHeader, section, colors } from '../styles';
 import { css } from '../../node_modules/emotion';
 
 export const BioSection: React.SFC = () => (
 	<section className={section}>
-		<div className={container}>
-			<h1 className={header}>Who I am, according to me</h1>
-			<div className={leftCol}>
+		<div>
+			<h1 className={sectionHeader}>Who I am</h1>
+			<div className={twoColumn}>
 				<p>
 					For as long as I can remember, I've loved working with computers. When
 					I was 11 years old I wanted to learn programming, so I grabbed my
-					sister's college-level C++ book and started coding. As I reached the
-					concept of <em>classes</em>, I thought to myself:
+					sister's university-level C++ book and started coding. As I reached
+					the concept of <em>classes</em>, I thought to myself:
 					<blockquote>
 						Oh no, I have no idea what's going on here, I'm not smart enough for
 						this programming shit.
 					</blockquote>
 				</p>
 				<p>
-					10 years later, in 2015, when I had gotten bored in the army, and started my
-					Computer Science degree, I realised that I actually <em>was</em> smart
-					enough, C++ just wasn't the best language to learn as a 11 year old
-					newbie. 🤷‍♂️
+					10 years later, in 2015, when I had gotten bored in the army, and
+					started my Computer Science degree, I realised that I actually{' '}
+					<em>was</em> smart enough, C++ just wasn't the best language to learn
+					as a 11 year old newbie. 🤷‍♂️
 				</p>
 				<p>
 					I also realised that there was something called{' '}
 					<em>Interaction Design/UX/Product Design</em>, and that I'd always had
 					a passion for it, I just didn't knew it was a thing. I always thought
-					the voice in my head that was annoyed by the world, when in fact
-					all it did was keep pointing out all the mistakes designers had made
-					in the environment around me.
+					the voice in my head that was annoyed by the world, when in fact all
+					it did was keep pointing out all the mistakes designers had made in
+					the environment around me.
 				</p>
-			</div>
-			<div className={rightCol}>
 				<p>
-					During my third year at college, I founded{' '}
+					During my third year at university, I founded{' '}
 					<a href="https://bambuu.dk" target="_blank">
 						bambuu
 					</a>{' '}
@@ -65,10 +63,9 @@ export const BioSection: React.SFC = () => (
 					beautiful nature that I do.
 				</p>
 			</div>
-			<hr />
-			<div className={paperIntro}>
-				<hr className={divider} />
-				<h1 className={sectionHeader}>Who I am, according to you</h1>
+			<hr className={divider} />
+			<h1 className={sectionHeader}>Who I am, according to you</h1>
+			<div className={twoColumn}>
 				<p>
 					I could write pages and pages about myself, but that would be useless.
 					True value comes in interaction with other people, likeminded or not.
@@ -85,36 +82,14 @@ export const BioSection: React.SFC = () => (
 	</section>
 );
 
-const container = css({
-	display: 'grid',
-	gap: '0 3em',
-	gridTemplateColumns: '50% 50%',
-	gridTemplateAreas: `
-	"header		header"
-	"leftCol	rightCol"
-	"paperIntro	paperIntro"
-	`
-});
-
-const header = css(sectionHeader, {
-	gridArea: 'header',
-});
-
-const leftCol = css({
-	gridArea: 'leftCol',
-});
-
-const rightCol = css({
-	gridArea: 'rightCol',
-});
-
-const paperIntro = css({
-	gridArea: 'paperIntro',
-});
-
 const divider = css({
 	height: '2px',
-	background: 'linear-gradient(to right, #96c93d00, #00b09bff, #96c93d00)',
+	background: `linear-gradient(to right, ${colors.primaryFirst}00, ${colors.primarySecond}, ${colors.primaryFirst}00)`, //00 means zero alpha
 	border: 'none',
-	marginBottom: '2em',
+	margin: '2em',
+});
+
+const twoColumn = css({
+	columnCount: 2,
+	columnWidth: '25em',
 });
