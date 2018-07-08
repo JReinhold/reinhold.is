@@ -36,7 +36,7 @@ export const BioSection: React.SFC = () => (
 					<a href="https://bambuu.dk" target="_blank">
 						bambuu
 					</a>{' '}
-					with my two homies{' '}
+					with my two buddies{' '}
 					<a href="https://twitter.com/GeeWengel" target="_blank">
 						Gustav
 					</a>{' '}
@@ -47,8 +47,8 @@ export const BioSection: React.SFC = () => (
 					>
 						Silas
 					</a>, a digital agency doing web development and design for larger
-					corporations that was stuck in their old ways. We had fun, but now we
-					are starting a new adventure.
+					corporations that were stuck in their old ways. We had fun and we learned alot, but now we
+					are looking forward to new adventures.
 				</p>
 				<p>
 					I've become very aware of my actions and the consequences they have on
@@ -58,7 +58,7 @@ export const BioSection: React.SFC = () => (
 				</p>
 				<p>
 					It isn't about the earth, it will endure no matter what we do to it.
-					It's about my future children, grandchildren, and greatgrandchildren.
+					It's about my future children, grandchildren, and great-grandchildren.
 					It's about making sure that <em>they</em> get to experience the same
 					beautiful nature that I do.
 				</p>
@@ -84,7 +84,7 @@ export const BioSection: React.SFC = () => (
 
 const divider = css({
 	height: '2px',
-	background: `linear-gradient(to right, ${colors.primaryFirst}00, ${colors.primarySecond}, ${colors.primaryFirst}00)`, //00 means zero alpha
+	background: `linear-gradient(to right, ${colors.accent}00, ${colors.accent}, ${colors.accent}00)`, //00 means zero alpha
 	border: 'none',
 	margin: '2em',
 });

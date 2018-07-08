@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { css } from 'emotion';
-import portraitImg from '../../static/jeppe-reinhold.jpg';
-import { section } from '../styles';
-import instagramIcon from '../../static/social-icons/instagram.svg';
-import twitterIcon from '../../static/social-icons/twitter.svg';
-import mailIcon from '../../static/social-icons/mail.svg';
-import githubIcon from '../../static/social-icons/github.svg';
-import mediumIcon from '../../static/social-icons/medium.svg';
-import snapchatIcon from '../../static/social-icons/snapchat.svg';
+import portraitImg from '../assets/jeppe-reinhold.jpg';
+import { section, breakpoints, colors } from '../styles';
+import {
+	GoogleInboxIcon,
+	GitHubIcon,
+	TwitterIcon,
+	InstagramIcon,
+	MediumIcon,
+	LinkedInIcon,
+	SnapchatIcon,
+} from './svg-icons';
 
 export const HeroSection: React.SFC = () => (
 	<section className={section}>
@@ -20,32 +23,64 @@ export const HeroSection: React.SFC = () => (
 					<a
 						href="https://news.nike.com/news/nike-headspace-partnership"
 						target="_blank"
+						aria-label="read about mindful running with nike and headspace"
 					>
 						mindful running, 🧠
 					</a>{' '}
 					mostly in{' '}
-					<a href="https://goo.gl/maps/ae3A6dXX89v" target="_blank">
+					<a
+						href="https://goo.gl/maps/ae3A6dXX89v"
+						target="_blank"
+						aria-label="see aarhus google maps"
+					>
 						Aarhus, Denmark, 🇩🇰
 					</a>{' '}
 					where I live.
 				</p>
 			</div>
 			<img className={portrait} src={portraitImg} />
-			<div className={socialIcons}>
-				<a href="https://twitter.com/DrReinhold" target="_blank">
-					<img src={twitterIcon} />
+			<div className={socialIconContainer}>
+				<a
+					className={socialIconLink}
+					href="https://twitter.com/DrReinhold"
+					target="_blank"
+					aria-label="visit twitter profile"
+				>
+					<TwitterIcon />
 				</a>
-				<a href="mailto:jeppereinhold@gmail.com">
-					<img src={mailIcon} />
+				<a
+					className={socialIconLink}
+					href="mailto:jeppereinhold@gmail.com"
+					aria-label="send e-mail"
+				>
+					<GoogleInboxIcon />
 				</a>
-				<a href="https://github.com/JReinhold" target="_blank">
-					<img src={githubIcon} />
+				<a
+					className={socialIconLink}
+					href="https://github.com/JReinhold"
+					target="_blank"
+					aria-label="visit github profile"
+				>
+					<GitHubIcon />
 				</a>
-				<a href="https://medium.com/@jreinhold" target="_blank">
-					<img src={mediumIcon} />
+				<a
+					className={socialIconLink}
+					href="https://linkedin.com/in/jeppereinhold"
+					target="_blank"
+					aria-label="visit linkedin profile"
+				>
+					<LinkedInIcon />
 				</a>
-				<img src={snapchatIcon} />
-				<img src={instagramIcon} />
+				<a
+					className={socialIconLink}
+					href="https://medium.com/@jreinhold"
+					target="_blank"
+					aria-label="visit medium profile"
+				>
+					<MediumIcon />
+				</a>
+				<InstagramIcon className={css(socialIconLink, disabledSocialIcon)} />
+				<SnapchatIcon className={css(socialIconLink, disabledSocialIcon)} />
 			</div>
 		</div>
 	</section>
@@ -60,7 +95,7 @@ const container = css({
 	"portrait"
 	"socialIcons"
 	`,
-	'@media (min-width: 900px)': {
+	[breakpoints.tabletLandscapeUp]: {
 		marginTop: '4em',
 		gridTemplateColumns: '60% auto',
 		gridTemplateAreas: `
@@ -74,15 +109,27 @@ const container = css({
 
 const header = css({ fontSize: '2em', gridArea: 'header' });
 const introText = css({ gridArea: 'text' });
-const socialIcons = css({
+const socialIconContainer = css({
 	gridArea: 'socialIcons',
 	display: 'flex',
 	justifyContent: 'center',
-	'& > a > img, img': {
-		width: 32,
-		height: 32,
-		margin: 8,
-		'& :hover': { fill: 'red' },
+});
+
+const socialIconLink = css({
+	fontSize: '2em',
+	margin: '0 0.1em',
+	'&:link, :visited, :active': {
+		color: colors.lightText,
+	},
+	'&:hover': {
+		color: colors.accent,
+	},
+});
+
+const disabledSocialIcon = css({
+	color: '#aaaaaa',
+	'&:hover': {
+		color: '#888888',
 	},
 });
 const portrait = css({ margin: 'auto', gridArea: 'portrait' });
