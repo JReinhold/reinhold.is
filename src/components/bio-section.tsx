@@ -1,6 +1,6 @@
 import React from 'react';
 import { sectionHeader, section, colors } from '../styles';
-import { css } from '../../node_modules/emotion';
+import { css } from 'emotion';
 
 export const BioSection: React.SFC = () => (
 	<section className={section}>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 import portraitImg from '../../static/jeppe-reinhold.jpg';
-import { section, Breakpoints } from '../styles';
+import { section } from '../styles';
 import instagramIcon from '../../static/social-icons/instagram.svg';
 import twitterIcon from '../../static/social-icons/twitter.svg';
 import mailIcon from '../../static/social-icons/mail.svg';
@@ -9,7 +9,7 @@ import githubIcon from '../../static/social-icons/github.svg';
 import mediumIcon from '../../static/social-icons/medium.svg';
 import snapchatIcon from '../../static/social-icons/snapchat.svg';
 
-export const WelcomeSection: React.SFC = () => (
+export const HeroSection: React.SFC = () => (
 	<section className={section}>
 		<div className={container}>
 			<h1 className={header}>Hi, Reinhold is me!</h1>
