@@ -5,31 +5,31 @@ import { css } from '../../node_modules/emotion';
 export const BioSection: React.SFC = () => (
 	<section className={section}>
 		<div className={container}>
-			<h1 className={header}>Bio</h1>
+			<h1 className={header}>Who I am, according to me</h1>
 			<div className={leftCol}>
 				<p>
 					For as long as I can remember, I've loved working with computers. When
 					I was 11 years old I wanted to learn programming, so I grabbed my
-					sisters college-level C++ book and started coding. As I reached the
-					chapter about the concept of <em>classes</em>, I thought to myself:
+					sister's college-level C++ book and started coding. As I reached the
+					concept of <em>classes</em>, I thought to myself:
 					<blockquote>
 						Oh no, I have no idea what's going on here, I'm not smart enough for
 						this programming shit.
 					</blockquote>
 				</p>
 				<p>
-					10 years later, when I had gotten bored in the army, and started my
+					10 years later, in 2015, when I had gotten bored in the army, and started my
 					Computer Science degree, I realised that I actually <em>was</em> smart
 					enough, C++ just wasn't the best language to learn as a 11 year old
-					newbie.
+					newbie. 🤷‍♂️
 				</p>
 				<p>
 					I also realised that there was something called{' '}
 					<em>Interaction Design/UX/Product Design</em>, and that I'd always had
-					a passion for it, I just didn't knew it was a thing. I just thought it
-					was a voice in my head that was angry about the world, when in fact it
-					was a voice that kept pointing out all the mistakes designers had made
-					in the world around me.
+					a passion for it, I just didn't knew it was a thing. I always thought
+					the voice in my head that was annoyed by the world, when in fact
+					all it did was keep pointing out all the mistakes designers had made
+					in the environment around me.
 				</p>
 			</div>
 			<div className={rightCol}>
@@ -65,17 +65,20 @@ export const BioSection: React.SFC = () => (
 					beautiful nature that I do.
 				</p>
 			</div>
-			<hr/>
+			<hr />
 			<div className={paperIntro}>
-			<hr className={divider}/>
+				<hr className={divider} />
+				<h1 className={sectionHeader}>Who I am, according to you</h1>
 				<p>
 					I could write pages and pages about myself, but that would be useless.
 					True value comes in interaction with other people, likeminded or not.
-					So, what do YOU think that I am? What defines me, from your
-					perspective? Let’s do an exercise. On the paper below, write the first
-					thing that comes to mind when you think of me. I’ve written a little
-					something to get you started, just don’t get caried away with
-					flattery.
+					So, what do <em>you</em> think that I am? What defines me, from your
+					perspective?
+				</p>
+				<p>
+					Let’s do an exercise. On the paper below, write the first thing that
+					comes to mind when you think of me. I’ve written a little something to
+					get you started, just don’t get caried away with flattery.
 				</p>
 			</div>
 		</div>
@@ -90,7 +93,7 @@ const container = css({
 	"header		header"
 	"leftCol	rightCol"
 	"paperIntro	paperIntro"
-	`,
+	`
 });
 
 const header = css(sectionHeader, {
@@ -107,11 +110,11 @@ const rightCol = css({
 
 const paperIntro = css({
 	gridArea: 'paperIntro',
-	borderRadius: '50px'
 });
 
 const divider = css({
 	height: '2px',
 	background: 'linear-gradient(to right, #96c93d00, #00b09bff, #96c93d00)',
-	border: 'none'
-})
+	border: 'none',
+	marginBottom: '2em',
+});

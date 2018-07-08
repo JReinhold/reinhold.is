@@ -13,13 +13,15 @@ export const WelcomeSection: React.SFC = () => (
 	<section className={section}>
 		<div className={container}>
 			<h1 className={header}>Hi, Reinhold is me!</h1>
-			<p className={introText}>
-				I’m a developer, 👨‍💻 product designer 🎨 and entrepreneur. 🚀<br />
+			<div className={introText}>
+			<p>
+				I’m a developer, 👨‍💻 product designer 🎨 and entrepreneur. 🚀</p><p>
 				I’m hooked on mindful 🧠 running, 🏃‍♂️ mostly in{' '}
 				<a href="https://goo.gl/maps/ae3A6dXX89v" target="_blank">
 					Aarhus, Denmark 🇩🇰
 				</a>, where I live.
 			</p>
+			</div>
 			<img className={portrait} src={portraitImg} />
 			<div className={socialIcons}>
 				<a href="https://twitter.com/DrReinhold" target="_blank">
