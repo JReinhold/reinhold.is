@@ -1,7 +1,7 @@
-import React, { SVGProps } from 'react';
+import React, { SVGAttributes } from 'react';
 import { css } from 'emotion';
 
-export const GoogleInboxIcon = (props: SVGProps<SVGSVGElement>) => (
+export const GoogleInboxIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -14,7 +14,7 @@ export const GoogleInboxIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const GitHubIcon = (props: SVGProps<SVGSVGElement>) => (
+export const GitHubIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -32,7 +32,7 @@ export const GitHubIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const TwitterIcon = (props: SVGProps<SVGSVGElement>) => (
+export const TwitterIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -45,7 +45,7 @@ export const TwitterIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => (
+export const InstagramIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -60,7 +60,7 @@ export const InstagramIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const LinkedInIcon = (props: SVGProps<SVGSVGElement>) => (
+export const LinkedInIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -74,7 +74,7 @@ export const LinkedInIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const MediumIcon = (props: SVGProps<SVGSVGElement>) => (
+export const MediumIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -87,7 +87,7 @@ export const MediumIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const SnapchatIcon = (props: SVGProps<SVGSVGElement>) => (
+export const SnapchatIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		fill="currentColor"
@@ -100,7 +100,7 @@ export const SnapchatIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const NetlifyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const NetlifyIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		role="img"
 		aria-labelledby="simpleicons-netlify-icon"
@@ -114,7 +114,7 @@ export const NetlifyIcon = (props: SVGProps<SVGSVGElement>) => (
 	</svg>
 );
 
-export const GatsbyIcon = (props: SVGProps<SVGSVGElement>) => (
+export const GatsbyIcon = (props: SVGAttributes<SVGElement>) => (
 	<svg
 		viewBox="0 0 24 24"
 		width="1em"

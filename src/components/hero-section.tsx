@@ -11,6 +11,7 @@ import {
 	LinkedInIcon,
 	SnapchatIcon,
 } from './svg-icons';
+import { SocialIconLink } from './social-icon-link';
 
 export const HeroSection: React.SFC = () => (
 	<section className={section}>
@@ -33,58 +34,63 @@ export const HeroSection: React.SFC = () => (
 						target="_blank"
 						aria-label="see aarhus google maps"
 					>
-						Aarhus, Denmark, 🇩🇰
+						Aarhus, Denmark 🇩🇰
 					</a>{' '}
 					where I live.
 				</p>
 			</div>
 			<img className={portrait} src={portraitImg} />
 			<div className={socialIconContainer}>
-				<a
-					className={socialIconLink}
-					href="https://twitter.com/DrReinhold"
-					target="_blank"
-					aria-label="visit twitter profile"
-				>
-					<TwitterIcon />
-				</a>
-				<a
-					className={socialIconLink}
-					href="mailto:jeppereinhold@gmail.com"
-					aria-label="send e-mail"
-				>
-					<GoogleInboxIcon />
-				</a>
-				<a
-					className={socialIconLink}
-					href="https://github.com/JReinhold"
-					target="_blank"
-					aria-label="visit github profile"
-				>
-					<GitHubIcon />
-				</a>
-				<a
-					className={socialIconLink}
-					href="https://linkedin.com/in/jeppereinhold"
-					target="_blank"
-					aria-label="visit linkedin profile"
-				>
-					<LinkedInIcon />
-				</a>
-				<a
-					className={socialIconLink}
-					href="https://medium.com/@jreinhold"
-					target="_blank"
-					aria-label="visit medium profile"
-				>
-					<MediumIcon />
-				</a>
-				<InstagramIcon className={css(socialIconLink, disabledSocialIcon)} />
-				<SnapchatIcon className={css(socialIconLink, disabledSocialIcon)} />
+				{renderSocialIcons()}
 			</div>
 		</div>
 	</section>
 );
+
+const renderSocialIcons = () => {
+	const links = [
+		{
+			url: 'https://twitter.com/DrReinhold',
+			label: 'visit twitter profile',
+			icon: TwitterIcon,
+		},
+
+		{
+			url: 'mailto:jeppereinhold@gmail.com',
+			label: 'send e-mail',
+			icon: GoogleInboxIcon,
+		},
+		{
+			url: 'https://github.com/JReinhold',
+			label: 'visit github profile',
+			icon: GitHubIcon,
+		},
+		{
+			url: 'https://linkedin.com/in/jeppereinhold',
+			label: 'visit linkedin profile',
+			icon: LinkedInIcon,
+		},
+		{
+			url: 'https://medium.com/@jreinhold/latest',
+			label: 'see medium publications',
+			icon: MediumIcon,
+		},
+		{
+			disabled: true,
+			label: 'no instagram profile',
+			icon: InstagramIcon,
+		},
+		{
+			disabled: true,
+			label: 'no snapchat profile',
+			icon: SnapchatIcon,
+		},
+	];
+
+	return links.map(({url, label, icon, disabled}) => (
+		<SocialIconLink url={url} label={label} IconComponent={icon} disabled={disabled}/>
+	))
+};
 
 const container = css({
 	display: 'grid',
@@ -115,21 +121,4 @@ const socialIconContainer = css({
 	justifyContent: 'center',
 });
 
-const socialIconLink = css({
-	fontSize: '2em',
-	margin: '0 0.1em',
-	'&:link, :visited, :active': {
-		color: colors.lightText,
-	},
-	'&:hover': {
-		color: colors.accent,
-	},
-});
-
-const disabledSocialIcon = css({
-	color: '#aaaaaa',
-	'&:hover': {
-		color: '#888888',
-	},
-});
 const portrait = css({ margin: 'auto', gridArea: 'portrait' });
