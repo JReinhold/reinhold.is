@@ -5,7 +5,9 @@ import { colors } from '../styles';
 interface SocialIconLinkProps {
 	url?: string;
 	label: string;
-	IconComponent: React.SFC<SVGAttributes<SVGElement>> | React.ComponentClass<SVGAttributes<SVGElement>>;
+	IconComponent:
+		| React.SFC<SVGAttributes<SVGElement>>
+		| React.ComponentClass<SVGAttributes<SVGElement>>;
 	disabled?: boolean;
 }
 
@@ -13,15 +15,19 @@ export const SocialIconLink: React.SFC<SocialIconLinkProps> = ({
 	url,
 	label,
 	IconComponent,
-	disabled = false
+	disabled = false,
 }) => {
 	if (disabled) {
-		return <IconComponent className={css(socialIconLink, disabledSocialIcon)}/>
+		return (
+			<span className={css(socialIconLink, disabledSocialIcon)}>
+				<IconComponent />
+			</span>
+		);
 	}
-	
+
 	return (
 		<a className={socialIconLink} href={url} target="_blank" aria-label={label}>
-			<IconComponent/>
+			<IconComponent />
 		</a>
 	);
 };

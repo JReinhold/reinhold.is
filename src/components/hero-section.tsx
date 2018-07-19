@@ -88,7 +88,7 @@ const renderSocialIcons = () => {
 	];
 
 	return links.map(({url, label, icon, disabled}) => (
-		<SocialIconLink url={url} label={label} IconComponent={icon} disabled={disabled}/>
+		<SocialIconLink key={label} url={url} label={label} IconComponent={icon} disabled={disabled}/>
 	))
 };
 
