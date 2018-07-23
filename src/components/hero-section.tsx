@@ -102,7 +102,7 @@ const container = css({
 	"socialIcons"
 	`,
 	[breakpoints.tabletLandscapeUp]: {
-		marginTop: '4em',
+		marginTop: '2em',
 		gridTemplateColumns: '60% auto',
 		gridTemplateAreas: `
 		"header			portrait"
