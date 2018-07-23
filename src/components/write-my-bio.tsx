@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '../../node_modules/emotion';
-import { globalFontFamily } from '../styles';
+import { globalFontFamily, breakpoints } from '../styles';
 import styled from 'react-emotion';
 
 interface WriteMyBioState {
@@ -54,23 +54,27 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	}
 }
 
-const HEADER_HEIGHT = 70; //px
+const HEADER_HEIGHT = 65; //px
 const LINE_HEIGHT = 30; //px
-const LEFT_PAD_WIDTH = 100; //px
-const DISTANCE_FROM_LEFT_PAD = 4; //px
+const LEFT_PAD_WIDTH = 10; //%
+const TEXT_SIDE_PADDING = 1; //%
 
 const container = css({
+	label: 'paperContainer',
 	display: 'flex',
 	justifyContent: 'center',
 	position: 'relative',
-	zIndex: 1,
+	zIndex: 1
 });
 
 const paper = css({
 	label: 'paper',
 	position: 'relative',
-	width: '75%',
-	marginBottom: '-3em',
+	width: '100%',
+	maxWidth: '34em',
+	[breakpoints.tabletLandscapeUp]: {
+		width: '85%'
+	},
 	boxShadow: '0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1)', //shadow around paper
 	border: '1px solid #b5b5b577', //slight border around paper, to "make it pop"
 	background: `
@@ -96,7 +100,7 @@ const paper = css({
 		right: '12px',
 		transformOrigin: 'bottom right',
 		transform: 'skew(5deg) rotate(5deg)',
-	},
+	}
 });
 
 const textArea = css({
@@ -109,9 +113,9 @@ const textArea = css({
 	background: 'none',
 	resize: 'none',
 	overflow: 'hidden',
-	margin: `0 0 0 ${LEFT_PAD_WIDTH}px`,
-	padding: `${HEADER_HEIGHT + 8}px 10px 0 ${DISTANCE_FROM_LEFT_PAD}px`,
-	width: `calc(100% - ${LEFT_PAD_WIDTH + DISTANCE_FROM_LEFT_PAD + 10}px)`,
+	margin: `0 0 -4px ${LEFT_PAD_WIDTH}%`,
+	padding: `${HEADER_HEIGHT + 8}px ${TEXT_SIDE_PADDING}% 0 ${TEXT_SIDE_PADDING}%`,
+	width: `calc(100% - ${LEFT_PAD_WIDTH}% - ${TEXT_SIDE_PADDING}% - ${TEXT_SIDE_PADDING}%)`,
 	minHeight: '500px',
 	'&:focus': {
 		outline: 'none',
