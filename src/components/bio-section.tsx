@@ -18,7 +18,7 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 
 	renderShortBio = () => {
 		return (
-			<div className={bioContainer}>
+			<div className={twoColumn}>
 				<p>I've always loved tinkering with computers.</p>
 				<p>
 					During my Computer Science studies in 2016, I co-founded{' '}
@@ -38,7 +38,7 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 
 	renderLongBio = () => {
 		return (
-			<div className={bioContainer}>
+			<div className={twoColumn}>
 				<p>
 					For as long as I can remember, I've loved working with computers. When
 					I was 11 years old I wanted to learn programming, so I grabbed my
@@ -112,7 +112,7 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 				{isLong ? this.renderLongBio() : this.renderShortBio()}
 				<hr className={divider} />
 				<h1 className={sectionHeader}>Who I am, according to you</h1>
-				<div className={longBioContainer}>
+				<div className={twoColumn}>
 					<p>
 						I could write pages and pages about myself, but that would be
 						useless. True value comes in interaction with other people,
@@ -145,7 +145,7 @@ const divider = css({
 	margin: '2em',
 });
 
-const bioContainer = css({
+const twoColumn = css({
 	columnCount: 2,
 	columnWidth: '25em',
 });
