@@ -1,5 +1,5 @@
 import React, { EventHandler } from 'react';
-import { sectionHeader, section, colors } from '../styles';
+import { sectionHeader, section, colors, breakpoints } from '../styles';
 import { css } from 'emotion';
 
 interface BioSectionState {
@@ -8,7 +8,7 @@ interface BioSectionState {
 
 export class BioSection extends React.PureComponent<void, BioSectionState> {
 	readonly state = {
-		longVersion: true,
+		longVersion: window.innerWidth > 900, //default to long version on tabletLandscape and up
 	};
 
 	handleBioLength: EventHandler<React.MouseEvent> = e => {
@@ -18,13 +18,10 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 
 	renderShortBio = () => {
 		return (
-			<div className={shortBioContainer}>
+			<div className={bioContainer}>
+				<p>I've always loved tinkering with computers.</p>
 				<p>
-					I've always loved tinkering with computers.
-					</p>
-				<p>	
-					I completed my bachelor degree in
-					Computer Science in 2017. During my studies I co-founded{' '}
+					During my Computer Science studies in 2016, I co-founded{' '}
 					<a href="https://bambuu.dk" target="_blank">
 						bambuu
 					</a>, a digital agency doing web development and design. For the last
@@ -41,7 +38,7 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 
 	renderLongBio = () => {
 		return (
-			<div className={longBioContainer}>
+			<div className={bioContainer}>
 				<p>
 					For as long as I can remember, I've loved working with computers. When
 					I was 11 years old I wanted to learn programming, so I grabbed my
@@ -148,11 +145,7 @@ const divider = css({
 	margin: '2em',
 });
 
-const shortBioContainer = css({
-	width: '50%'
-});
-
-const longBioContainer = css({
+const bioContainer = css({
 	columnCount: 2,
 	columnWidth: '25em',
 });
