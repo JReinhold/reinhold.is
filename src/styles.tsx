@@ -21,21 +21,21 @@ colors.primaryGradient = `linear-gradient(to top right, ${
 	colors.primaryFirst
 }, ${colors.primarySecond})`;
 
-//add something with reusable breakpoints here, maybe as a const enum something?
-//add some overscroll styles
+export const globalFontFamily = `
+	'Courier',
+	'Lucida Console',
+	'Monaco',
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji'`;
+
 export const injectGlobalStyles = () => {
 	injectGlobal({
 		html: {
 			background: colors.accent,
 		},
 		body: {
-			fontFamily: `
-			'Courier',
-			'Lucida Console',
-			'Monaco',
-			monospace,
-			'Apple Color Emoji',
-			'Segoe UI Emoji'`,
+			fontFamily: globalFontFamily,
 			color: colors.lightText,
 			background: colors.lightBackground,
 			margin: 0,
@@ -67,22 +67,19 @@ const randomDiagonalDividers = () => {
 	return [2, 4].reduce((styles, nth) => {
 		// height if dividers are random, between the min and max
 		const topHeight =
-			Math.floor(
-				Math.random() * (MAX_HEIGHT - MIN_HEIGHT),
-			) + MIN_HEIGHT;
+			Math.floor(Math.random() * (MAX_HEIGHT - MIN_HEIGHT)) + MIN_HEIGHT;
 		const topDirection = Math.random() < 0.5 ? 'left' : 'right';
 
 		const bottomHeight =
-			Math.floor(
-				Math.random() * (MAX_HEIGHT - MIN_HEIGHT),
-			) + MIN_HEIGHT;
+			Math.floor(Math.random() * (MAX_HEIGHT - MIN_HEIGHT)) + MIN_HEIGHT;
 		const bottomDirection = Math.random() < 0.5 ? 'left' : 'right';
 
 		return {
 			...styles,
 			[`& > section:nth-of-type(${nth})`]: {
 				background: `
-				linear-gradient(${lightBg}, ${lightBg}) 0px ${topHeight - 1}px/100% calc(100% - ${topHeight + bottomHeight - 2}px) no-repeat,
+				linear-gradient(${lightBg}, ${lightBg}) 0px ${topHeight -
+					1}px/100% calc(100% - ${topHeight + bottomHeight - 2}px) no-repeat,
 				linear-gradient(to top ${topDirection}, ${lightBg} 49%, transparent 51%) 0 0/100% ${topHeight}px no-repeat,
 				linear-gradient(to bottom ${bottomDirection}, ${lightBg} 49%, transparent 51%) 100% 100%/100% ${bottomHeight}px no-repeat
 				`,
@@ -90,7 +87,6 @@ const randomDiagonalDividers = () => {
 		};
 	}, {});
 };
-
 
 /*
 	Note about the crazy linear gradient above, with the following example:
@@ -129,8 +125,8 @@ export const section = css({
 	fontSize: '1.1rem',
 	padding: '3em 8%',
 	[breakpoints.tabletPortraitUp]: {
-		padding: '3em 16%'
-	}
+		padding: '3em 16%',
+	},
 });
 
 export const sectionHeader = css({

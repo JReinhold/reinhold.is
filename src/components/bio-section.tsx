@@ -1,6 +1,7 @@
 import React, { EventHandler } from 'react';
 import { sectionHeader, section, colors, breakpoints } from '../styles';
 import { css } from 'emotion';
+import { WriteMyBio } from './write-my-bio';
 
 interface BioSectionState {
 	longVersion: boolean;
@@ -122,9 +123,10 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 					<p>
 						Let’s do an exercise. On the paper below, write the first thing that
 						comes to mind when you think of me. I’ve written a little something
-						to get you started, just don’t get caried away with flattery.
+						to get you started, just don’t get caried away with flattery. ❤️
 					</p>
 				</div>
+				<WriteMyBio/>
 			</section>
 		);
 	}
