@@ -1,4 +1,5 @@
 import { css, injectGlobal } from 'emotion';
+import styled from 'react-emotion';
 
 export const breakpoints = {
 	phoneOnly: '@media (max-width: 599px)',
@@ -129,6 +130,15 @@ export const section = css({
 	},
 });
 
-export const sectionHeader = css({
+export const SectionHeader = styled('h1')({
+	label: 'sectionSubHeader',
 	fontSize: '2.2em',
+	margin: '0 0 0.5em 0'
+});
+
+export const SectionSubHeader = styled('h2')({
+	label: 'sectionSubHeader',
+	margin: '1em 0',
+	fontSize: '1.2em',
+	fontWeight: 'normal',
 });

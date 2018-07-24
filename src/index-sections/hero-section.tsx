@@ -10,8 +10,8 @@ import {
 	MediumIcon,
 	LinkedInIcon,
 	SnapchatIcon,
-} from './svg-icons';
-import { SocialIconLink } from './social-icon-link';
+} from '../components/svg-icons';
+import { SocialIconLink } from '../components/social-icon-link';
 
 export const HeroSection: React.SFC = () => (
 	<section className={section}>

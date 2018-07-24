@@ -53,7 +53,7 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
-		const previousLength = textArea.textLength; //might not be supported very well by browsers
+		const previousLength = textArea.textContent && textArea.textContent.length || 0;
 		const nextLength = textArea.value.length;
 
 		if (

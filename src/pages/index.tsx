@@ -1,9 +1,9 @@
+import React from 'react';
 import { graphql } from 'gatsby';
-import * as React from 'react';
-import { css } from 'emotion';
-import { HeroSection } from '../components/hero-section';
-import { section, injectGlobalStyles, sectionHeader, indexContainer } from '../styles';
-import { BioSection } from '../components/bio-section';
+import { HeroSection } from '../index-sections/hero-section';
+import { injectGlobalStyles, indexContainer } from '../styles';
+import { BioSection } from '../index-sections/bio-section';
+import WritingSection from '../index-sections/writing-section';
 
 injectGlobalStyles();
 
@@ -12,9 +12,7 @@ export default () => {
 		<div className={indexContainer}>
 			<HeroSection />
 			<BioSection/>
-			<BioSection/>
-			<BioSection/>
-			<BioSection/>
+			<WritingSection/>
 		</div>
 	);
 };

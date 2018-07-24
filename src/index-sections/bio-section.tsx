@@ -1,13 +1,13 @@
 import React, { EventHandler } from 'react';
-import { sectionHeader, section, colors, breakpoints } from '../styles';
+import { section, colors, breakpoints, SectionHeader } from '../styles';
 import { css } from 'emotion';
-import { WriteMyBio } from './write-my-bio';
+import { WriteMyBio } from '../components/write-my-bio';
 
 interface BioSectionState {
 	longVersion: boolean;
 }
 
-export class BioSection extends React.PureComponent<void, BioSectionState> {
+export class BioSection extends React.PureComponent<{}, BioSectionState> {
 	readonly state = {
 		longVersion: window.innerWidth > 900, //default to long version on tabletLandscape and up
 	};
@@ -104,15 +104,15 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 
 		return (
 			<section className={section}>
-				<h1 className={sectionHeader}>
-					Who I am,{' '}
+				<SectionHeader>
+					🙋🏻‍♂️ Who I am,{' '}
 					<a className={bioLengthLink} onClick={this.handleBioLength}>
 						the {isLong ? 'long' : 'short'} version
 					</a>
-				</h1>
+				</SectionHeader>
 				{isLong ? this.renderLongBio() : this.renderShortBio()}
 				<hr className={divider} />
-				<h1 className={sectionHeader}>Who I am, in your words</h1>
+				<SectionHeader>🗣 Who I am, in your words</SectionHeader>
 				<div className={twoColumn}>
 					<p>
 						I could write pages and pages about myself, but that would be
@@ -150,4 +150,7 @@ const divider = css({
 const twoColumn = css({
 	columnCount: 2,
 	columnWidth: '25em',
+	'& > p': {
+		marginTop: 0,
+	}
 });

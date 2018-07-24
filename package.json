@@ -17,19 +17,20 @@
 	"dependencies": {
 		"emotion": "^9.2.6",
 		"emotion-server": "^9.2.6",
-		"gatsby": "next",
-		"gatsby-plugin-emotion": "next",
-		"gatsby-plugin-typescript": "next",
+		"gatsby": "^2.0.0-beta.56",
+		"gatsby-plugin-emotion": "^2.0.0-beta.3",
+		"gatsby-plugin-typescript": "^2.0.0-beta.7",
+		"gatsby-source-medium": "^1.0.14",
 		"react": "^16.4.0",
 		"react-dom": "^16.4.0",
 		"react-emotion": "^9.2.6"
 	},
 	"devDependencies": {
 		"@types/node": "^10.3.1",
-		"@types/react": "16.4.6",
+		"@types/react": "16.4.7",
 		"@types/react-dom": "16.0.6",
 		"tslint": "^5.11.0",
-		"tslint-config-prettier": "^1.13.0",
+		"tslint-config-prettier": "^1.14.0",
 		"tslint-react": "^3.6.0",
 		"typescript": "^2.9.1"
 	}
