@@ -21,13 +21,12 @@ Things I don't like about you: 👎
 - Sometimes you THINK you know what I'm thinking, when you actually get it all wrong 😤
 
 But it doesn't matter, cuz I still think you're awesome! 💪
-Sincerely yours, `
-
+Sincerely yours, `;
 
 export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	readonly state = {
-		text: predefinedText.substr(0,38), //... think you are 
-		lastTextLength: 38
+		text: predefinedText.substr(0, 38), //... think you are
+		lastTextLength: 38,
 	};
 
 	textAreaRef = React.createRef<HTMLTextAreaElement>(); //to get the height of the textarea at mount time
@@ -50,8 +49,17 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
-		const previousLength = textArea.textLength;
+		const previousLength = textArea.textLength; //might not be supported very well by browsers
 		const nextLength = textArea.value.length;
+
+		if (
+			nextLength > predefinedText.length && // user is writing his name at the end
+			textArea.value.substr(0, predefinedText.length) === predefinedText //user is not just editing the text above
+		) {
+			this.setState({ text: textArea.value });
+			return;
+		}
+
 		const inputLength = this.fixEmojis(nextLength, previousLength);
 		this.setState({ text: predefinedText.substr(0, inputLength) });
 		this.fitTextArea(textArea);
@@ -67,7 +75,7 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 		//if we are deleting a character, reverse change "direction"
 		change *= nextLength < previousLength ? -1 : 1;
 		return nextLength + change;
-	}
+	};
 
 	render() {
 		return (
