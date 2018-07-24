@@ -1,17 +1,33 @@
 import React from 'react';
 import { css } from '../../node_modules/emotion';
 import { globalFontFamily, breakpoints } from '../styles';
-import styled from 'react-emotion';
 
 interface WriteMyBioState {
 	text: string;
-	textAreaHeight: string;
+	lastTextLength: number;
 }
+
+const predefinedText = `Dear Jeppe,
+
+I actually think you are a pretty nice guy. I'm regularly amazed by your amount of creativity and the stuff you can come up with.
+You have a knack for trying weird stuff out, and see how it goes. It doesn't always end in a good way, but you manage to keep trying anyway, and that's what I admire the most about you!
+
+Things I like about you: 👍
+- You always make people around you smile 😊
+- You are firm in your beliefs, but also open to hear the ideas of others 
+
+Things I don't like about you: 👎
+- You are better than me at most things 😒
+- Sometimes you THINK you know what I'm thinking, when you actually get it all wrong 😤
+
+But it doesn't matter, cuz I still think you're awesome! 💪
+Sincerely yours, `
+
 
 export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	readonly state = {
-		text: `Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte for at trykke en bog til sammenligning af forskellige skrifttyper. Lorem Ipsum har ikke alene overlevet fem århundreder, men har også vundet indpas i elektronisk typografi uden væsentlige ændringer. Sætningen blev gjordt kendt i 1960'erne med lanceringen af Letraset-ark, som indeholdt afsnit med Lorem Ipsum, og senere med layoutprogrammer som Aldus PageMaker, som også indeholdt en udgave af Lorem Ipsum.`,
-		textAreaHeight: '5px',
+		text: predefinedText.substr(0,38), //... think you are 
+		lastTextLength: 38
 	};
 
 	textAreaRef = React.createRef<HTMLTextAreaElement>(); //to get the height of the textarea at mount time
@@ -34,9 +50,24 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
-		this.setState({ text: textArea.value });
+		const previousLength = textArea.textLength;
+		const nextLength = textArea.value.length;
+		const inputLength = this.fixEmojis(nextLength, previousLength);
+		this.setState({ text: predefinedText.substr(0, inputLength) });
 		this.fitTextArea(textArea);
 	};
+
+	fixEmojis = (nextLength: number, previousLength: number) => {
+		let change = 0;
+		const unicode = predefinedText.charCodeAt(nextLength - 1);
+
+		//if an emoji, add an extra skip
+		change = unicode > 1000 ? 1 : 0;
+
+		//if we are deleting a character, reverse change "direction"
+		change *= nextLength < previousLength ? -1 : 1;
+		return nextLength + change;
+	}
 
 	render() {
 		return (
@@ -64,7 +95,7 @@ const container = css({
 	display: 'flex',
 	justifyContent: 'center',
 	position: 'relative',
-	zIndex: 1
+	zIndex: 1,
 });
 
 const paper = css({
@@ -73,7 +104,7 @@ const paper = css({
 	width: '100%',
 	maxWidth: '34em',
 	[breakpoints.tabletLandscapeUp]: {
-		width: '85%'
+		width: '85%',
 	},
 	boxShadow: '0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1)', //shadow around paper
 	border: '1px solid #b5b5b577', //slight border around paper, to "make it pop"
@@ -100,7 +131,7 @@ const paper = css({
 		right: '12px',
 		transformOrigin: 'bottom right',
 		transform: 'skew(5deg) rotate(5deg)',
-	}
+	},
 });
 
 const textArea = css({
@@ -114,7 +145,8 @@ const textArea = css({
 	resize: 'none',
 	overflow: 'hidden',
 	margin: `0 0 -4px ${LEFT_PAD_WIDTH}%`,
-	padding: `${HEADER_HEIGHT + 8}px ${TEXT_SIDE_PADDING}% 0 ${TEXT_SIDE_PADDING}%`,
+	padding: `${HEADER_HEIGHT +
+		8}px ${TEXT_SIDE_PADDING}% 0 ${TEXT_SIDE_PADDING}%`,
 	width: `calc(100% - ${LEFT_PAD_WIDTH}% - ${TEXT_SIDE_PADDING}% - ${TEXT_SIDE_PADDING}%)`,
 	minHeight: '500px',
 	'&:focus': {
