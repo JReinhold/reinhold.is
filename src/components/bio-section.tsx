@@ -31,9 +31,9 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 				</p>
 				<p>
 					I want to build products and services that have a positive impact on
-					the enviroment and the issues we are facing in the coming decades.
+					the enviroment and the issues we are facing in the coming decades surrounding that.
 				</p>
-			</div>
+			</div> 
 		);
 	};
 
@@ -112,12 +112,12 @@ export class BioSection extends React.PureComponent<void, BioSectionState> {
 				</h1>
 				{isLong ? this.renderLongBio() : this.renderShortBio()}
 				<hr className={divider} />
-				<h1 className={sectionHeader}>Who I am, according to you</h1>
+				<h1 className={sectionHeader}>Who I am, in your words</h1>
 				<div className={twoColumn}>
 					<p>
 						I could write pages and pages about myself, but that would be
 						useless. True value comes in interaction with other people,
-						likeminded or not. So, what do <em>you</em> think that I am? What
+						likeminded or not. So, who do <em>you</em> think that I am? What
 						defines me, from your perspective?
 					</p>
 					<p>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { css } from '../../node_modules/emotion';
+import React, { MouseEventHandler } from 'react';
+import { css } from 'emotion';
 import { globalFontFamily, breakpoints } from '../styles';
 
 interface WriteMyBioState {
@@ -23,7 +23,7 @@ Things I don't like about you: 👎
 But it doesn't matter, cuz I still think you're awesome! 💪
 Sincerely yours, `;
 
-export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
+export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 	readonly state = {
 		text: predefinedText.substr(0, 38), //... think you are
 		lastTextLength: 38,
@@ -46,6 +46,10 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 		textAreaElement.style.height = textAreaElement.scrollHeight + 'px';
 	};
 
+	handlePaperClick: MouseEventHandler<HTMLDivElement> = e => {
+		this.textAreaRef.current && this.textAreaRef.current.focus();
+	}
+
 	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
@@ -54,7 +58,7 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 
 		if (
 			nextLength > predefinedText.length && // user is writing his name at the end
-			textArea.value.substr(0, predefinedText.length) === predefinedText //user is not just editing the text above
+			textArea.value.substr(0, predefinedText.length) === predefinedText //user is actually adding text, not just editing predefined text
 		) {
 			this.setState({ text: textArea.value });
 			return;
@@ -80,7 +84,7 @@ export class WriteMyBio extends React.PureComponent<void, WriteMyBioState> {
 	render() {
 		return (
 			<div className={container}>
-				<div className={paper}>
+				<div className={paper} onClick={this.handlePaperClick}>
 					<textarea
 						className={textArea}
 						value={this.state.text}
@@ -109,6 +113,7 @@ const container = css({
 const paper = css({
 	label: 'paper',
 	position: 'relative',
+	cursor: 'text',
 	width: '100%',
 	maxWidth: '34em',
 	[breakpoints.tabletLandscapeUp]: {
