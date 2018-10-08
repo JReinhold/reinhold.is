@@ -1,10 +1,11 @@
 import React, { MouseEventHandler } from 'react';
 import { css } from 'emotion';
-import { globalFontFamily, breakpoints } from '../styles';
+import { globalFontFamily, breakpoints, colors } from '../styles';
 
 interface WriteMyBioState {
 	text: string;
 	lastTextLength: number;
+	sendButtonText: 'Send' | 'Sending...' | 'Sent, Thanks!';
 }
 
 const predefinedText = `Dear Jeppe,
@@ -27,6 +28,7 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 	readonly state = {
 		text: predefinedText.substr(0, 38), //... think you are
 		lastTextLength: 38,
+		sendButtonText: 'Send' as 'Send',
 	};
 
 	textAreaRef = React.createRef<HTMLTextAreaElement>(); //to get the height of the textarea at mount time
@@ -48,23 +50,25 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 
 	handlePaperClick: MouseEventHandler<HTMLDivElement> = e => {
 		this.textAreaRef.current && this.textAreaRef.current.focus();
-	}
+	};
 
 	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
-		const previousLength = textArea.textContent && textArea.textContent.length || 0;
+		const prevLength =
+			(textArea.textContent && textArea.textContent.length) || 0;
 		const nextLength = textArea.value.length;
 
-		if (
-			nextLength > predefinedText.length && // user is writing his name at the end
-			textArea.value.substr(0, predefinedText.length) === predefinedText //user is actually adding text, not just editing predefined text
-		) {
+		const isWritingNameAtEnd = nextLength > predefinedText.length;
+		const isNotEditingPredefinedText =
+			textArea.value.substr(0, predefinedText.length) === predefinedText;
+
+		if (isWritingNameAtEnd && isNotEditingPredefinedText) {
 			this.setState({ text: textArea.value });
 			return;
 		}
 
-		const inputLength = this.fixEmojis(nextLength, previousLength);
+		const inputLength = this.fixEmojis(nextLength, prevLength);
 		this.setState({ text: predefinedText.substr(0, inputLength) });
 		this.fitTextArea(textArea);
 	};
@@ -81,7 +85,17 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 		return nextLength + change;
 	};
 
+	finishMessage = () => {
+		this.setState({ sendButtonText: 'Sending...' });
+		console.log('sending', this.state.text);
+		setTimeout(() => this.setState({ sendButtonText: 'Sent, Thanks!' }), 2000);
+	};
+
 	render() {
+		const { sendButtonText, text } = this.state;
+		const disableArea = sendButtonText !== 'Send';
+		const disableSend = disableArea || text.length < predefinedText.length + 1;
+
 		return (
 			<div className={container}>
 				<div className={paper} onClick={this.handlePaperClick}>
@@ -90,7 +104,15 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 						value={this.state.text}
 						onChange={this.handleInputChange}
 						ref={this.textAreaRef}
+						disabled={disableArea}
 					/>
+					<button
+						onClick={this.finishMessage}
+						className={sendButton}
+						disabled={disableSend}
+					>
+						{sendButtonText}
+					</button>
 				</div>
 			</div>
 		);
@@ -164,5 +186,20 @@ const textArea = css({
 	minHeight: '500px',
 	'&:focus': {
 		outline: 'none',
+	},
+});
+
+const sendButton = css({
+	position: 'absolute',
+	right: 0,
+	bottom: 0,
+	margin: '1em',
+	background: colors.accent,
+	color: 'white',
+	border: 'none',
+	fontFamily: globalFontFamily,
+	fontSize: '1.5em',
+	'&:disabled': {
+		background: 'lightgrey',
 	},
 });

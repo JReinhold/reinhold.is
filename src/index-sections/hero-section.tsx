@@ -36,7 +36,7 @@ export const HeroSection: React.SFC = () => (
 					>
 						Aarhus, Denmark 🇩🇰
 					</a>{' '}
-					where I live.
+					where I live with my wonderful wife.
 				</p>
 			</div>
 			<img className={portrait} src={portraitImg} />
@@ -105,9 +105,9 @@ const container = css({
 		marginTop: '2em',
 		gridTemplateColumns: '60% auto',
 		gridTemplateAreas: `
-		"header			portrait"
+		"header			header"
 		"text			portrait"
-		"socialIcons	........"
+		"socialIcons	portrait"
 		`,
 		fontSize: '1.6em',
 	},

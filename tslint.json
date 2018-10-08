@@ -8,7 +8,8 @@
     "ordered-imports": [false],
     "no-console": [true],
 	"no-var-requires": true,
-	"jsx-boolean-value": false
+	"jsx-boolean-value": false,
+	"jsx-no-lambda": false
   },
   "rulesDirectory": []
 }

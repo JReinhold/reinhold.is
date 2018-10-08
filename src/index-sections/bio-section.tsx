@@ -20,20 +20,24 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 	renderShortBio = () => {
 		return (
 			<div className={twoColumn}>
-				<p>I've always loved tinkering with computers.</p>
+				<p>
+					I've always <em>loved</em> tinkering with computers.
+				</p>
 				<p>
 					During my Computer Science studies in 2016, I co-founded{' '}
 					<a href="https://bambuu.dk" target="_blank">
 						bambuu
-					</a>, a digital agency doing web development and design. For the last
-					two years we've had a blast doing all sorts of weird things, but now
-					we are ready to move on and make our own products.
+					</a>
+					, a digital agency doing web development and design. For the last two
+					years we've had a <em>blast</em> doing all sorts of weird things, but
+					now we are ready to move on and make our <em>own products</em>.
 				</p>
 				<p>
-					I want to build products and services that have a positive impact on
-					the enviroment and the issues we are facing in the coming decades surrounding that.
+					I want to build products and services that have a <em>positive</em>{' '}
+					impact on the enviroment and the issues we are facing in the coming
+					decades surrounding that.
 				</p>
-			</div> 
+			</div>
 		);
 	};
 
@@ -41,14 +45,16 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 		return (
 			<div className={twoColumn}>
 				<p>
-					For as long as I can remember, I've loved working with computers. When
-					I was 11 years old I wanted to learn programming, so I grabbed my
-					sister's university-level C++ book and started coding. As I reached
-					the concept of <em>classes</em>, I thought to myself:
+					For as long as I can remember, I've <em>loved</em> working with
+					computers. When I was 11 years old I wanted to learn programming, so I
+					grabbed my sister's university-level C++ book and started coding. As I
+					reached the concept of <em>classes</em>, I thought to myself:
 				</p>
 				<blockquote>
-					Oh no, I have no idea what's going on here, I'm not smart enough for
-					this programming shit.
+					<i>
+						Oh no, I have no idea what's going on here, I'm not smart enough for
+						this programming thing.
+					</i>
 				</blockquote>
 				<p>
 					10 years later, in 2015, when I had gotten bored in the army, and
@@ -60,9 +66,9 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 					I also realised that there was something called{' '}
 					<em>Interaction Design/UX/Product Design</em>, and that I'd always had
 					a passion for it, I just didn't knew it was a thing. I always thought
-					the voice in my head that was annoyed by the world, when in fact all
-					it did was keep pointing out all the mistakes designers had made in
-					the environment around me.
+					the voice in my head was generally annoyed by the world, when in fact
+					all it did was keep pointing out all the mistakes designers had made
+					in the environment around me.
 				</p>
 				<p>
 					During my third year at university, I co-founded{' '}
@@ -79,21 +85,24 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 						target="_blank"
 					>
 						Silas
-					</a>, a digital agency doing web development and design for larger
-					corporations that were stuck in their old ways. We had fun and we
-					learned alot, but now we are looking forward to new adventures.
+					</a>
+					, a digital agency doing web development and design for larger
+					corporations that were stuck in their old ways. We had <em>fun</em>{' '}
+					and we learned <em>alot</em>, but now we are looking forward to new
+					adventures.
 				</p>
 				<p>
 					I've become very aware of my actions and the consequences they have on
-					my surroundings. I love the beauty of nature, and I want to spend all
+					my surroundings. I love the beauty of nature, and I want to spend{' '}
+					<em>all</em>
 					my energy and skill on making sure we preserve that beauty for future
 					generations.
 				</p>
 				<p>
-					It isn't about the earth, it will endure no matter what we do to it.
-					It's about my future children, grandchildren, and great-grandchildren.
-					It's about making sure that <em>they</em> get to experience the same
-					beautiful nature that I do.
+					It isn't about the earth, it <em>will</em> endure no matter what we do
+					to it. It's about my future children, grandchildren, and
+					great-grandchildren. It's about making sure that <em>they</em> get to
+					experience the same beautiful nature that I do.
 				</p>
 			</div>
 		);
@@ -126,7 +135,7 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 						to get you started, just don’t get caried away with flattery. ❤️
 					</p>
 				</div>
-				<WriteMyBio/>
+				<WriteMyBio />
 			</section>
 		);
 	}
@@ -149,8 +158,8 @@ const divider = css({
 
 const twoColumn = css({
 	columnCount: 2,
-	columnWidth: '25em',
+	columnWidth: '23em',
 	'& > p': {
 		marginTop: 0,
-	}
+	},
 });
