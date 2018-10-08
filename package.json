@@ -15,23 +15,24 @@
 		"format": "prettier --write \"src/**/*.ts\""
 	},
 	"dependencies": {
-		"emotion": "^9.2.6",
-		"emotion-server": "^9.2.6",
-		"gatsby": "^2.0.0-beta.56",
-		"gatsby-plugin-emotion": "^2.0.0-beta.3",
-		"gatsby-plugin-typescript": "^2.0.0-beta.7",
-		"gatsby-source-medium": "^1.0.14",
-		"react": "^16.4.0",
-		"react-dom": "^16.4.0",
-		"react-emotion": "^9.2.6"
+		"emotion": "^9.2.12",
+		"emotion-server": "^9.2.12",
+		"gatsby": "^2.0.19",
+		"gatsby-plugin-emotion": "^2.0.5",
+		"gatsby-plugin-typescript": "^2.0.0",
+		"gatsby-source-medium": "^2.0.0",
+		"react": "^16.5.2",
+		"react-dom": "^16.5.2",
+		"react-emotion": "^9.2.12"
 	},
 	"devDependencies": {
-		"@types/node": "^10.3.1",
-		"@types/react": "16.4.7",
-		"@types/react-dom": "16.0.6",
+		"@types/node": "^10.11.4",
+		"@types/react": "16.4.16",
+		"@types/react-dom": "16.0.8",
+		"netlify-lambda": "^0.4.0",
 		"tslint": "^5.11.0",
 		"tslint-config-prettier": "^1.15.0",
 		"tslint-react": "^3.6.0",
-		"typescript": "^2.9.1"
+		"typescript": "^3.1.1"
 	}
 }
