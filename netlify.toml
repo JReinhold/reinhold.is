@@ -1,2 +1,6 @@
 [build]
 	functions = "built-functions/"
+
+[[redirects]]
+	from = "/live-coding-in-slides/*"
+	to = "https://mdx-deck-live-code.netlify.com/:splat"
