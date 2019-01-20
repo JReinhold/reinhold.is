@@ -3,6 +3,7 @@
 
 .cache
 public
+built-functions
 
 ### macOS ###
 *.DS_Store
