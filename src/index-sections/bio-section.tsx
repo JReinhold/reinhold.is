@@ -9,8 +9,14 @@ interface BioSectionState {
 
 export class BioSection extends React.PureComponent<{}, BioSectionState> {
 	readonly state = {
-		longVersion: window.innerWidth > 900, //default to long version on tabletLandscape and up
+		longVersion: true,
 	};
+
+	componentDidMount() {
+		//default to long bio on tabletLandscape and up
+		// have to do it in componentDidMount because window is undefined at build time
+		this.setState({longVersion: window.innerWidth > 900})
+	}
 
 	handleBioLength: EventHandler<React.MouseEvent> = e => {
 		e.preventDefault();
