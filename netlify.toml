@@ -4,3 +4,7 @@
 [[redirects]]
 	from = "/live-coding-in-slides/*"
 	to = "https://mdx-deck-live-code.netlify.com/:splat"
+
+[[redirects]]
+	from = "/introducing-react-native/*"
+	to = "https://introducing-react-native.netlify.com/:splat"
