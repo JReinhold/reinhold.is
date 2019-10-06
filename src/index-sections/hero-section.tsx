@@ -16,9 +16,12 @@ import { SocialIconLink } from '../components/social-icon-link';
 export const HeroSection: React.SFC = () => (
 	<section className={section}>
 		<div className={container}>
-			<h1 className={header}>Hi, Reinhold is me!</h1>
+			<h1 className={header}>Hi, Jeppe Reinhold.is me!</h1>
 			<div className={introText}>
-				<p>I’m a developer, 👨‍💻 product designer 🎨 and entrepreneur. 🚀</p>
+				<p>
+					I’m a developer, 👨‍💻 entrepreneur 🚀 and the occasional product
+					designer 🎨.
+				</p>
 				<p>
 					I’m hooked on{' '}
 					<a
@@ -36,13 +39,12 @@ export const HeroSection: React.SFC = () => (
 					>
 						Aarhus, Denmark 🇩🇰
 					</a>{' '}
-					where I live with my wonderful wife.
+					where I live with my wonderful wife. 🤰🏽
 				</p>
+				<p>I'm also a huge fan of React, Node.js, and everything JavaScript.</p>
 			</div>
 			<img className={portrait} src={portraitImg} />
-			<div className={socialIconContainer}>
-				{renderSocialIcons()}
-			</div>
+			<div className={socialIconContainer}>{renderSocialIcons()}</div>
 		</div>
 	</section>
 );
@@ -87,9 +89,15 @@ const renderSocialIcons = () => {
 		},
 	];
 
-	return links.map(({url, label, icon, disabled}) => (
-		<SocialIconLink key={label} url={url} label={label} IconComponent={icon} disabled={disabled}/>
-	))
+	return links.map(({ url, label, icon, disabled }) => (
+		<SocialIconLink
+			key={label}
+			url={url}
+			label={label}
+			IconComponent={icon}
+			disabled={disabled}
+		/>
+	));
 };
 
 const container = css({
@@ -121,4 +129,7 @@ const socialIconContainer = css({
 	justifyContent: 'center',
 });
 
-const portrait = css({ margin: 'auto', gridArea: 'portrait' });
+const portrait = css({
+	margin: 'auto',
+	gridArea: 'portrait',
+});

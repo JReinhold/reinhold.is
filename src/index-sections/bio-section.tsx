@@ -13,9 +13,9 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 	};
 
 	componentDidMount() {
-		//default to long bio on tabletLandscape and up
+		// default to long bio on tabletLandscape and up
 		// have to do it in componentDidMount because window is undefined at build time
-		this.setState({longVersion: window.innerWidth > 900})
+		this.setState({ longVersion: window.innerWidth > 900 });
 	}
 
 	handleBioLength: EventHandler<React.MouseEvent> = e => {
@@ -34,14 +34,35 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 					<a href="https://bambuu.dk" target="_blank">
 						bambuu
 					</a>
-					, a digital agency doing web development and design. For the last two
-					years we've had a <em>blast</em> doing all sorts of weird things, but
-					now we are ready to move on and make our <em>own products</em>.
+					, a digital agency doing web development and design. I was the project
+					manager and <em>main frontend developer</em>, but had my fair share of
+					ventures into <em>Node.js and Java backends</em>.
+				</p>
+				<p>
+					In 2018 I co-founded{' '}
+					<a href="https://reccoon.dk" target="_blank">
+						Reccoon
+					</a>
+					, a SaaS with the missions of making waste management more
+					environmental friendly. I was in charge of building a kick ass
+					administration dashboard in <em>React</em>, along with a
+					cross-platform companion app with <em>React Native</em>. Unfortunately
+					it didn't work out in the end, mainly do to businessy stuff.
+				</p>
+				<p>
+					I've also co-founded{' '}
+					<a href="https://unihelpr.dk" target="_blank">
+						UniHelpr
+					</a>
+					, a SaaS that matches university students into groups, in an effort to
+					give them a better start on their journey. I'm building all the
+					integrations and infrastructure that is surrounding the matching
+					algorithm, using <em>Node.js</em>. It's quite successful actually.
 				</p>
 				<p>
 					I want to build products and services that have a <em>positive</em>{' '}
-					impact on the enviroment and the issues we are facing in the coming
-					decades surrounding that.
+					impact on the environmental and societal issues we are facing during
+					the coming decades.
 				</p>
 			</div>
 		);
@@ -93,16 +114,50 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 						Silas
 					</a>
 					, a digital agency doing web development and design for larger
-					corporations that were stuck in their old ways. We had <em>fun</em>{' '}
-					and we learned <em>alot</em>, but now we are looking forward to new
-					adventures.
+					corporations that were stuck in their old ways. I was the project
+					manager and <em>main frontend developer</em>, but had my fair share of
+					ventures into <em>Node.js and Java backends</em>. We had <em>fun</em>{' '}
+					and we learned <em>a lot</em>, but in the end the consulting business
+					wasn't that exciting.
+				</p>
+				<p>
+					Instead, we moved on an founded{' '}
+					<a href="https://reccoon.dk" target="_blank">
+						Reccoon
+					</a>
+					, a SaaS with the missions of making waste management more
+					environmental friendly. It was a great adventure building our own
+					product from scratch. I was in charge of building a kick ass
+					administration dashboard in <em>React</em>, along with a
+					cross-platform companion app with <em>React Native</em>. We also did
+					some consulting on the side, where I built backends in{' '}
+					<em>Node.js</em>, while my colleague built the frontend. Unfortunately
+					Reccoon didn't work out in the end, mainly do to businessy stuff, and
+					us being a little to eager to build cool stuff, instead of actually
+					looking at the market's needs.
+				</p>
+				<p>
+					I've also co-founded{' '}
+					<a href="https://unihelpr.dk" target="_blank">
+						UniHelpr
+					</a>
+					, a SaaS that matches university students into groups, in an effort to
+					give them a better start on their journey. I'm building all the
+					integrations (with services such as Google Sheets and TypeForm), and
+					infrastructure (it's a Node.js CLI) that is surrounding the matching
+					algorithm. It's quite successful actually, and both the universities
+					and the students love it.
+				</p>
+				<p>
+					I want to build products and services that have a <em>positive</em>{' '}
+					impact on the environmental and societal issues we are facing during
+					the coming decades.
 				</p>
 				<p>
 					I've become very aware of my actions and the consequences they have on
-					my surroundings. I love the beauty of nature, and I want to spend{' '}
-					<em>all</em>
-					my energy and skill on making sure we preserve that beauty for future
-					generations.
+					my surroundings. I love the beauty of nature, and I want to spend as
+					much of my energy as possible on making sure we preserve that beauty
+					for future generations.
 				</p>
 				<p>
 					It isn't about the earth, it <em>will</em> endure no matter what we do
@@ -155,9 +210,7 @@ const bioLengthLink = css({
 
 const divider = css({
 	height: '2px',
-	background: `linear-gradient(to right, ${colors.accent}00, ${
-		colors.accent
-	}, ${colors.accent}00)`, //00 means zero alpha
+	background: `linear-gradient(to right, ${colors.accent}00, ${colors.accent}, ${colors.accent}00)`, //00 means zero alpha
 	border: 'none',
 	margin: '2em',
 });

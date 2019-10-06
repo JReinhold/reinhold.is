@@ -18,9 +18,7 @@ export const colors = {
 	lightText: '#eeeeee',
 	darkText: '#333333', //very dark grey
 };
-colors.primaryGradient = `linear-gradient(to top right, ${
-	colors.primaryFirst
-}, ${colors.primarySecond})`;
+colors.primaryGradient = `linear-gradient(to top right, ${colors.primaryFirst}, ${colors.primarySecond})`;
 
 export const globalFontFamily = `
 	'Courier',
@@ -42,7 +40,6 @@ export const injectGlobalStyles = () => {
 			margin: 0,
 			overflowX: 'hidden', //hide sections sticking out to the right
 			overflowY: 'scroll', //make sure we can still scroll vertically
-			paddingBottom: '40px', //fix weird overscroll at bottom of page
 		},
 		'h1, h2, h3, h4, h5, h6': {
 			margin: 0,
@@ -133,7 +130,7 @@ export const section = css({
 export const SectionHeader = styled('h1')({
 	label: 'sectionSubHeader',
 	fontSize: '2.2em',
-	margin: '0 0 0.5em 0'
+	margin: '0 0 0.5em 0',
 });
 
 export const SectionSubHeader = styled('h2')({

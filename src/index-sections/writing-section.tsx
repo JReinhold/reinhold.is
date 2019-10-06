@@ -6,33 +6,20 @@ import {
 	colors,
 	breakpoints,
 } from '../styles';
-import { graphql, StaticQuery } from 'gatsby';
 import { css } from 'emotion';
 
-interface MediumPostsData {
-	allMediumPost: {
-		edges: [
-			{
-				node: {
-					id: string;
-					title: string;
-					createdAt: string;
-					uniqueSlug: string;
-					author: {
-						username: string;
-					};
-					virtuals: {
-						readingTime: number;
-						totalClapCount: number;
-						subtitle: string;
-					};
-				};
-			}
-		];
-	};
-}
+const posts = [
+	{
+		title: 'A story of Apple’s excruciating & outdated legal practices',
+		subtitle: 'From a developer’s point of view',
+		readingTime: 7,
+		url:
+			'https://medium.com/@jreinhold/a-story-of-apples-excruciating-outdated-legal-practices-e5c144f0aeeb',
+		year: 2017,
+	},
+];
 
-const WritingSection: React.SFC = () => {
+export const WritingSection: React.SFC = () => {
 	return (
 		<section className={section}>
 			<SectionHeader>✍️ Writing</SectionHeader>
@@ -41,68 +28,25 @@ const WritingSection: React.SFC = () => {
 				great! It motivates me to write more in the future.
 			</SectionSubHeader>
 			<div className={articleContainer}>
-				<StaticQuery
-					query={graphql`
-						query MediumPosts {
-							allMediumPost(sort: { fields: [createdAt], order: DESC }) {
-								edges {
-									node {
-										id
-										title
-										createdAt
-										uniqueSlug
-										author {
-											username
-										}
-										virtuals {
-											readingTime
-											subtitle
-											totalClapCount
-										}
-									}
-								}
-							}
-						}
-					`}
-				>
-					{(data: MediumPostsData) => {
-						const posts = data.allMediumPost.edges;
-						return posts.map(({ node }) => {
-							console.log(node);
-							const {
-								id,
-								title,
-								createdAt,
-								virtuals,
-								author,
-								uniqueSlug,
-							} = node;
-							const year = createdAt.substr(0, 4);
-							const url = `https://medium.com/@${
-								author.username
-							}/${uniqueSlug}`;
+				{posts.map(post => {
+					const { title, subtitle, year, url, readingTime } = post;
 
-							return (
-								<div key={id}>
-									<a target="_blank" href={url}>
-										{title}
-									</a>
-									<p className={subtitle}>{virtuals.subtitle}</p>
-									<span className={yearStyle}>
-										🗓 {year} - 🕘 {virtuals.readingTime.toFixed(0)} min - 👏{' '}
-										{virtuals.totalClapCount}
-									</span>
-								</div>
-							);
-						});
-					}}
-				</StaticQuery>
+					return (
+						<div key={url}>
+							<a target="_blank" href={url}>
+								{title}
+							</a>
+							<p className={subtitleStyle}>{subtitle}</p>
+							<span className={yearStyle}>
+								🗓 {year} - 🕘 {readingTime} min
+							</span>
+						</div>
+					);
+				})}
 			</div>
 		</section>
 	);
 };
-
-export default WritingSection; //has to be default export due to https://github.com/gatsbyjs/gatsby/issues/6337
 
 const articleContainer = css({
 	display: 'grid',
@@ -112,7 +56,7 @@ const articleContainer = css({
 	},
 });
 
-const subtitle = css({
+const subtitleStyle = css({
 	margin: '0 0 0.5em 0',
 });
 
