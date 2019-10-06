@@ -18,10 +18,7 @@ export const HeroSection: React.SFC = () => (
 		<div className={container}>
 			<h1 className={header}>Hi, Jeppe Reinhold.is me!</h1>
 			<div className={introText}>
-				<p>
-					I’m a developer, 👨‍💻 entrepreneur 🚀 and the occasional product
-					designer 🎨.
-				</p>
+				<p>I’m a software developer 👨‍💻 and entrepreneur 🚀.</p>
 				<p>
 					I’m hooked on{' '}
 					<a
