@@ -55,7 +55,7 @@ const renderSocialIcons = () => {
 		},
 
 		{
-			url: 'mailto:jeppereinhold@gmail.com',
+			url: 'mailto:jeppe@reinhold.is',
 			label: 'send e-mail',
 			icon: GoogleInboxIcon,
 		},
@@ -68,22 +68,7 @@ const renderSocialIcons = () => {
 			url: 'https://linkedin.com/in/jeppereinhold',
 			label: 'visit linkedin profile',
 			icon: LinkedInIcon,
-		},
-		{
-			url: 'https://medium.com/@jreinhold/latest',
-			label: 'see medium publications',
-			icon: MediumIcon,
-		},
-		{
-			disabled: true,
-			label: 'no instagram profile',
-			icon: InstagramIcon,
-		},
-		{
-			disabled: true,
-			label: 'no snapchat profile',
-			icon: SnapchatIcon,
-		},
+		}
 	];
 
 	return links.map(({ url, label, icon, disabled }) => (
