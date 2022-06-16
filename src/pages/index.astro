@@ -1,7 +1,8 @@
 ---
 import BaseHead from '../components/base-head.astro';
-import AboutMe from '../components/index-sections/about-me/index.svelte';
+import Hero from '../components/index-sections/hero.astro';
 import SocialLinks from '../components/index-sections/social-links.astro';
+import AboutMe from '../components/index-sections/about-me/index.svelte';
 
 let title = 'Jeppe Reinhold';
 let description = "reinhold.is Jeppe's Personal Website";
@@ -12,62 +13,12 @@ let permalink = 'https://reinhold.is/';
 <html lang="en">
 
 <head>
-  <BaseHead {title} {description} {permalink} />
-
-  <style>
-    .portrait {
-      border-radius: var(--radius-blob-2);
-      width: var(--size-14);
-      transform: translate(calc(-1 * var(--size-10)), var(--size-5));
-      position: absolute;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: row;
-      position: relative;
-    }
-
-    .social-links {
-      display: flex;
-      flex-direction: row;
-      gap: var(--size-4)
-    }
-
-    .social-link {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-  </style>
+  <BaseHead title={title} description={description}
+    permalink={permalink} />
 </head>
 
-<body class="body">
-  <div class="hero">
-    <section>
-      <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
-      <p>I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾
-        and entrepreneur 🚀.</p>
-      <p>
-        I enjoy nature, building great user experiences
-        and tractoring.
-        My favorite part of the world is the forrest just
-        outside my door near
-        <a href="https://goo.gl/maps/ae3A6dXX89v"
-          target="_blank"
-          aria-label="see aarhus google maps">
-          Aarhus, Denmark 🇩🇰
-        </a>
-        where I live with my wonderful family 👨‍👩‍👧‍👦.
-      </p>
-      <p>I'm also passionate about TypeScript, Svelte,
-        React, Node.js,
-        and everything JavaScript.</p>
-    </section>
-    <div>
-      <img src="portrait.jpg" class="portrait" />
-    </div>
-  </div>
+<body>
+  <Hero />
   <SocialLinks />
   <AboutMe client:idle />
 </body>

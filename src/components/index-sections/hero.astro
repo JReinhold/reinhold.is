@@ -1,0 +1,43 @@
+<div class="container">
+    <section>
+        <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
+        <p>I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾
+            and entrepreneur 🚀.</p>
+        <p>
+            I enjoy nature, building great user experiences
+            and tractoring.
+            My favorite part of the world is the forrest
+            just
+            outside my door near
+            <a href="https://goo.gl/maps/ae3A6dXX89v"
+                target="_blank"
+                aria-label="see aarhus google maps">
+                Aarhus, Denmark 🇩🇰
+            </a>
+            where I live with my wonderful family
+            👨‍👩‍👧‍👦.
+        </p>
+        <p>I'm also passionate about TypeScript, Svelte,
+            React, Astro, Node.js,
+            and the JavaScript ecosystem.</p>
+    </section>
+    <div>
+        <img src="portrait.jpg" class="portrait" />
+    </div>
+</div>
+
+<style>
+    .portrait {
+        border-radius: var(--radius-blob-2);
+        height: var(--size-14);
+        transform: translate(calc(-1 * var(--size-10)), var(--size-10));
+        position: absolute;
+        z-index: 2;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+    }
+</style>
