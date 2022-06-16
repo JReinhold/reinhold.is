@@ -48,11 +48,11 @@ export class WriteMyBio extends React.PureComponent<{}, WriteMyBioState> {
 		textAreaElement.style.height = textAreaElement.scrollHeight + 'px';
 	};
 
-	handlePaperClick: MouseEventHandler<HTMLDivElement> = e => {
+	handlePaperClick: MouseEventHandler<HTMLDivElement> = (e) => {
 		this.textAreaRef.current && this.textAreaRef.current.focus();
 	};
 
-	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = e => {
+	handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
 		e.preventDefault();
 		const textArea = e.currentTarget;
 		const prevLength =
@@ -180,8 +180,9 @@ const textArea = css({
 	resize: 'none',
 	overflow: 'hidden',
 	margin: `0 0 -4px ${LEFT_PAD_WIDTH}%`,
-	padding: `${HEADER_HEIGHT +
-		8}px ${TEXT_SIDE_PADDING}% 0 ${TEXT_SIDE_PADDING}%`,
+	padding: `${
+		HEADER_HEIGHT + 8
+	}px ${TEXT_SIDE_PADDING}% 0 ${TEXT_SIDE_PADDING}%`,
 	width: `calc(100% - ${LEFT_PAD_WIDTH}% - ${TEXT_SIDE_PADDING}% - ${TEXT_SIDE_PADDING}%)`,
 	minHeight: '500px',
 	'&:focus': {

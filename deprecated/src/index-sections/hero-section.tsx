@@ -68,7 +68,7 @@ const renderSocialIcons = () => {
 			url: 'https://linkedin.com/in/jeppereinhold',
 			label: 'visit linkedin profile',
 			icon: LinkedInIcon,
-		}
+		},
 	];
 
 	return links.map(({ url, label, icon, disabled }) => (

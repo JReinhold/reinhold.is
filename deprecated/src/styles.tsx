@@ -76,8 +76,9 @@ const randomDiagonalDividers = () => {
 			...styles,
 			[`& > section:nth-of-type(${nth})`]: {
 				background: `
-				linear-gradient(${lightBg}, ${lightBg}) 0px ${topHeight -
-					1}px/100% calc(100% - ${topHeight + bottomHeight - 2}px) no-repeat,
+				linear-gradient(${lightBg}, ${lightBg}) 0px ${
+					topHeight - 1
+				}px/100% calc(100% - ${topHeight + bottomHeight - 2}px) no-repeat,
 				linear-gradient(to top ${topDirection}, ${lightBg} 49%, transparent 51%) 0 0/100% ${topHeight}px no-repeat,
 				linear-gradient(to bottom ${bottomDirection}, ${lightBg} 49%, transparent 51%) 100% 100%/100% ${bottomHeight}px no-repeat
 				`,

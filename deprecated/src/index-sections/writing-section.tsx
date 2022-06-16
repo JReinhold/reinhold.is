@@ -13,8 +13,7 @@ const posts = [
 		title: 'A story of Apple’s excruciating & outdated legal practices',
 		subtitle: 'From a developer’s point of view',
 		readingTime: 7,
-		url:
-			'https://medium.com/@jreinhold/a-story-of-apples-excruciating-outdated-legal-practices-e5c144f0aeeb',
+		url: 'https://medium.com/@jreinhold/a-story-of-apples-excruciating-outdated-legal-practices-e5c144f0aeeb',
 		year: 2017,
 	},
 ];
@@ -28,7 +27,7 @@ export const WritingSection: React.SFC = () => {
 				great! It motivates me to write more in the future.
 			</SectionSubHeader>
 			<div className={articleContainer}>
-				{posts.map(post => {
+				{posts.map((post) => {
 					const { title, subtitle, year, url, readingTime } = post;
 
 					return (

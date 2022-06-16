@@ -18,7 +18,7 @@ export class BioSection extends React.PureComponent<{}, BioSectionState> {
 		this.setState({ longVersion: window.innerWidth > 900 });
 	}
 
-	handleBioLength: EventHandler<React.MouseEvent> = e => {
+	handleBioLength: EventHandler<React.MouseEvent> = (e) => {
 		e.preventDefault();
 		this.setState({ longVersion: !this.state.longVersion });
 	};
