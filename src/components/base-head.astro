@@ -41,23 +41,18 @@ const { title, description, permalink } = Astro.props;
 	@import "open-props/gradients";
 
 	:root {
-		--link: var(--teal-9);
-		--link-visited: var(--teal-9);
+		--link: var(--pink-9);
+		--link-visited: var(--pink-9);
 		--text-1: var(--gray-9);
 		--text-2: var(--gray-8);
-		--theme-accent: var(--teal-9);
-		--theme-accent-rgb: var(--color-teal-rgb);
+		--theme-accent: var(--pink-9);
+		--theme-accent-rgb: var(--color-pink-rgb);
 		--theme-text: var(--gray-9);
 		--theme-text-light: var(--gray-7);
 		--theme-text-lighter: var(--gray-4);
 	}
 
 	body {
-		background-image: url("sunrise.jpg");
-		background-size: 100%;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -65,7 +60,7 @@ const { title, description, permalink } = Astro.props;
 	}
 
 	section {
-		background: hsl(var(--gray-0-hsl) / 50%);
+		background: hsl(var(--gray-0-hsl) / 60%);
 		backdrop-filter: blur(20px);
 		margin: var(--size-fluid-2);
 		border-radius: var(--radius-4);
