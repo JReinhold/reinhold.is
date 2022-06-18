@@ -9,7 +9,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "pnpm build && astro preview",
     "format": "prettier --write ."
   },
   "devDependencies": {

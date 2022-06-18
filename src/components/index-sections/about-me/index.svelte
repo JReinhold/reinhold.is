@@ -1,20 +1,19 @@
 <script>
+  import SectionHeading from '../../section-heading.svelte';
   import Long from './long.svelte';
   import Short from './short.svelte';
   let isShortText = true;
-  $: toggleText = isShortText ? 'short' : 'longer';
+  $: toggleText = isShortText ? 'quick' : 'longer';
   $: Content = isShortText ? Short : Long;
   const toggle = () => {
     isShortText = !isShortText;
   };
 </script>
 
-<section>
-  <h2>
-    🙋‍♂️ A
-    <button on:click="{toggle}">{toggleText}</button>
-    bit about me
-  </h2>
+<section id="doing-a-quick-intro">
+  <SectionHeading>
+    🙋‍♂️/doing-a-<button on:click="{toggle}">{toggleText}</button>-intro
+  </SectionHeading>
   <svelte:component this="{Content}" />
 </section>
 

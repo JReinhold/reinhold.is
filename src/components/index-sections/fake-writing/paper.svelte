@@ -1,5 +1,5 @@
 <script lang="ts">
-  const predefinedText = `Dear Jeppe,
+  const predefinedText: string = `Dear Jeppe,
 
 I actually think you are a pretty nice guy. I'm regularly amazed by your amount of creativity and the stuff you can come up with.
 You have a knack for trying weird stuff out, and see how it goes. It doesn't always end in a good way, but you manage to keep trying anyway, and that's what I admire the most about you!
