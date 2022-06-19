@@ -1,10 +1,12 @@
 ---
 import BaseHead from '../components/base-head.astro';
+import LazyBackgroundImage from '../components/lazy-background-image.astro';
+
 import Hero from '../components/index-sections/hero.astro';
 import SocialLinks from '../components/index-sections/social-links.astro';
 import AboutMe from '../components/index-sections/about-me/index.svelte';
 import FakeWriting from '../components/index-sections/fake-writing/section.astro';
-import LazyBackgroundImage from '../components/lazy-background-image.astro';
+import Ratings from '../components/index-sections/ratings/index.astro';
 
 let title = 'Jeppe Reinhold';
 let description = "reinhold.is Jeppe's Personal Website";
@@ -25,6 +27,7 @@ let permalink = 'https://reinhold.is/';
   <SocialLinks />
   <AboutMe client:idle />
   <FakeWriting client:visible />
+  <Ratings />
 </body>
 
 </html>
