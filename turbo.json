@@ -3,16 +3,22 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**/*"]
     },
     "preview": {
       "dependsOn": ["build"]
     },
     "check:format": {},
-    "check:ts": {},
-    "check:astro": {},
-    "check:svelte": {},
-    "check": {
+    "check:ts": {
+      "inputs": ["src/**/*", "tsconfig.json"]
+    },
+    "check:astro": {
+      "inputs": ["src/**/*", "public/**/*", "astro.config.mjs", "tsconfig.json"]
+    },
+    "check:svelte": {
+      "inputs": ["src/**", "svelte.config.mjs", "tsconfig.json"]
+    },
+    "check-all": {
       "dependsOn": ["check:format", "check:ts", "check:astro", "check:svelte"]
     }
   }
