@@ -64,12 +64,16 @@
   and the students love it.
 </p>
 <p>
-  I've also co-founded <a href="https://unihelper.dk" target="_blank">
-    UniHelper
-  </a>, a SaaS that matches university students into groups in an effort to give
-  them a better start on their journey. My main focus is developing the product
-  which is a Next.js site, a backoffice CLI along with integrating with other
-  services such as TypeForm (All the work I do at UniHelper is in my spare time
-  though). I think we're quite successful actually, and both the universities
-  and the students love it.
+  I've also done some consulting for LEGO which was really fun. On the frontend
+  I helped build the first prototypes of their internal design system, and I was
+  building a full GraphQL backend with AWS Lambdas and everything that requires.
+  I'm not sure it was the right tool for the right job but it was a learning
+  experience for sure.
+</p>
+<p>
+  Today I'm a Frontend Tech Lead at <a
+    href="https://paperpal.com"
+    target="_blank">Paperpal</a
+  > where I try to steer the frontend decisions. I really enjoy the challenge of
+  building complex systems and managing all the stakeholders.
 </p>
