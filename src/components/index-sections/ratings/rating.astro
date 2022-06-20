@@ -1,70 +1,58 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from "astro-icon";
 
 export interface Props {
-    text: string;
-    amount: number;
-    max?: number;
-    iconFilled?: string;
-    iconHalf?: string;
-    iconEmpty?: string;
-    misalign?: boolean
+  text: string;
+  amount: number;
+  max?: number;
+  iconFilled?: string;
+  iconHalf?: string;
+  iconEmpty?: string;
+  misalign?: boolean;
 }
 
 const {
-    text,
-    amount,
-    max = 5,
-    iconFilled = "ic:round-star",
-    iconHalf = "ic:round-star-half",
-    iconEmpty = "ic:round-star-outline",
-    misalign = false
-} = Astro.props
+  text,
+  amount,
+  max = 5,
+  iconFilled = "ic:round-star",
+  iconHalf = "ic:round-star-half",
+  iconEmpty = "ic:round-star-outline",
+  misalign = false,
+} = Astro.props;
 
 const filledStars = Math.floor(amount);
-const halfStars = amount / 0.5 % 2;
+const halfStars = (amount / 0.5) % 2;
 const emptyStars = Math.floor(max - amount);
-
 ---
 
 <span class="text">{text}</span>
-<div class={`stars ${misalign ? 'misaligned' :''}`}
-    role="img" aria-label={`${amount} out of ${max} stars`}>
-    {Array.from({length: filledStars}, () =>
-    <Icon name={iconFilled} />
-    )}
-    {Array.from({length: halfStars}, () =>
-    <Icon name={iconHalf} />
-    )}
-    {Array.from({length: emptyStars}, () =>
-    <Icon name={iconEmpty} />
-    )}
+<div
+  class={`stars ${misalign ? "misaligned" : ""}`}
+  role="img"
+  aria-label={`${amount} out of ${max} stars`}
+>
+  {Array.from({ length: filledStars }, () => <Icon name={iconFilled} />)}
+  {Array.from({ length: halfStars }, () => <Icon name={iconHalf} />)}
+  {Array.from({ length: emptyStars }, () => <Icon name={iconEmpty} />)}
 </div>
 
 <style>
-    .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size: var(--font-size-3)
-    }
+  .text {
+    justify-self: end;
+    text-align: end;
+  }
 
-    .text {
-        font-size: var(--font-size-3);
-        justify-self: end;
-        /* width: var(--size-13) */
-    }
+  .stars {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .stars {
-        display: flex;
-        flex-direction: row;
-    }
+  .misaligned {
+    margin-left: -1rem;
+  }
 
-    .misaligned {
-        margin-left: -2rem;
-    }
-
-    [astro-icon] {
-        width: var(--size-8)
-    }
+  [astro-icon] {
+    width: var(--size-6);
+  }
 </style>

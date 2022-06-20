@@ -1,0 +1,45 @@
+---
+import SectionHeading from "../../section-heading.svelte";
+import Rating from "./rating.astro";
+
+const id = "rating-himself";
+---
+
+<section {id}>
+  <SectionHeading>🌟/{id}</SectionHeading>
+  <p>
+    As any succesful hiring manager will tell you, it's
+    <a
+      target="_blank"
+      href="https://uxdesign.cc/things-i-honestly-dont-want-to-see-in-your-portfolio-3d3497666ca8"
+      >very important
+    </a> to put fixed, absolute ratings on your skills so everyone can see what you
+    excel at. We all know that the best and most trustworthy person to assess your
+    skillset is yourself.
+  </p>
+  <div class="ratings">
+    <Rating text="Sarcasm" amount={5} />
+    <Rating text="Speling" amount={3.5} />
+    <Rating
+      text="Consistency"
+      amount={2.5}
+      iconFilled="ion:star"
+      iconHalf="ion:star-half"
+      iconEmpty="ion:star-outline"
+    />
+    <Rating text="Counting" amount={3} max={4} />
+    <Rating text="Going to bed early" amount={2} />
+    <Rating text="CSS Layout" amount={4} misalign />
+    <Rating text="Finishing side projects" amount={0} />
+    <Rating text="Promoting myself" amount={0.5} />
+  </div>
+</section>
+
+<style>
+  .ratings {
+    display: grid;
+    gap: var(--size-2);
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+</style>

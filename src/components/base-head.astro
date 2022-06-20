@@ -1,8 +1,10 @@
 ---
+import "../styles/theme.css";
+
 export interface Props {
-	title: string;
-	description: string;
-	permalink: string;
+  title: string;
+  description: string;
+  permalink: string;
 }
 const { title, description, permalink } = Astro.props;
 ---
@@ -25,61 +27,8 @@ const { title, description, permalink } = Astro.props;
 <!-- <meta property="og:image" content="https://astro.build/social.png?v=1" /> -->
 
 <!-- Twitter -->
-<meta property="twitter:card"
-	content="summary_large_image" />
+<meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
-<meta property="twitter:description"
-	content={description} />
+<meta property="twitter:description" content={description} />
 <!-- <meta property="twitter:image" content="https://astro.build/social.png?v=1" /> -->
-
-<style is:global>
-	@import "open-props/style";
-	@import "open-props/normalize";
-	@import "open-props/colors";
-	@import "open-props/colors-hsl";
-	@import "open-props/gradients";
-
-	:root {
-		--link: var(--pink-9);
-		--link-visited: var(--pink-9);
-		--text-1: var(--gray-9);
-		--text-2: var(--gray-8);
-		--theme-accent: var(--pink-9);
-		--theme-accent-rgb: var(--color-pink-rgb);
-		--theme-text: var(--gray-9);
-		--theme-text-light: var(--gray-7);
-		--theme-text-lighter: var(--gray-4);
-	}
-
-	body {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		overflow-x: hidden;
-	}
-
-	section {
-		background: hsl(var(--gray-0-hsl) / 60%);
-		backdrop-filter: blur(20px);
-		margin: var(--size-fluid-2);
-		border-radius: var(--radius-4);
-		padding: var(--size-fluid-2);
-		min-width: 50rem;
-		display: flex;
-		flex-direction: column;
-	}
-
-	p {
-		padding: var(--size-1);
-	}
-
-	a {
-		text-decoration-color: var(--teal-9);
-	}
-
-	.icon {
-		fill: currentColor;
-		width: var(--size-4);
-	}
-</style>

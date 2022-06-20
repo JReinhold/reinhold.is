@@ -1,52 +1,48 @@
 ---
-import SectionHeading from '../section-heading.svelte'
-import { Icon } from 'astro-icon'
+import SectionHeading from "../section-heading.svelte";
+import { Icon } from "astro-icon";
 
-const id = "reachable-at"
+const id = "reachable-at";
 ---
 
-<section id={id}>
-    <SectionHeading>🤝/{id}</SectionHeading>
-    <div>
-        <a href="https://twitter.com/drreinhold"
-            class="social-link">
-            <Icon name="fa-brands:twitter-square" />
-            @DrReinhold
-        </a>
-        <a href="https://github.com/jreinhold"
-            class="social-link">
-            <Icon name="fa-brands:github-square" />
-            JReinhold
-        </a>
-        <a href="https://linkedin.com/in/jeppereinhold"
-            class="social-link">
-            <Icon name="fa-brands:linkedin" />
-            Jeppe Reinhold
-        </a>
-        <a href="mailto:jeppe@reinhold.is"
-            class="social-link">
-            <Icon name="heroicons-solid:mail" />
-            jeppe@reinhold.is
-        </a>
-    </div>
+<section {id}>
+  <SectionHeading>🤝/{id}</SectionHeading>
+  <div>
+    <a href="https://twitter.com/drreinhold" class="social-link">
+      <Icon name="fa-brands:twitter-square" />
+      @DrReinhold
+    </a>
+    <a href="https://github.com/jreinhold" class="social-link">
+      <Icon name="fa-brands:github-square" />
+      JReinhold
+    </a>
+    <a href="https://linkedin.com/in/jeppereinhold" class="social-link">
+      <Icon name="fa-brands:linkedin" />
+      Jeppe Reinhold
+    </a>
+    <a href="mailto:jeppe@reinhold.is" class="social-link">
+      <Icon name="heroicons-solid:mail" />
+      jeppe@reinhold.is
+    </a>
+  </div>
 </section>
 
 <style>
-    div {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: var(--size-4);
-    }
+  div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    align-items: center;
+    gap: var(--size-4);
+  }
 
-    a {
-        display: flex;
-        flex-direction: row;
-        align-content: center;
-        gap: var(--size-1);
-    }
+  a {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    gap: var(--size-1);
+  }
 
-    [astro-icon] {
-        width: var(--size-4)
-    }
+  [astro-icon] {
+    width: var(--size-4);
+  }
 </style>

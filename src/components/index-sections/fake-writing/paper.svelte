@@ -27,15 +27,15 @@ Sincerely yours, `;
     return nextLength < previousLength ? nextLength - 1 : nextLength + 1;
   };
 
-  const onInput = (event) => {
-    const textArea = event.currentTarget;
-    const prevLength = (textArea.textContent && textArea.textContent.length) || 0;
+  const onInput: svelteHTML.FormEventHandler<HTMLTextAreaElement> = (event) => {
+    const textArea = event.currentTarget as HTMLTextAreaElement;
+    const prevLength =
+      (textArea.textContent && textArea.textContent.length) || 0;
     const nextLength = textArea.value.length;
 
     const isWritingNameAtEnd = nextLength > predefinedText.length;
     const isEditingPredefinedText =
       textArea.value.substr(0, predefinedText.length) !== predefinedText;
-    console.log('LOG is:', isEditingPredefinedText);
     if (isWritingNameAtEnd && !isEditingPredefinedText) {
       // pass any characters to the state if after end of text
       text = textArea.value;
@@ -49,8 +49,12 @@ Sincerely yours, `;
 
 <div class="container">
   <div class="paper">
-    <textarea class="text-area" on:input="{onInput}" bind:value="{text}" maxlength="{maxLength}"
-    ></textarea>
+    <textarea
+      class="text-area"
+      on:input={onInput}
+      bind:value={text}
+      maxlength={maxLength}
+    />
   </div>
 </div>
 
@@ -77,7 +81,7 @@ Sincerely yours, `;
   .paper::before {
     position: absolute;
     z-index: -1;
-    content: '';
+    content: "";
     width: 40%;
     height: 10px;
     left: 12px;

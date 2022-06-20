@@ -1,0 +1,19 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build": {
+      "outputs": ["dist/**"]
+    },
+    "preview": {
+      "dependsOn": ["build"]
+    },
+    "check:format": {},
+    "check:ts": {},
+    "check:astro": {},
+    "check:svelte": {},
+    "check": {
+      "dependsOn": ["check:format", "check:ts", "check:astro", "check:svelte"]
+    }
+  }
+}
