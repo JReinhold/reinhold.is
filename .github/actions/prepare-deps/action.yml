@@ -4,7 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Setup PNPM
-      uses: pnpm/action-setup@latest
+      uses: pnpm/action-setup@v2.2.2
       with:
         version: 7
 
