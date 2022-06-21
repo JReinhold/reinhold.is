@@ -36,4 +36,4 @@ jobs:
         with:
           message: |
             # Deploy Preview
-            Deploy preview ready at [${{ steps.deployment.url }}](${{ steps.deployment.url }})
+            Deploy preview ready at [${{ steps.deployment.outputs.url }}](${{ steps.deployment.outputs.url }})
