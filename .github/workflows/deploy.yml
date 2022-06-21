@@ -25,4 +25,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "reinhold-is"
-          entrypoint: "./dist/server/entry.mjs"
+          root: "./dist"
+          entrypoint: "./server/entry.mjs"
