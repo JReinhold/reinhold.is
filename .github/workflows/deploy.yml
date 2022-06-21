@@ -20,7 +20,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Build
-        run: pnpm turbo build
+        run: pnpm turbo run build
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
