@@ -29,11 +29,3 @@ jobs:
           project: "reinhold-is"
           root: "./dist"
           entrypoint: "./server/entry.mjs"
-
-      - name: Comment with Deployment URL
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: |
-            # Deploy Preview
-            Deploy preview ready at [${{ steps.deployment.outputs.url }}](${{ steps.deployment.outputs.url }})
