@@ -20,7 +20,6 @@
   },
   "devDependencies": {
     "@astrojs/deno": "^0.1.5",
-    "@astrojs/netlify": "^0.4.5",
     "@astrojs/svelte": "^0.1.4",
     "@iconify-icons/fa6-brands": "^1.2.3",
     "@tsconfig/svelte": "^3.0.0",
