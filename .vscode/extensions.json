@@ -1,4 +1,10 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "phoenisx.cssvar",
+    "esbenp.prettier-vscode",
+    "svelte.svelte-vscode",
+    "cssho.vscode-svgviewer"
+  ],
   "unwantedRecommendations": []
 }
