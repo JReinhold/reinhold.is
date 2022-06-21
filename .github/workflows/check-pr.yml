@@ -1,0 +1,59 @@
+name: 'Check pull request'
+
+on: pull_request
+
+jobs:
+  check-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Check formatting with Prettier
+        run: pnpm turbo run check:format
+
+  check-types:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Check TypeScript Types
+        run: pnpm turbo run check:ts
+
+  check-astro:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Check Astro
+        run: pnpm turbo run check:astro
+
+  check-svelte:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Check Svelte
+        run: pnpm turbo run check:svelte
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Build
+        run: pnpm turbo run build

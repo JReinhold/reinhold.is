@@ -1,0 +1,19 @@
+name: 'Prepare Dependencies'
+description: 'Prepares all Node and PNPM dependencies'
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup PNPM
+      uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+        cache: 'pnpm'
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
