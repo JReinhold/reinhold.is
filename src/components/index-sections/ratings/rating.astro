@@ -1,5 +1,5 @@
 ---
-import Icon from "../../static-icon.astro";
+import Icon from '../../static-icon.astro';
 
 export interface Props {
   text: string;
@@ -15,9 +15,9 @@ const {
   text,
   amount,
   max = 5,
-  iconFilled = "ic:round-star",
-  iconHalf = "ic:round-star-half",
-  iconEmpty = "ic:round-star-outline",
+  iconFilled = 'ic:round-star',
+  iconHalf = 'ic:round-star-half',
+  iconEmpty = 'ic:round-star-outline',
   misalign = false,
 } = Astro.props;
 
@@ -26,10 +26,10 @@ const halfStars = (amount / 0.5) % 2;
 const emptyStars = Math.floor(max - amount);
 ---
 
-<span class="text">{text}</span>
+<span class='text'>{text}</span>
 <div
-  class={`stars ${misalign ? "misaligned" : ""}`}
-  role="img"
+  class={`stars ${misalign ? 'misaligned' : ''}`}
+  role='img'
   aria-label={`${amount} out of ${max} stars`}
 >
   {Array.from({ length: filledStars }, () => <Icon name={iconFilled} />)}

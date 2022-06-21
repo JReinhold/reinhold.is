@@ -1,9 +1,9 @@
 <script lang="ts">
-  import SectionHeading from "../../section-heading.svelte";
-  import Long from "./long.svelte";
-  import Short from "./short.svelte";
+  import SectionHeading from '../../section-heading.svelte';
+  import Long from './long.svelte';
+  import Short from './short.svelte';
   let isShortText = true;
-  $: toggleText = isShortText ? "quick" : "longer";
+  $: toggleText = isShortText ? 'quick' : 'longer';
   $: Content = isShortText ? Short : Long;
   const toggle = () => {
     isShortText = !isShortText;

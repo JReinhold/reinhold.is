@@ -81,7 +81,7 @@ Sincerely yours, `;
   .paper::before {
     position: absolute;
     z-index: -1;
-    content: "";
+    content: '';
     width: 40%;
     height: 10px;
     left: 12px;

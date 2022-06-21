@@ -1,7 +1,7 @@
-name: "Prepare Dependencies"
-description: "Prepares all Node and PNPM dependencies"
+name: 'Prepare Dependencies'
+description: 'Prepares all Node and PNPM dependencies'
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Setup PNPM
       uses: pnpm/action-setup@v2.2.2
@@ -11,8 +11,8 @@ runs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: "18.x"
-        cache: "pnpm"
+        node-version: '18.x'
+        cache: 'pnpm'
 
     - name: Install dependencies
       shell: bash
