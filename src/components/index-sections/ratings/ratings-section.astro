@@ -5,7 +5,7 @@ import Rating from "./rating.astro";
 const id = "rating-himself";
 ---
 
-<section {id}>
+<section id={id}>
   <SectionHeading>🌟/{id}</SectionHeading>
   <p>
     As any succesful hiring manager will tell you, it's
@@ -19,6 +19,7 @@ const id = "rating-himself";
   </p>
   <div class="ratings">
     <Rating text="Sarcasm" amount={5} />
+    <Rating text="Counting" amount={3} max={4} />
     <Rating text="Speling" amount={3.5} />
     <Rating
       text="Consistency"
@@ -27,7 +28,6 @@ const id = "rating-himself";
       iconHalf="ion:star-half"
       iconEmpty="ion:star-outline"
     />
-    <Rating text="Counting" amount={3} max={4} />
     <Rating text="Going to bed early" amount={2} />
     <Rating text="CSS Layout" amount={4} misalign />
     <Rating text="Finishing side projects" amount={0} />

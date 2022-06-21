@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "start": "turbo run preview",
     "format": "prettier --plugin-search-dir=. --write .",
     "check:format": "prettier --plugin-search-dir=. --list-different .",
@@ -19,14 +19,16 @@
     "check": "turbo run check-all"
   },
   "devDependencies": {
+    "@astrojs/deno": "^0.1.5",
+    "@astrojs/netlify": "^0.4.5",
     "@astrojs/svelte": "^0.1.4",
     "@iconify-icons/fa6-brands": "^1.2.3",
     "@tsconfig/svelte": "^3.0.0",
-    "astro": "^1.0.0-beta.46",
+    "astro": "1.0.0-beta.50",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "0.1.0-next.5",
     "prettier-plugin-svelte": "^2.7.0",
-    "svelte": "^3.46.4",
+    "svelte": "^3.48.0",
     "svelte-check": "^2.7.2",
     "turbo": "^1.2.16"
   },
