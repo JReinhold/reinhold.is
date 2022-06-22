@@ -6,7 +6,7 @@
 
   let prefetchedImages = [0, 1];
   // prefetch the second image on load
-  if (!import.meta.env.SSR) {
+  if (typeof Image !== 'undefined') {
     requestIdleCallback(() => {
       const image = new Image();
       // this line here triggers the browser to fetch the image
