@@ -10,6 +10,10 @@
   let imageNumbers = [0, 1];
   let currentImageNumber = 0;
   const nextImage = () => {
+    if (window.innerWidth < 768) {
+      // disable interaction on mobile sizes
+      return;
+    }
     if (imageNumbers.length < IMAGE_AMOUNT) {
       imageNumbers.push(imageNumbers.length);
       imageNumbers = imageNumbers;
@@ -41,7 +45,7 @@
       overflow: hidden;
       border-radius: var(--radius-blob-2);
       height: var(--size-14);
-      width: var(--size-12);
+      width: var(--size-13);
       padding: 0;
       cursor: default;
     }
