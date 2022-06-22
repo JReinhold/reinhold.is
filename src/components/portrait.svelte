@@ -1,37 +1,45 @@
 <script lang="ts">
-  import { fly, slide, scale, crossfade, draw } from 'svelte/transition';
+  import { fly } from 'svelte/transition';
 
   const IMAGE_AMOUNT = 9;
-  for (let i = 1; i < IMAGE_AMOUNT; i++) {
+  let currentImage = 0;
+
+  // prefetch the first three images on load
+  let prefetchedImages = [0, 1, 2];
+  for (const imageToPrefretch of prefetchedImages) {
     const image = new Image();
-    // this line here triggers the browser to load the image
-    image.src = `/assets/portraits/${i}.webp`;
+    // this line here triggers the browser to fetch the image
+    image.src = `/assets/portraits/${imageToPrefretch}.webp`;
   }
-  let imageNumbers = [0, 1];
-  let currentImageNumber = 0;
+
   const nextImage = () => {
     if (window.innerWidth < 768) {
       // disable interaction on mobile sizes
       return;
     }
-    if (imageNumbers.length < IMAGE_AMOUNT) {
-      imageNumbers.push(imageNumbers.length);
-      imageNumbers = imageNumbers;
+    if (prefetchedImages.length < IMAGE_AMOUNT) {
+      // prefetch next unprefetched image, if any
+
+      const nextImageToLoad = prefetchedImages.length;
+      prefetchedImages.push(nextImageToLoad);
+      const image = new Image();
+      image.src = `/assets/portraits/${nextImageToLoad}.webp`;
     }
-    if (currentImageNumber === IMAGE_AMOUNT - 1) {
-      currentImageNumber = imageNumbers[0];
+    if (currentImage === IMAGE_AMOUNT - 1) {
+      // wrap around the list to start over
+      currentImage = 0;
     } else {
-      currentImageNumber++;
+      currentImage++;
     }
   };
 </script>
 
 <button on:click={nextImage} class="container">
-  {#key currentImageNumber}
+  {#key currentImage}
     <img
-      src={`/assets/portraits/${currentImageNumber}.webp`}
+      src={`/assets/portraits/${currentImage}.webp`}
       alt="portrait of me"
-      class={`portrait-${currentImageNumber}`}
+      class={`portrait-${currentImage}`}
       in:fly={{ x: 160, opacity: 1, duration: 300, delay: 0 }}
       out:fly={{ x: -160, opacity: 1, duration: 300, delay: 0 }}
     />
@@ -82,6 +90,7 @@
     object-fit: cover;
     transition: all 0.2s ease-in-out;
   }
+
   /* these styles determines where to zoom in on the image when not hovering */
   .portrait-0 {
     top: -3.125rem;
