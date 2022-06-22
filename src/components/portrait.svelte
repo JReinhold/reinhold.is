@@ -4,12 +4,14 @@
   const IMAGE_AMOUNT = 9;
   let currentImage = 0;
 
-  // prefetch the first three images on load
-  let prefetchedImages = [0, 1, 2];
-  for (const imageToPrefretch of prefetchedImages) {
-    const image = new Image();
-    // this line here triggers the browser to fetch the image
-    image.src = `/assets/portraits/${imageToPrefretch}.webp`;
+  let prefetchedImages = [0, 1];
+  // prefetch the second image on load
+  if (!import.meta.env.SSR) {
+    requestIdleCallback(() => {
+      const image = new Image();
+      // this line here triggers the browser to fetch the image
+      image.src = `/assets/portraits/1.webp`;
+    });
   }
 
   const nextImage = () => {
@@ -19,11 +21,12 @@
     }
     if (prefetchedImages.length < IMAGE_AMOUNT) {
       // prefetch next unprefetched image, if any
-
-      const nextImageToLoad = prefetchedImages.length;
-      prefetchedImages.push(nextImageToLoad);
-      const image = new Image();
-      image.src = `/assets/portraits/${nextImageToLoad}.webp`;
+      requestIdleCallback(() => {
+        const nextImageToPrefetch = prefetchedImages.length;
+        prefetchedImages.push(nextImageToPrefetch);
+        const image = new Image();
+        image.src = `/assets/portraits/${nextImageToPrefetch}.webp`;
+      });
     }
     if (currentImage === IMAGE_AMOUNT - 1) {
       // wrap around the list to start over
