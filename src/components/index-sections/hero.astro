@@ -1,4 +1,11 @@
+---
+import Portrait from '../portrait.svelte';
+---
+
 <div class='container'>
+  <div class='portrait-positioner'>
+    <Portrait client:media='(min-width: 768px)' />
+  </div>
   <section>
     <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
     <p>I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾 and entrepreneur 🚀.</p>
@@ -24,9 +31,6 @@
       JavaScript ecosystem in general.
     </p>
   </section>
-  <div>
-    <img src='/assets/portrait.jpg' class='portrait' />
-  </div>
 </div>
 
 <style>
@@ -38,17 +42,17 @@
     gap: var(--size-4);
   }
 
-  .portrait {
-    border-radius: var(--radius-blob-2);
-    height: var(--size-14);
+  @media (max-width: 767px) {
+    section {
+      margin-top: calc(-1 * var(--size-12));
+    }
   }
 
   @media (min-width: 768px) {
-    .portrait {
-      top: 0;
-      right: 0;
-      transform: translate(var(--size-11), var(--size-11));
+    .portrait-positioner {
       position: absolute;
+      top: 4rem;
+      right: -6rem;
       z-index: 2;
     }
   }
