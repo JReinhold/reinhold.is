@@ -20,7 +20,8 @@ html {
   font-family: var(--font-sans);
 }
 
-section {
+section,
+footer {
   display: flex;
   flex-direction: column;
 
