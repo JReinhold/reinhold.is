@@ -30,19 +30,29 @@ const id = 'reachable-at';
 <style>
   div {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
     align-items: center;
     gap: var(--size-4);
   }
 
   a {
     display: flex;
-    flex-direction: row;
-    align-content: center;
-    gap: var(--size-1);
+    flex-direction: column;
+    place-items: center;
+    padding: var(--size-4);
+    font-weight: var(--font-weight-5);
+    gap: var(--size-3);
+    border: var(--border-size-2) solid hsl(var(--gray-0-hsl) / 50%);
+    background-color: hsl(var(--gray-0-hsl) / 30%);
+    border-radius: 1.1rem;
+    transition: transform 0.2s ease-out;
+  }
+
+  a:hover {
+    transform: scale(1.03);
   }
 
   [astro-icon] {
-    width: var(--size-4);
+    width: var(--size-7);
   }
 </style>
