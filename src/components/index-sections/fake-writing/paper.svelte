@@ -49,12 +49,7 @@ Sincerely yours, `;
 
 <div class="container">
   <div class="paper">
-    <textarea
-      class="text-area"
-      on:input={onInput}
-      bind:value={text}
-      maxlength={maxLength}
-    />
+    <textarea on:input={onInput} bind:value={text} maxlength={maxLength} />
   </div>
 </div>
 
@@ -66,7 +61,6 @@ Sincerely yours, `;
   }
   .paper {
     position: relative;
-    cursor: text;
     width: 100%;
     max-width: 34rem;
     /* shadow around paper */
@@ -98,8 +92,17 @@ Sincerely yours, `;
     transform: skew(5deg) rotate(5deg);
   }
 
-  .text-area {
-    font-size: 1em;
+  @font-face {
+    font-family: 'Caveat';
+    font-display: swap;
+    src: url('/assets/fonts/caveat-medium.ttf');
+  }
+
+  textarea {
+    cursor: text;
+    font-family: 'Caveat', var(--font-sans);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-4);
     line-height: 30px;
     border: none;
     border-left: solid 1px #f8d3d3;
@@ -109,9 +112,9 @@ Sincerely yours, `;
     margin: 0 0 -4px 10%;
     padding: 73px 1% 0 1%;
     width: calc(100% - 10% - 1% - 1%);
-    min-height: 720px;
+    min-height: 780px;
   }
-  .text-area:focus {
+  textarea:focus {
     outline: none;
   }
 </style>
