@@ -42,10 +42,23 @@ const id = 'reachable-at';
     padding: var(--size-4);
     font-weight: var(--font-weight-5);
     gap: var(--size-3);
-    border: var(--border-size-2) solid hsl(var(--gray-0-hsl) / 50%);
-    background-color: hsl(var(--gray-0-hsl) / 30%);
     border-radius: 1.1rem;
     transition: transform 0.1s ease-out;
+  }
+
+  @supports (backdrop-filter: blur(20px)) {
+    a {
+      border: var(--border-size-2) solid hsl(var(--gray-0-hsl) / 50%);
+      background-color: hsl(var(--gray-0-hsl) / 30%);
+    }
+  }
+
+  /* stronger background color when backdrop cannot be blurred */
+  @supports not (backdrop-filter: blur(20px)) {
+    a {
+      border: var(--border-size-2) solid hsl(var(--gray-0-hsl));
+      background-color: hsl(var(--gray-0-hsl) / 90%);
+    }
   }
 
   a:hover {
