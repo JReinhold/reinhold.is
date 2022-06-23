@@ -2,7 +2,7 @@ name: Deploy to Deno Deploy
 on:
   push:
     branches:
-      - 'main'
+      - "main"
   pull_request:
 
 jobs:
@@ -26,6 +26,6 @@ jobs:
         id: deployment
         uses: denoland/deployctl@v1
         with:
-          project: 'reinhold-is'
-          root: './dist'
-          entrypoint: './server/entry.mjs'
+          project: "reinhold-is"
+          root: "./dist"
+          entrypoint: "./server/entry.mjs"

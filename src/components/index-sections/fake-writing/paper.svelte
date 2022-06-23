@@ -75,7 +75,7 @@ Sincerely yours, `;
   .paper::before {
     position: absolute;
     z-index: -1;
-    content: '';
+    content: "";
     width: 40%;
     height: 10px;
     left: 12px;
@@ -93,14 +93,14 @@ Sincerely yours, `;
   }
 
   @font-face {
-    font-family: 'Caveat';
+    font-family: "Caveat";
     font-display: swap;
-    src: url('/assets/fonts/caveat-medium.ttf');
+    src: url("/assets/fonts/caveat-medium.ttf");
   }
 
   textarea {
     cursor: text;
-    font-family: 'Caveat', var(--font-sans);
+    font-family: "Caveat", var(--font-sans);
     font-weight: var(--font-weight-5);
     font-size: var(--font-size-4);
     line-height: 30px;

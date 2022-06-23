@@ -1,8 +1,8 @@
-@import 'open-props/style';
-@import 'open-props/normalize';
-@import 'open-props/colors';
-@import 'open-props/colors-hsl';
-@import 'open-props/gradients';
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/colors";
+@import "open-props/colors-hsl";
+@import "open-props/gradients";
 
 :root {
   --link: var(--pink-9);
@@ -32,6 +32,22 @@ footer {
   border-radius: var(--radius-4);
   background: hsl(var(--gray-0-hsl) / 60%);
   backdrop-filter: blur(20px);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+  section,
+  footer {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--gray-0-hsl) / 60%);
+  }
+}
+
+/* stronger background color when backdrop cannot be blurred */
+@supports not (backdrop-filter: blur(20px)) {
+  section,
+  footer {
+    background: hsl(var(--gray-0-hsl) / 90%);
+  }
 }
 
 h1 {
