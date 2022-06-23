@@ -11,6 +11,7 @@
     programming thing.
   </i>
 </blockquote>
+<h4>A stimulated student</h4>
 <p>
   10 years later, in 2015, when I had gotten bored in the army, and started my
   Computer Science degree, I realised that I actually wasn't
@@ -25,6 +26,7 @@
   keep pointing out all the mistakes designers had made in the environment
   around me.
 </p>
+<h4>A wonderful web agency</h4>
 <p>
   During my third year at university, I co-founded <a
     href="https://bambuu.dk"
@@ -41,6 +43,7 @@
   <em>Node.js and Java backends</em>. We had <em>fun</em> and we learned
   <em>a lot</em>, but in the end the consulting business wasn't that exciting.
 </p>
+<h4>A wasted waste SaaS</h4>
 <p>
   Instead, we moved on and founded Reccoon, a SaaS with the missions of making
   waste management more environmental friendly. It was a great adventure
@@ -53,6 +56,7 @@
   stuff, and us being a little to eager to build cool stuff, instead of actually
   looking at the market's needs.
 </p>
+<h4>An exciting education SaaS</h4>
 <p>
   I've also co-founded <a href="https://unihelper.dk" target="_blank">
     UniHelper
@@ -63,6 +67,7 @@
   though). I think we're quite successful actually, and both the universities
   and the students love it.
 </p>
+<h4>A grateful grown-up</h4>
 <p>
   I've also done some consulting for LEGO which was really fun. On the frontend
   I helped build the first prototypes of their internal design system, and I was
@@ -77,3 +82,10 @@
   > where I try to steer the frontend decisions. I really enjoy the challenge of
   building complex systems and managing all the stakeholders.
 </p>
+
+<style>
+  h4 {
+    padding-top: var(--size-2);
+    font-weight: var(--font-weight-8);
+  }
+</style>

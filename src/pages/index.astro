@@ -7,6 +7,7 @@ import SocialLinks from '../components/index-sections/social-links.astro';
 import AboutMe from '../components/index-sections/about-me/about-me-section.svelte';
 import FakeWriting from '../components/index-sections/fake-writing/fake-writing-section.astro';
 import Ratings from '../components/index-sections/ratings/ratings-section.astro';
+import Footer from '../components/footer.astro';
 
 let title = 'Jeppe Reinhold';
 let description = "reinhold.is Jeppe's Personal Website";
@@ -26,6 +27,7 @@ let permalink = 'https://reinhold.is/';
       <AboutMe client:idle />
       <FakeWriting client:visible />
       <Ratings />
+      <Footer />
     </div>
     <style>
       .sections-container {
