@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import svelte from '@astrojs/svelte';
-import deno from '@astrojs/deno';
+import svelte from "@astrojs/svelte";
+import deno from "@astrojs/deno";
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
   integrations: [svelte({ configFile: false })],
   vite: {
     ssr: {
-      external: ['svgo'],
+      external: ["svgo"],
     },
   },
 });

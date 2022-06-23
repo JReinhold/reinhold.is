@@ -1,13 +1,19 @@
 <script lang="ts">
-  import { fly } from 'svelte/transition';
+  import { fly } from "svelte/transition";
 
   const IMAGE_AMOUNT = 9;
   let currentImage = 0;
 
+  // polyfill requestIdleCallback
+  const rIC =
+    typeof requestIdleCallback === "undefined"
+      ? (callback: () => void) => callback()
+      : requestIdleCallback;
+
   let prefetchedImages = [0, 1];
   // prefetch the second image on load
-  if (typeof Image !== 'undefined') {
-    requestIdleCallback(() => {
+  if (typeof Image !== "undefined") {
+    rIC(() => {
       const image = new Image();
       // this line here triggers the browser to fetch the image
       image.src = `/assets/portraits/1.webp`;
@@ -21,7 +27,7 @@
     }
     if (prefetchedImages.length < IMAGE_AMOUNT) {
       // prefetch next unprefetched image, if any
-      requestIdleCallback(() => {
+      rIC(() => {
         const nextImageToPrefetch = prefetchedImages.length;
         prefetchedImages.push(nextImageToPrefetch);
         const image = new Image();
@@ -52,6 +58,7 @@
 <style>
   @media (max-width: 767px) {
     .container {
+      z-index: -1;
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-blob-2);
