@@ -3,23 +3,37 @@
   "baseBranch": "origin/main",
   "pipeline": {
     "build": {
-      "outputs": ["dist/**/*"]
+      "outputs": ["build/**/*"]
     },
     "preview": {
       "dependsOn": ["build"]
     },
     "check:format": {},
+    "check:lint": {
+      "inputs": ["src/**/*", ".eslintrc.cjs", ".eslintignore"]
+    },
+    "check:svelte": {
+      "inputs": ["src/**", "svelte.config.js", "tsconfig.json"]
+    },
     "check:ts": {
       "inputs": ["src/**/*", "tsconfig.json"]
     },
-    "check:astro": {
-      "inputs": ["src/**/*", "public/**/*", "astro.config.mjs", "tsconfig.json"]
-    },
-    "check:svelte": {
-      "inputs": ["src/**", "svelte.config.mjs", "tsconfig.json"]
+    "check:test": {
+      "inputs": [
+        "src/**",
+        "playwright.config.ts",
+        "svelte.config.js",
+        "tsconfig.json"
+      ]
     },
     "check-all": {
-      "dependsOn": ["check:format", "check:ts", "check:astro", "check:svelte"]
+      "dependsOn": [
+        "check:format",
+        "check:lint",
+        "check:svelte",
+        "check:ts",
+        "check:test"
+      ]
     }
   }
 }

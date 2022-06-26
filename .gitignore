@@ -1,7 +1,9 @@
 .turbo
 
 # build output
-dist
+/build
+/.svelte-kit
+/package
 
 # dependencies
 node_modules

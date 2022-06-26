@@ -1,7 +1,7 @@
----
-import SectionHeading from "../../section-heading.svelte";
-import Paper from "./paper.svelte";
----
+<script lang="ts">
+  import SectionHeading from "../../section-heading.svelte";
+  import Paper from "./paper.svelte";
+</script>
 
 <section>
   <SectionHeading>✍️/writing-with-you</SectionHeading>
@@ -16,5 +16,5 @@ import Paper from "./paper.svelte";
     to mind when you think of me. I’ve written a little something to get you
     started, just don’t get caried away with flattery. ❤️
   </p>
-  <Paper client:visible />
+  <Paper />
 </section>
