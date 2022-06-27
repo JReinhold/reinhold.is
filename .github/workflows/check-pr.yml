@@ -12,7 +12,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Check formatting with Prettier
-        run: pnpm turbo run check:format
+        run: pnpm turbo run format:check
 
   check-lint:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Check Lint
-        run: pnpm turbo run check:lint
+        run: pnpm turbo run lint
 
   check-types:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Check TypeScript Types
-        run: pnpm turbo run check:ts
+        run: pnpm turbo run type-check
 
   check-svelte:
     runs-on: ubuntu-latest
@@ -45,7 +45,18 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Check Svelte
-        run: pnpm turbo run check:svelte
+        run: pnpm turbo run check-svelte
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-deps
+
+      - name: Test
+        run: pnpm turbo run test
 
   test:
     runs-on: ubuntu-latest
