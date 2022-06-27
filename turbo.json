@@ -8,17 +8,17 @@
     "preview": {
       "dependsOn": ["build"]
     },
-    "check:format": {},
-    "check:lint": {
+    "format:check": {},
+    "lint": {
       "inputs": ["src/**/*", ".eslintrc.cjs", ".eslintignore"]
     },
-    "check:svelte": {
+    "svelte-check": {
       "inputs": ["src/**", "svelte.config.js", "tsconfig.json"]
     },
-    "check:ts": {
+    "type-check": {
       "inputs": ["src/**/*", "tsconfig.json"]
     },
-    "check:test": {
+    "test": {
       "inputs": [
         "src/**",
         "playwright.config.ts",
@@ -26,13 +26,13 @@
         "tsconfig.json"
       ]
     },
-    "check-all": {
+    "validate": {
       "dependsOn": [
-        "check:format",
-        "check:lint",
-        "check:svelte",
-        "check:ts",
-        "check:test"
+        "format:check",
+        "lint",
+        "svelte-check",
+        "type-check",
+        "test"
       ]
     }
   }
