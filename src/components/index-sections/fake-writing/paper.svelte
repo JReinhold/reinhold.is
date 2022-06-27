@@ -1,5 +1,5 @@
 <script lang="ts">
-  const predefinedText: string = `Dear Jeppe,
+  const predefinedText = `Dear Jeppe,
 
 I actually think you are a pretty nice guy. I'm regularly amazed by your amount of creativity and the stuff you can come up with.
 You have a knack for trying weird stuff out, and see how it goes. It doesn't always end in a good way, but you manage to keep trying anyway, and that's what I admire the most about you!
@@ -35,7 +35,7 @@ Sincerely yours, `;
 
     const isWritingNameAtEnd = nextLength > predefinedText.length;
     const isEditingPredefinedText =
-      textArea.value.substr(0, predefinedText.length) !== predefinedText;
+      textArea.value.substring(0, predefinedText.length) !== predefinedText;
     if (isWritingNameAtEnd && !isEditingPredefinedText) {
       // pass any characters to the state if after end of text
       text = textArea.value;
@@ -95,7 +95,7 @@ Sincerely yours, `;
   @font-face {
     font-family: "Caveat";
     font-display: swap;
-    src: url("/assets/fonts/caveat-medium.ttf");
+    src: url("/fonts/caveat-medium.ttf");
   }
 
   textarea {

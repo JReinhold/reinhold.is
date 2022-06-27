@@ -1,11 +1,11 @@
----
-import SectionHeading from "../section-heading.svelte";
-import Icon from "../static-icon.astro";
+<script lang="ts">
+  import SectionHeading from "../section-heading.svelte";
+  import Icon from "../static-icon.svelte";
 
-const id = "reachable-at";
----
+  const id = "reachable-at";
+</script>
 
-<section id={id}>
+<section {id}>
   <SectionHeading>🤝/{id}</SectionHeading>
   <div>
     <a href="https://twitter.com/drreinhold" class="social-link">
@@ -65,7 +65,7 @@ const id = "reachable-at";
     transform: scale(1.03);
   }
 
-  [astro-icon] {
+  :global([svelte-icon]) {
     width: var(--size-7);
   }
 </style>

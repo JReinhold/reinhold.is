@@ -1,11 +1,11 @@
----
-import SectionHeading from "../../section-heading.svelte";
-import Rating from "./rating.astro";
+<script lang="ts">
+  import SectionHeading from "../../section-heading.svelte";
+  import Rating from "./rating.svelte";
 
-const id = "rating-himself";
----
+  const id = "rating-himself";
+</script>
 
-<section id={id}>
+<section {id}>
   <SectionHeading>🌟/{id}</SectionHeading>
   <p>
     As any succesful hiring manager will tell you, it's

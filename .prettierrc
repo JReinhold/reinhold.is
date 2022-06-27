@@ -1,7 +1,6 @@
 {
   "trailingComma": "all",
   "pluginSearchDirs": ["."],
-  "astroAllowShorthand": false,
   "overrides": [
     {
       "files": "**/*.astro",

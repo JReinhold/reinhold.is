@@ -16,7 +16,7 @@
     rIC(() => {
       const image = new Image();
       // this line here triggers the browser to fetch the image
-      image.src = `/assets/portraits/1.webp`;
+      image.src = `/portraits/1.webp`;
     });
   }
 
@@ -31,7 +31,7 @@
         const nextImageToPrefetch = prefetchedImages.length;
         prefetchedImages.push(nextImageToPrefetch);
         const image = new Image();
-        image.src = `/assets/portraits/${nextImageToPrefetch}.webp`;
+        image.src = `/portraits/${nextImageToPrefetch}.webp`;
       });
     }
     if (currentImage === IMAGE_AMOUNT - 1) {
@@ -46,7 +46,7 @@
 <button on:click={nextImage} class="container">
   {#key currentImage}
     <img
-      src={`/assets/portraits/${currentImage}.webp`}
+      src={`/portraits/${currentImage}.webp`}
       alt="portrait of me"
       class={`portrait-${currentImage}`}
       in:fly={{ x: 160, opacity: 1, duration: 300, delay: 0 }}

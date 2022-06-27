@@ -1,10 +1,10 @@
----
-import Portrait from "../portrait.svelte";
----
+<script lang="ts">
+  import Portrait from "../portrait.svelte";
+</script>
 
 <div class="container">
   <div class="portrait-positioner">
-    <Portrait client:idle />
+    <Portrait />
   </div>
   <section>
     <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
