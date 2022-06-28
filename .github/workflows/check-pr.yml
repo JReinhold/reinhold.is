@@ -3,7 +3,8 @@ name: "Check pull request"
 on: pull_request
 
 jobs:
-  check-formatting:
+  format:
+    name: Check Formatting
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -14,7 +15,8 @@ jobs:
       - name: Check formatting with Prettier
         run: pnpm turbo run format:check
 
-  check-lint:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -25,7 +27,8 @@ jobs:
       - name: Check Lint
         run: pnpm turbo run lint
 
-  check-types:
+  type-check:
+    name: Check Types
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -37,6 +40,7 @@ jobs:
         run: pnpm turbo run type-check
 
   check-svelte:
+    name: Check Svelte
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -48,6 +52,7 @@ jobs:
         run: pnpm turbo run check-svelte
 
   test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -58,18 +63,8 @@ jobs:
       - name: Test
         run: pnpm turbo run test
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v3
-
-      - uses: ./.github/actions/prepare-deps
-
-      - name: Test
-        run: pnpm turbo run check:test
-
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
