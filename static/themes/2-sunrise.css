@@ -1,4 +1,33 @@
 :root {
   --background: url("/backgrounds/2-sunrise.webp") center center / cover
     no-repeat fixed;
+
+  --surface-1: var(--gray-9);
+  --surface-2: var(--gray-8);
+  --surface-3: var(--gray-7);
+  --surface-4: var(--gray-6);
+
+  --surface-1-hsl: var(--gray-9-hsl);
+  --surface-2-hsl: var(--gray-8-hsl);
+  --surface-3-hsl: var(--gray-7-hsl);
+  --surface-4-hsl: var(--gray-6-hsl);
+
+  --link: var(--pink-3);
+  --link-visited: var(--pink-3);
+  --text-1: var(--gray-1);
+  --text-2: var(--gray-4);
+  --theme-accent: var(--pink-3);
+  --theme-accent-rgb: var(--color-pink-rgb);
+  --theme-text: var(--gray-1);
+  --theme-text-light: var(--gray-3);
+  --theme-text-lighter: var(--gray-5);
+
+  --link-hsl: var(--pink-3-hsl);
+  --link-visited-hsl: var(--pink-3-hsl);
+  --text-1-hsl: var(--gray-1-hsl);
+  --text-2-hsl: var(--gray-4-hsl);
+  --theme-accent-hsl: var(--pink-3-hsl);
+  --theme-text-hsl: var(--gray-1-hsl);
+  --theme-text-light-hsl: var(--gray-3-hsl);
+  --theme-text-lighter-hsl: var(--gray-5-hsl);
 }

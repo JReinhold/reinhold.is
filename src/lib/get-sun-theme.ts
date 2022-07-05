@@ -2,44 +2,58 @@ import SunCalc from "suncalc";
 
 type ClientLocation = { lat: number; long: number };
 
-export const getSunTheme = (countryCode: string | null) => {
-  const { lat, long } = (
-    countryCode &&
-    countryCode !== "XX" &&
-    countryCodeLocationMap.has(countryCode)
-      ? countryCodeLocationMap.get(countryCode)
-      : // default to US country if we can't determine it from the header
-        countryCodeLocationMap.get("US")
-  ) as ClientLocation;
+export const getSunTheme = (countryCode: string | null): ThemeKey => {
+  try {
+    const { lat, long } = (
+      countryCode &&
+      countryCode !== "XX" &&
+      countryCodeLocationMap.has(countryCode)
+        ? countryCodeLocationMap.get(countryCode)
+        : // default to US country if we can't determine it from the header
+          countryCodeLocationMap.get("US")
+    ) as ClientLocation;
 
-  //https://github.com/mourner/suncalc#sun-position
-  const sunRadians = SunCalc.getPosition(new Date(), lat, long);
-  const sunDegrees = {
-    // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
-    azimuth: ((sunRadians.azimuth * 180) / Math.PI + 180) % 360,
-    altitude: sunRadians.altitude * (180 / Math.PI),
-  };
-  console.log("LOG position:", sunRadians);
-  console.log("LOG degrees:", sunDegrees);
+    //https://github.com/mourner/suncalc#sun-position
+    const sunRadians = SunCalc.getPosition(new Date(), lat, long);
+    const sunDegrees = {
+      // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
+      azimuth: ((sunRadians.azimuth * 180) / Math.PI + 180) % 360,
+      altitude: sunRadians.altitude * (180 / Math.PI),
+    };
 
-  // default to noon as fallback
-  let theme = "noon";
+    // default to noon as fallback
+    let theme: ThemeKey = "4-noon";
 
-  for (const [themeKey, themeSunPosition] of themeSunPositionMap) {
-    if (
-      themeSunPosition.azimuth.start <= sunDegrees.azimuth &&
-      sunDegrees.azimuth <= themeSunPosition.azimuth.end
-    ) {
-      theme = themeKey;
-      break;
+    for (const [themeKey, themeSunPosition] of themeSunPositionMap) {
+      if (
+        themeSunPosition.azimuth.start <= sunDegrees.azimuth &&
+        sunDegrees.azimuth <= themeSunPosition.azimuth.end
+      ) {
+        theme = themeKey;
+        break;
+      }
     }
+    return theme;
+  } catch {
+    return "4-noon";
   }
-
-  return theme;
 };
 
+export type ThemeKey =
+  | "0-night"
+  | "1-dawn"
+  | "2-sunrise"
+  | "3-morning"
+  | "4-noon"
+  | "5-afternoon"
+  | "6-sunset"
+  | "7-dusk";
+
 // extracted from the actual "The Beach.heic" file on MacOS
-const themeSunPositionMap = new Map([
+const themeSunPositionMap = new Map<
+  ThemeKey,
+  { altitude: number; azimuth: { start: number; end: number } }
+>([
   [
     "0-night",
     {
@@ -105,7 +119,7 @@ const themeSunPositionMap = new Map([
   ],
 ]);
 /*
-raw configuration extracted from "The Beach.heic"
+raw configuration extracted from "The Beach.heic":
 
 image index: 1, azimuth: 70.0, altitude: -25.0
 image index: 2, azimuth: 80.0, altitude: -9.0
@@ -119,7 +133,7 @@ image index: 7, azimuth: 280.0, altitude: -9.0
 image index: 1, azimuth: 290.0, altitude: -25.0
 */
 
-const countryCodeLocationMap = new Map([
+const countryCodeLocationMap = new Map<string, ClientLocation>([
   ["AD", { lat: 42.546245, long: 1.601554 }],
   ["AE", { lat: 23.424076, long: 53.847818 }],
   ["AF", { lat: 33.93911, long: 67.709953 }],

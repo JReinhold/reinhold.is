@@ -14,6 +14,6 @@
     padding-bottom: var(--size-2);
   }
   subtitle {
-    color: hsl(var(--gray-9-hsl) / 70%);
+    color: hsl(var(--text-2-hsl) / 70%);
   }
 </style>

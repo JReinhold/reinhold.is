@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import { getSunTheme } from "$lib/get-sun-theme";
+  import { getSunTheme, type ThemeKey } from "$lib/get-sun-theme";
 
   import "../app.css";
 
@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-  export let theme: string;
+  export let theme: ThemeKey;
 </script>
 
 <slot />

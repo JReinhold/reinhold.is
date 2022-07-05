@@ -14,6 +14,6 @@
     flex-direction: row;
     justify-content: center;
     font-size: var(--font-size-0);
-    color: var(--gray-8);
+    color: var(--text-2);
   }
 </style>
