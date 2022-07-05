@@ -24,7 +24,7 @@ jobs:
 
       - uses: ./.github/actions/prepare-deps
 
-      - name: Check Lint
+      - name: Lint
         run: pnpm turbo run lint
 
   type-check:

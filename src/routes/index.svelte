@@ -16,7 +16,7 @@
 
 <BaseHead {title} {description} {permalink} />
 <div class="sections-container">
-  <LazyBackgroundImage />
+  <!-- <LazyBackgroundImage /> -->
   <Hero />
   <SocialLinks />
   <AboutMe />

@@ -16,6 +16,8 @@ declare namespace App {
     };
   }
 
-  // interface Session {}
+  interface Session {
+    countryCode: string | null;
+  }
   // interface Stuff {}
 }

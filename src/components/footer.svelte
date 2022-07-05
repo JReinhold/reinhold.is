@@ -3,7 +3,7 @@
     Built by Jeppe with help from <a href="https://jkelstrup.com">Jonas</a>,
     using <a href="https://svelte.dev" target="_blank">Svelte</a>, source on
     <a href="https://github.com/jreinhold/reinhold.is">GitHub</a>, deployed to
-    <a href="https://pages.cloudflare.com">Cloudflare Pages</a>. Background by
+    <a href="https://pages.cloudflare.com">Cloudflare Pages</a>. Backgrounds by
     Apple.
   </span>
 </footer>
