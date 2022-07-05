@@ -2,7 +2,9 @@ import SunCalc from "suncalc";
 
 type ClientLocation = { lat: number; long: number };
 
-export const getSunTheme = (countryCode: string | null): ThemeKey => {
+const FALLBACK_THEME: Theme = { mode: "light", sun: "4-noon" };
+
+export const getSunTheme = (countryCode: string | null): Theme => {
   try {
     const { lat, long } = (
       countryCode &&
@@ -22,24 +24,27 @@ export const getSunTheme = (countryCode: string | null): ThemeKey => {
     };
 
     // default to noon as fallback
-    let theme: ThemeKey = "4-noon";
+    const theme = { ...FALLBACK_THEME };
 
-    for (const [themeKey, themeSunPosition] of themeSunPositionMap) {
+    for (const [themeKey, { azimuth, mode }] of themeSunPositionMap) {
       if (
-        themeSunPosition.azimuth.start <= sunDegrees.azimuth &&
-        sunDegrees.azimuth <= themeSunPosition.azimuth.end
+        azimuth.start <= sunDegrees.azimuth &&
+        sunDegrees.azimuth <= azimuth.end
       ) {
-        theme = themeKey;
+        theme.mode = mode;
+        theme.sun = themeKey;
         break;
       }
     }
+    return { mode: "dark", sun: "7-dusk" };
     return theme;
   } catch {
-    return "4-noon";
+    return FALLBACK_THEME;
   }
 };
 
-export type ThemeKey =
+export type Theme = { sun: ThemeSunKey; mode: ThemeMode };
+export type ThemeSunKey =
   | "0-night"
   | "1-dawn"
   | "2-sunrise"
@@ -48,15 +53,17 @@ export type ThemeKey =
   | "5-afternoon"
   | "6-sunset"
   | "7-dusk";
+export type ThemeMode = "light" | "dark";
 
 // extracted from the actual "The Beach.heic" file on MacOS
 const themeSunPositionMap = new Map<
-  ThemeKey,
-  { altitude: number; azimuth: { start: number; end: number } }
+  ThemeSunKey,
+  { mode: ThemeMode; altitude: number; azimuth: { start: number; end: number } }
 >([
   [
     "0-night",
     {
+      mode: "dark",
       altitude: -25,
       azimuth: { start: 0, end: 70 },
     },
@@ -64,6 +71,7 @@ const themeSunPositionMap = new Map<
   [
     "1-dawn",
     {
+      mode: "dark",
       altitude: -9,
       azimuth: { start: 70, end: 80 },
     },
@@ -71,6 +79,7 @@ const themeSunPositionMap = new Map<
   [
     "2-sunrise",
     {
+      mode: "dark",
       altitude: 0,
       azimuth: { start: 80, end: 90 },
     },
@@ -78,6 +87,7 @@ const themeSunPositionMap = new Map<
   [
     "3-morning",
     {
+      mode: "light",
       altitude: 10,
       azimuth: { start: 90, end: 100 },
     },
@@ -85,6 +95,7 @@ const themeSunPositionMap = new Map<
   [
     "4-noon",
     {
+      mode: "light",
       altitude: 25,
       azimuth: { start: 100, end: 250 },
     },
@@ -92,6 +103,7 @@ const themeSunPositionMap = new Map<
   [
     "5-afternoon",
     {
+      mode: "light",
       altitude: 10,
       azimuth: { start: 250, end: 260 },
     },
@@ -99,6 +111,7 @@ const themeSunPositionMap = new Map<
   [
     "6-sunset",
     {
+      mode: "dark",
       altitude: 0,
       azimuth: { start: 260, end: 270 },
     },
@@ -106,6 +119,7 @@ const themeSunPositionMap = new Map<
   [
     "7-dusk",
     {
+      mode: "dark",
       altitude: -9,
       azimuth: { start: 270, end: 280 },
     },
@@ -113,6 +127,7 @@ const themeSunPositionMap = new Map<
   [
     "0-night",
     {
+      mode: "dark",
       altitude: -25,
       azimuth: { start: 280, end: 360 },
     },

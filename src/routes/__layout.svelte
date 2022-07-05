@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import { getSunTheme, type ThemeKey } from "$lib/get-sun-theme";
+  import { getSunTheme, type Theme } from "$lib/get-sun-theme";
 
   import "../app.css";
 
@@ -14,11 +14,12 @@
 </script>
 
 <script lang="ts">
-  export let theme: ThemeKey;
+  export let theme: Theme;
 </script>
 
 <slot />
 
 <svelte:head>
-  <link rel="stylesheet" href="/themes/{theme}.css" />
+  <link rel="stylesheet" href="/themes/{theme.sun}.css" />
+  <link rel="stylesheet" href="/themes/{theme.mode}.css" />
 </svelte:head>
