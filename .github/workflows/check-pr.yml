@@ -49,7 +49,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Check Svelte
-        run: pnpm turbo run check-svelte
+        run: pnpm turbo run svelte-check
 
   test:
     name: Test
