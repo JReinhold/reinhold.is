@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
   import { getSunTheme, type Theme } from "$lib/get-sun-theme";
+  import LazyBackgroundImage from "../components/lazy-background-image.svelte";
 
   import "../app.css";
 
@@ -20,6 +21,7 @@
   export let theme: Theme;
 </script>
 
+<LazyBackgroundImage {theme} />
 <slot />
 
 <svelte:head>

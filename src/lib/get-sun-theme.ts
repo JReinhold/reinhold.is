@@ -36,7 +36,6 @@ export const getSunTheme = (countryCode: string | null): Theme => {
         break;
       }
     }
-
     return theme;
   } catch {
     return FALLBACK_THEME;
