@@ -69,7 +69,7 @@ jobs:
           key: cache-playwright-linux-1.22.2
       - name: Install Playwright Dependencies
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: pnpm playwright install-deps chromium
+        run: pnpm playwright install --with-deps chromium
       - name: Test
         run: pnpm turbo run test
 
