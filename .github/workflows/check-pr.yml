@@ -61,7 +61,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Test
-        run: pnpm turbo run test
+        run: pnpm test
 
   build:
     name: Build
