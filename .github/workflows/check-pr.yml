@@ -10,7 +10,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Check formatting with Prettier
         run: pnpm turbo run format:check
@@ -22,7 +23,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Lint
         run: pnpm turbo run lint
@@ -34,7 +36,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Check TypeScript Types
         run: pnpm turbo run type-check
@@ -46,7 +49,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Check Svelte
         run: pnpm turbo run svelte-check
@@ -58,7 +62,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Cache playwright binaries
         uses: actions/cache@v2
@@ -80,7 +85,8 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-deps
+      - name: Prepare dependencies
+        uses: ./.github/actions/prepare-deps
 
       - name: Build
         run: pnpm turbo run build
