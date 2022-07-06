@@ -1,6 +1,4 @@
 :root {
-  --background: url("/backgrounds/0-night.webp");
-
   --link: var(--indigo-3);
   --link-visited: var(--indigo-3);
   --theme-accent: var(--indigo-3);

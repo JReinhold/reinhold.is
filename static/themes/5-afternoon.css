@@ -1,6 +1,4 @@
 :root {
-  --background: url("/backgrounds/5-afternoon.webp");
-
   --link: var(--blue-9);
   --link-visited: var(--blue-9);
   --theme-accent: var(--blue-9);

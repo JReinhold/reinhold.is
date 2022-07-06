@@ -1,6 +1,4 @@
 :root {
-  --background: url("/backgrounds/2-sunrise.webp");
-
   --link: var(--pink-3);
   --link-visited: var(--pink-3);
   --theme-accent: var(--pink-3);
