@@ -54,6 +54,10 @@ a {
   text-decoration-color: var(--theme-accent);
 }
 
+p {
+  padding-bottom: var(--size-2);
+}
+
 .icon {
   fill: currentColor;
   width: var(--size-4);

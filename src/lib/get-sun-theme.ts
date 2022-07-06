@@ -55,7 +55,7 @@ export type ThemeSunKey =
   | "7-dusk";
 export type ThemeMode = "light" | "dark";
 
-// extracted from the actual "The Beach.heic" file on MacOS
+// altitude and azimuth extracted from the actual "The Beach.heic" file on MacOS
 const themeSunPositionMap = new Map<
   ThemeSunKey,
   { mode: ThemeMode; altitude: number; azimuth: { start: number; end: number } }

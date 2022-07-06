@@ -9,6 +9,9 @@
       props: {
         theme,
       },
+      stuff: {
+        theme,
+      },
     };
   };
 </script>

@@ -1,5 +1,7 @@
 /// <reference types="@sveltejs/kit" />
 
+import type { Theme } from "$lib/get-sun-theme";
+
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
@@ -7,9 +9,6 @@ declare namespace App {
 
   // From https://github.com/sveltejs/kit/tree/master/packages/adapter-cloudflare#environment-variables
   interface Platform {
-    env: {
-      COUNTER: DurableObjectNamespace;
-    };
     context: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       waitUntil(promise: Promise<any>): void;
@@ -19,5 +18,7 @@ declare namespace App {
   interface Session {
     countryCode: string | null;
   }
-  // interface Stuff {}
+  interface Stuff {
+    theme: Theme;
+  }
 }
