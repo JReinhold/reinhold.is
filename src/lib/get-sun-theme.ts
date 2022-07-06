@@ -36,7 +36,7 @@ export const getSunTheme = (countryCode: string | null): Theme => {
         break;
       }
     }
-    return { mode: "dark", sun: "7-dusk" };
+
     return theme;
   } catch {
     return FALLBACK_THEME;

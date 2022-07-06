@@ -39,7 +39,7 @@
         You're currently <a
           href="https://github.com/JReinhold/reinhold.is/pull/33"
           >getting the {theme.sun.substring(2)} experience</a
-        >, come back later for another experience.
+        > on this site, come back later for another experience.
       </p>
     </div>
   </section>

@@ -1,6 +1,5 @@
 <script lang="ts">
   import BaseHead from "../components/base-head.svelte";
-  import LazyBackgroundImage from "../components/lazy-background-image.svelte";
 
   import Hero from "../components/index-sections/hero.svelte";
   import SocialLinks from "../components/index-sections/social-links.svelte";
@@ -16,7 +15,6 @@
 
 <BaseHead {title} {description} {permalink} />
 <div class="sections-container">
-  <!-- <LazyBackgroundImage /> -->
   <Hero />
   <SocialLinks />
   <AboutMe />
