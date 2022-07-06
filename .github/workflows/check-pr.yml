@@ -61,7 +61,7 @@ jobs:
       - uses: ./.github/actions/prepare-deps
 
       - name: Test
-        run: pnpm test
+        run: npx playwright install && pnpm turbo run test
 
   build:
     name: Build
