@@ -8,8 +8,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
-    "types": ["./src/declaration.d.ts", "./src/app.d.ts"],
-    "typeRoots": ["./src", "./node_modules/@types"]
+    "strict": true
   }
 }

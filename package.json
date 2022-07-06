@@ -22,7 +22,7 @@
     "test:watch": "playwright test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
-    "validate": "turbo run validate"
+    "validate": "turbo run validate-all"
   },
   "dependencies": {
     "open-props": "^1.3.16"

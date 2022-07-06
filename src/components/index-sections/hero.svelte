@@ -1,7 +1,6 @@
 <script lang="ts">
   import Portrait from "../portrait.svelte";
   import { page } from "$app/stores";
-  import type { Theme } from "$lib/get-sun-theme";
 
   const { theme } = $page.stuff;
 </script>
