@@ -70,6 +70,8 @@ Sincerely yours, `;
     /* top whitespace, followed by repeating blue lines */
     background: linear-gradient(white, white) 0 0 / 100% 65px no-repeat,
       linear-gradient(#dfe8ec 0%, white 8%) 0 65px / 100% 30px;
+
+    color: var(--gray-9);
   }
   /* shadow at the bottom of the paper */
   .paper::before {

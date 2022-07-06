@@ -19,6 +19,7 @@ importers:
       postcss-load-config: ^3.1.4
       prettier: ^2.6.2
       prettier-plugin-svelte: ^2.7.0
+      suncalc: ^1.9.0
       svelte: ^3.44.0
       svelte-check: ^2.7.1
       svelte-preprocess: ^4.10.5
@@ -30,7 +31,7 @@ importers:
     devDependencies:
       '@playwright/test': 1.22.2
       '@sveltejs/adapter-cloudflare': 1.0.0-next.23
-      '@sveltejs/kit': 1.0.0-next.354_svelte@3.48.0
+      '@sveltejs/kit': 1.0.0-next.357_svelte@3.48.0
       '@typescript-eslint/eslint-plugin': 5.29.0_qqmbkyiaixvppdwswpytuf2hgm
       '@typescript-eslint/parser': 5.29.0_b5e7v2qnwxfo6hmiq56u52mz3e
       autoprefixer: 10.4.7_postcss@8.4.14
@@ -42,6 +43,7 @@ importers:
       postcss-load-config: 3.1.4_postcss@8.4.14
       prettier: 2.7.1
       prettier-plugin-svelte: 2.7.0_nakrehnrzdf7fdea5k3a4dfy4m
+      suncalc: 1.9.0
       svelte: 3.48.0
       svelte-check: 2.8.0_bwfybwdzwmlevsatlte2x4gwcy
       svelte-preprocess: 4.10.7_yijg4htcwmckubwfjhmmg35xli
@@ -144,8 +146,8 @@ packages:
       worktop: 0.8.0-next.14
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.354_svelte@3.48.0:
-    resolution: {integrity: sha512-dTfFT0c3sxztFpiw6H4bQnPd+PtHgEZG6j6ssT9sWLONfzUgWRX0S7H/WoPEjr7u65o2HNazoj8jmEq3ZTwb9g==}
+  /@sveltejs/kit/1.0.0-next.357_svelte@3.48.0:
+    resolution: {integrity: sha512-nCAehVybIEpQNnPu61V/EFVdfDb1nBSiQUfW9EcSSDEUbyAMCVBOKZZuzQ0qQDp3xniqRkyDzpBA4wN+ADxHBw==}
     engines: {node: '>=16.7'}
     hasBin: true
     peerDependencies:
@@ -1992,6 +1994,10 @@ packages:
       browserslist: 4.21.0
       postcss: 8.4.14
       postcss-selector-parser: 6.0.10
+    dev: true
+
+  /suncalc/1.9.0:
+    resolution: {integrity: sha512-vMJ8Byp1uIPoj+wb9c1AdK4jpkSKVAywgHX0lqY7zt6+EWRRC3Z+0Ucfjy/0yxTVO1hwwchZe4uoFNqrIC24+A==}
     dev: true
 
   /supports-color/7.2.0:

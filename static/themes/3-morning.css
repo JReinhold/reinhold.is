@@ -1,0 +1,12 @@
+:root {
+  --background: url("/backgrounds/3-morning.webp");
+
+  --link: var(--pink-9);
+  --link-visited: var(--pink-9);
+  --theme-accent: var(--pink-9);
+  --theme-accent-rgb: var(--color-pink-rgb);
+
+  --link-hsl: var(--pink-9-hsl);
+  --link-visited-hsl: var(--pink-9-hsl);
+  --theme-accent-hsl: var(--pink-9-hsl);
+}

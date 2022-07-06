@@ -1,0 +1,12 @@
+:root {
+  --background: url("/backgrounds/1-dawn.webp");
+
+  --link: var(--grape-3);
+  --link-visited: var(--grape-3);
+  --theme-accent: var(--grape-3);
+  --theme-accent-rgb: var(--color-grape-rgb);
+
+  --link-hsl: var(--grape-3-hsl);
+  --link-visited-hsl: var(--grape-3-hsl);
+  --theme-accent-hsl: var(--grape-3-hsl);
+}

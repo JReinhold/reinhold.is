@@ -26,7 +26,7 @@
         "tsconfig.json"
       ]
     },
-    "validate": {
+    "validate-all": {
       "dependsOn": [
         "format:check",
         "lint",

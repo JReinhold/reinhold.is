@@ -1,0 +1,12 @@
+:root {
+  --background: url("/backgrounds/4-noon.webp");
+
+  --link: var(--red-9);
+  --link-visited: var(--red-9);
+  --theme-accent: var(--red-9);
+  --theme-accent-rgb: var(--color-red-rgb);
+
+  --link-hsl: var(--red-9-hsl);
+  --link-visited-hsl: var(--red-9-hsl);
+  --theme-accent-hsl: var(--red-9-hsl);
+}

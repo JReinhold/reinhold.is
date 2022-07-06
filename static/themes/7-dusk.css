@@ -1,0 +1,12 @@
+:root {
+  --background: url("/backgrounds/7-dusk.webp");
+
+  --link: var(--violet-3);
+  --link-visited: var(--violet-3);
+  --theme-accent: var(--violet-3);
+  --theme-accent-rgb: var(--color-violet-rgb);
+
+  --link-hsl: var(--violet-3-hsl);
+  --link-visited-hsl: var(--violet-3-hsl);
+  --theme-accent-hsl: var(--violet-3-hsl);
+}

@@ -48,8 +48,8 @@
 
   @supports (backdrop-filter: blur(20px)) {
     a {
-      border: var(--border-size-2) solid hsl(var(--gray-0-hsl) / 50%);
-      background-color: hsl(var(--gray-0-hsl) / 30%);
+      border: var(--border-size-2) solid hsl(var(--surface-4-hsl) / 60%);
+      background-color: hsl(var(--surface-4-hsl) / 30%);
     }
   }
 
