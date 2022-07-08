@@ -2,7 +2,7 @@ import SunCalc from "suncalc";
 
 type ClientLocation = { lat: number; long: number };
 
-const FALLBACK_THEME: Theme = { mode: "light", sun: "4-noon" };
+const FALLBACK_THEME: Theme = { mode: "light", key: "4-noon" };
 
 export const getSunTheme = (countryCode: string | null): Theme => {
   try {
@@ -16,24 +16,44 @@ export const getSunTheme = (countryCode: string | null): Theme => {
     ) as ClientLocation;
 
     //https://github.com/mourner/suncalc#sun-position
-    const sunRadians = SunCalc.getPosition(new Date(), lat, long);
-    const sunDegrees = {
-      // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
-      azimuth: ((sunRadians.azimuth * 180) / Math.PI + 180) % 360,
-      altitude: sunRadians.altitude * (180 / Math.PI),
+    const currentSunRadians = SunCalc.getPosition(new Date(), lat, long);
+    // convert radians to degrees
+    // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
+    const currentSunDegrees = {
+      altitude: currentSunRadians.altitude * (180 / Math.PI),
+      azimuth: ((currentSunRadians.azimuth * 180) / Math.PI + 180) % 360,
     };
 
     // default to noon as fallback
     const theme = { ...FALLBACK_THEME };
 
-    for (const [themeKey, { azimuth, mode }] of themeSunPositionMap) {
-      if (
-        azimuth.start <= sunDegrees.azimuth &&
-        sunDegrees.azimuth <= azimuth.end
-      ) {
+    let smallestDistance;
+
+    /*
+    We want to determine which theme sun position that is closest
+    to the current sun position.
+    So for each theme we calculate its distance to the current sun
+    and select the one that is closest.
+    The distances are calculated using the "Great-circle distance" formulae:
+
+    cos(d) = sin(alt1) * sin(alt2) + cos(alt1) * cos(alt2) * cos(azi1 - azi2)
+    
+    See:
+    https://en.wikipedia.org/wiki/Great-circle_distance
+    https://astronomy.stackexchange.com/a/2543
+    */
+    for (const { key, altitude, azimuth, mode } of themeSunPositions) {
+      const distance = Math.acos(
+        Math.sin(currentSunDegrees.altitude) * Math.sin(altitude) +
+          Math.cos(currentSunDegrees.altitude) *
+            Math.cos(altitude) *
+            Math.cos(currentSunDegrees.azimuth - azimuth),
+      );
+
+      if (!smallestDistance || distance < smallestDistance) {
+        smallestDistance = distance;
+        theme.key = key;
         theme.mode = mode;
-        theme.sun = themeKey;
-        break;
       }
     }
     return theme;
@@ -42,8 +62,8 @@ export const getSunTheme = (countryCode: string | null): Theme => {
   }
 };
 
-export type Theme = { sun: ThemeSunKey; mode: ThemeMode };
-export type ThemeSunKey =
+export type Theme = { key: ThemeKey; mode: ThemeMode };
+export type ThemeKey =
   | "0-night"
   | "1-dawn"
   | "2-sunrise"
@@ -55,83 +75,73 @@ export type ThemeSunKey =
 export type ThemeMode = "light" | "dark";
 
 // altitude and azimuth extracted from the actual "The Beach.heic" file on MacOS
-const themeSunPositionMap = new Map<
-  ThemeSunKey,
-  { mode: ThemeMode; altitude: number; azimuth: { start: number; end: number } }
->([
-  [
-    "0-night",
-    {
-      mode: "dark",
-      altitude: -25,
-      azimuth: { start: 0, end: 70 },
-    },
-  ],
-  [
-    "1-dawn",
-    {
-      mode: "dark",
-      altitude: -9,
-      azimuth: { start: 70, end: 80 },
-    },
-  ],
-  [
-    "2-sunrise",
-    {
-      mode: "dark",
-      altitude: 0,
-      azimuth: { start: 80, end: 90 },
-    },
-  ],
-  [
-    "3-morning",
-    {
-      mode: "light",
-      altitude: 10,
-      azimuth: { start: 90, end: 100 },
-    },
-  ],
-  [
-    "4-noon",
-    {
-      mode: "light",
-      altitude: 25,
-      azimuth: { start: 100, end: 250 },
-    },
-  ],
-  [
-    "5-afternoon",
-    {
-      mode: "light",
-      altitude: 10,
-      azimuth: { start: 250, end: 260 },
-    },
-  ],
-  [
-    "6-sunset",
-    {
-      mode: "dark",
-      altitude: 0,
-      azimuth: { start: 260, end: 270 },
-    },
-  ],
-  [
-    "7-dusk",
-    {
-      mode: "dark",
-      altitude: -9,
-      azimuth: { start: 270, end: 280 },
-    },
-  ],
-  [
-    "0-night",
-    {
-      mode: "dark",
-      altitude: -25,
-      azimuth: { start: 280, end: 360 },
-    },
-  ],
-]);
+const themeSunPositions: Array<{
+  key: ThemeKey;
+  mode: ThemeMode;
+  altitude: number;
+  azimuth: number;
+}> = [
+  {
+    key: "0-night",
+    mode: "dark",
+    altitude: -25,
+    azimuth: 70,
+  },
+  {
+    key: "1-dawn",
+    mode: "dark",
+    altitude: -9,
+    azimuth: 80,
+  },
+  {
+    key: "2-sunrise",
+    mode: "dark",
+    altitude: 0,
+    azimuth: 90,
+  },
+  {
+    key: "3-morning",
+    mode: "light",
+    altitude: 10,
+    azimuth: 100,
+  },
+  {
+    key: "4-noon",
+    mode: "light",
+    altitude: 25,
+    azimuth: 110,
+  },
+  {
+    key: "4-noon",
+    mode: "light",
+    altitude: 25,
+    azimuth: 250,
+  },
+  {
+    key: "5-afternoon",
+    mode: "light",
+    altitude: 10,
+    azimuth: 260,
+  },
+  {
+    key: "6-sunset",
+    mode: "dark",
+    altitude: 0,
+    azimuth: 270,
+  },
+  {
+    key: "7-dusk",
+    mode: "dark",
+    altitude: -9,
+    azimuth: 280,
+  },
+  {
+    key: "0-night",
+    mode: "dark",
+    altitude: -25,
+    azimuth: 290,
+  },
+];
 /*
 raw configuration extracted from "The Beach.heic":
 

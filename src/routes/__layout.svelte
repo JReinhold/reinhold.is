@@ -25,6 +25,6 @@
 <slot />
 
 <svelte:head>
-  <link rel="stylesheet" href="/themes/{theme.sun}.css" />
+  <link rel="stylesheet" href="/themes/{theme.key}.css" />
   <link rel="stylesheet" href="/themes/{theme.mode}.css" />
 </svelte:head>

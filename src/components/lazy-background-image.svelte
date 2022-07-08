@@ -4,8 +4,8 @@
 
   export let theme: Theme;
 
-  const lowResImageSource = `/backgrounds/${theme.sun}-200.webp`;
-  const highResImageSource = `/backgrounds/${theme.sun}-2000.webp`;
+  const lowResImageSource = `/backgrounds/${theme.key}-200.webp`;
+  const highResImageSource = `/backgrounds/${theme.key}-2000.webp`;
 
   let highResLoaded = false;
 
