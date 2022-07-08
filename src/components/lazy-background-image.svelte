@@ -28,10 +28,16 @@
 <style>
   img {
     position: fixed;
-    bottom: 0;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+
+    /* from https://taylor.callsen.me/working-with-hero-image-height-in-mobile-browsers/ */
+    height: 100vh;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: fill-available;
+
     z-index: -1;
     user-select: none;
     object-fit: cover;
