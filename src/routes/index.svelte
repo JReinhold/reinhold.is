@@ -18,8 +18,8 @@
   <Hero />
   <SocialLinks />
   <AboutMe />
-  <FakeWriting />
   <Ratings />
+  <FakeWriting />
   <Footer />
 </div>
 
