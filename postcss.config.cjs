@@ -1,4 +1,3 @@
-const autoprefixer = require("autoprefixer");
 module.exports = {
-  plugins: [require("autoprefixer"), require("cssnano"), autoprefixer],
+  plugins: [require("autoprefixer"), require("cssnano")],
 };
