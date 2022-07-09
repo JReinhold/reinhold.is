@@ -9,6 +9,7 @@
     return {
       props: {
         theme,
+        cf: (session as any).cf,
       },
       stuff: {
         theme,
@@ -19,6 +20,7 @@
 
 <script lang="ts">
   export let theme: Theme;
+  export let cf: any;
 </script>
 
 <LazyBackgroundImage {theme} />
@@ -28,3 +30,9 @@
   <link rel="stylesheet" href="/themes/{theme.key}.css" />
   <link rel="stylesheet" href="/themes/{theme.mode}.css" />
 </svelte:head>
+
+<pre>
+  <code>
+    {cf}
+  </code>
+</pre>
