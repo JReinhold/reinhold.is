@@ -12,7 +12,7 @@ export const getSunTheme = (countryCode: string | null): Theme => {
       countryCodeLocationMap.has(countryCode)
         ? countryCodeLocationMap.get(countryCode)
         : // default to US country if we can't determine it from the header
-          countryCodeLocationMap.get("US")
+          countryCodeLocationMap.get("DK")
     ) as ClientLocation;
 
     //https://github.com/mourner/suncalc#sun-position
@@ -27,35 +27,28 @@ export const getSunTheme = (countryCode: string | null): Theme => {
     // default to noon as fallback
     const theme = { ...FALLBACK_THEME };
 
-    let smallestDistance;
+    let smallestAltitudeDifference: number;
+    themeSunPositions
+      // only factor in the themes where the sun is on the same side (east/west)
+      // eg. in the morning disregard the 'sunset' theme
+      .filter(
+        ({ azimuth }) => currentSunDegrees.azimuth < 180 === azimuth < 180,
+      )
+      // select the theme whose altitude is closest to the current sun's altitude
+      .forEach(({ key, altitude, mode }) => {
+        const altitudeDifference = Math.abs(
+          currentSunDegrees.altitude - altitude,
+        );
+        if (
+          !smallestAltitudeDifference ||
+          altitudeDifference < smallestAltitudeDifference
+        ) {
+          smallestAltitudeDifference = altitudeDifference;
+          theme.key = key;
+          theme.mode = mode;
+        }
+      });
 
-    /*
-    We want to determine which theme sun position that is closest
-    to the current sun position.
-    So for each theme we calculate its distance to the current sun
-    and select the one that is closest.
-    The distances are calculated using the "Great-circle distance" formulae:
-
-    cos(d) = sin(alt1) * sin(alt2) + cos(alt1) * cos(alt2) * cos(azi1 - azi2)
-    
-    See:
-    https://en.wikipedia.org/wiki/Great-circle_distance
-    https://astronomy.stackexchange.com/a/2543
-    */
-    for (const { key, altitude, azimuth, mode } of themeSunPositions) {
-      const distance = Math.acos(
-        Math.sin(currentSunDegrees.altitude) * Math.sin(altitude) +
-          Math.cos(currentSunDegrees.altitude) *
-            Math.cos(altitude) *
-            Math.cos(currentSunDegrees.azimuth - azimuth),
-      );
-
-      if (!smallestDistance || distance < smallestDistance) {
-        smallestDistance = distance;
-        theme.key = key;
-        theme.mode = mode;
-      }
-    }
     return theme;
   } catch {
     return FALLBACK_THEME;
