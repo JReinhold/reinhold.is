@@ -31,8 +31,10 @@
   <link rel="stylesheet" href="/themes/{theme.mode}.css" />
 </svelte:head>
 
-<pre>
-  <code>
-    {cf}
-  </code>
-</pre>
+<section>
+  <pre>
+    <code>
+      {cf}
+    </code>
+  </pre>
+</section>
