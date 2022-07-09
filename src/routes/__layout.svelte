@@ -5,11 +5,10 @@
   import "../app.css";
 
   export const load: import("@sveltejs/kit").Load = async ({ session }) => {
-    const theme = getSunTheme(session.countryCode);
+    const theme = getSunTheme(session.clientGeolocation);
     return {
       props: {
         theme,
-        cf: (session as any).cf,
       },
       stuff: {
         theme,
@@ -20,7 +19,6 @@
 
 <script lang="ts">
   export let theme: Theme;
-  export let cf: any;
 </script>
 
 <LazyBackgroundImage {theme} />
@@ -30,11 +28,3 @@
   <link rel="stylesheet" href="/themes/{theme.key}.css" />
   <link rel="stylesheet" href="/themes/{theme.mode}.css" />
 </svelte:head>
-
-<section>
-  <pre>
-    <code>
-      {cf}
-    </code>
-  </pre>
-</section>
