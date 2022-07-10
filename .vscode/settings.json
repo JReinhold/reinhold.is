@@ -4,7 +4,7 @@
   ],
   "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "yaml.schemas": {
     "https://json.schemastore.org/github-workflow.json": "file:///Users/jeppe/dev/reinhold.is/.github/workflows/deploy.yml"

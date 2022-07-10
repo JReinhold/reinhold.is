@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 
-import type { Theme } from "$lib/get-sun-theme";
+import type { Theme, ClientGeolocation } from "$lib/get-sun-theme";
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -17,8 +17,9 @@ declare global {
     }
 
     interface Session {
-      countryCode: string | null;
+      clientGeolocation: ClientGeolocation;
     }
+
     interface Stuff {
       theme: Theme;
     }

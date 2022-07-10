@@ -5,7 +5,7 @@
   import "../app.css";
 
   export const load: import("@sveltejs/kit").Load = async ({ session }) => {
-    const theme = getSunTheme(session.countryCode);
+    const theme = getSunTheme(session.clientGeolocation);
     return {
       props: {
         theme,
