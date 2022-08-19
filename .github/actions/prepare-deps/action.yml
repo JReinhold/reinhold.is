@@ -17,3 +17,7 @@ runs:
     - name: Install dependencies
       shell: bash
       run: pnpm install --frozen-lockfile
+
+    - name: Sync Svelte
+      shell: bash
+      run: pnpm run sync
