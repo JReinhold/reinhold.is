@@ -13,6 +13,7 @@
     "start": "turbo run preview",
     "format": "prettier --plugin-search-dir=. --write .",
     "format:check": "prettier --plugin-search-dir=. --list-different .",
+    "sync": "svelte-kit sync",
     "lint": "eslint .",
     "svelte-check": "svelte-check --tsconfig ./tsconfig.json",
     "svelte-check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
@@ -20,7 +21,8 @@
     "test:watch": "playwright test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
-    "validate": "turbo run validate-all"
+    "validate": "turbo run validate-all",
+    "prepare": "svelte-kit sync"
   },
   "dependencies": {
     "open-props": "^1.4.13"
