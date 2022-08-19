@@ -2,7 +2,7 @@
   import Portrait from "../portrait.svelte";
   import { page } from "$app/stores";
 
-  const { theme } = $page.stuff;
+  const { theme } = $page.data;
 </script>
 
 <div class="container">
