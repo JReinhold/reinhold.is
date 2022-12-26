@@ -8,13 +8,17 @@
 <section {id}>
   <SectionHeading>🤝/{id}</SectionHeading>
   <div>
-    <a rel="me" href="https://twitter.com/drreinhold">
-      <Icon name="fa-brands:twitter-square" />
-      @DrReinhold
-    </a>
     <a rel="me" href="https://fosstodon.org/@reinhold">
       <Icon name="fa6-brands:mastodon" />
       @reinhold@fosstodon.org
+    </a>
+    <a rel="me" href="https://discordapp.com/users/303516516039655427">
+      <Icon name="fa6-brands:discord" />
+      JReinhold#4884
+    </a>
+    <a rel="me" href="https://twitter.com/drreinhold">
+      <Icon name="fa-brands:twitter-square" />
+      @DrReinhold
     </a>
     <a rel="me" href="https://github.com/jreinhold">
       <Icon name="fa-brands:github-square" />
@@ -71,5 +75,6 @@
 
   :global([svelte-icon]) {
     width: var(--size-7);
+    height: var(--size-7);
   }
 </style>
