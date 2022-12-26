@@ -1,5 +1,17 @@
 <p>
-  I've always <strong>loved</strong> tinkering with software and electronics.
+  I've always <strong>loved</strong> tinkering with software, electronics and
+  engaging with the open source community. I currently work as an Open Sourcerer
+  🧙‍♂️ at <a href="https://chromatic.com" target="_blank">Chromatic</a>, spending
+  all my time making
+  <a href="https://storybook.js.org" target="_blank">Storybook 📚</a> better for
+  everyone.
+</p>
+<p>
+  I enjoy combining creativity and empathy to solve actual problems for real
+  people, eg. by building excellent developer tooling, UX focused interfaces or
+  facilitating communication between different stakeholders. Out of pure luck
+  this was also what my IT Product Development degree prepared me for, as it
+  taught me the full spectrum from Computer Science to UX to business.
 </p>
 <p>I started my career in tech by co-founding a series of startups:</p>
 <ol>
@@ -14,15 +26,6 @@
   While the success of the startups differ (UniHelper is still full steam
   ahead), they all contributed to who I am today and I've learned a ton about
   building products, teams and processes. I've also done some freelancing and
-  I'm currently making use of all my skills as a Frontend Tech Lead at <a
-    href="https://paperpal.com"
-    target="_blank">Paperpal</a
-  >.
-</p>
-<p>
-  I enjoy combining creativity and empathy to solve actual problems for real
-  people, eg. by building excelent developer tooling, UX focused interfaces or
-  facilitating communication between different stakeholders. Out of pure luck
-  this was also what my IT Product Development degree prepared me for, as it
-  taught me the full spectrum from Computer Science to UX to business.
+  recently dabbled with management as a Frontend Tech Lead at
+  <a href="https://paperpal.com" target="_blank">Paperpal</a>.
 </p>

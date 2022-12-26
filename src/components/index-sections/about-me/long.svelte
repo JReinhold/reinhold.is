@@ -72,15 +72,24 @@
   I've also done some consulting for LEGO which was really fun. On the frontend
   I helped build the first prototypes of their internal design system, and I was
   building a full GraphQL backend with AWS Lambdas and everything that requires.
-  I'm not sure it was the right tool for the right job but it was a learning
-  experience for sure.
+  I'm pretty sure it was the wrong tool for the job but it was a learning
+  experience for sure. If you bang hard enough on a screw, eventually it will
+  turn into a nail.
 </p>
 <p>
-  Today I'm a Frontend Tech Lead at <a
-    href="https://paperpal.com"
-    target="_blank">Paperpal</a
-  > where I try to steer the frontend decisions. I really enjoy the challenge of
-  building complex systems and managing all the stakeholders.
+  Today I'm a Software Engineer at <a
+    href="https://chromatic.com"
+    target="_blank">Chromatic</a
+  >
+  where I work on
+  <a href="https://storybook.js.org" target="_blank">Storybook</a>. I absolutely
+  love working in the Storybook team, utilizing and expanding all my JavaScript
+  knowledge and engaging with the open source community and users. All while
+  building a tool I've made heavy use of myself throughout my whole career.
+</p>
+<p>
+  When I'm not working I tend to the farm with my wife and my two small
+  toddlers.
 </p>
 
 <style>
