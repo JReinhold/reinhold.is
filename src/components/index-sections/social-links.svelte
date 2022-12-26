@@ -8,19 +8,23 @@
 <section {id}>
   <SectionHeading>🤝/{id}</SectionHeading>
   <div>
-    <a href="https://twitter.com/drreinhold" class="social-link">
+    <a rel="me" href="https://twitter.com/drreinhold">
       <Icon name="fa-brands:twitter-square" />
       @DrReinhold
     </a>
-    <a href="https://github.com/jreinhold" class="social-link">
+    <a rel="me" href="https://fosstodon.org/@reinhold">
+      <Icon name="fa6-brands:mastodon" />
+      @reinhold@fosstodon.org
+    </a>
+    <a rel="me" href="https://github.com/jreinhold">
       <Icon name="fa-brands:github-square" />
       JReinhold
     </a>
-    <a href="https://linkedin.com/in/jeppereinhold" class="social-link">
+    <a rel="me" href="https://linkedin.com/in/jeppereinhold">
       <Icon name="fa-brands:linkedin" />
       Jeppe Reinhold
     </a>
-    <a href="mailto:jeppe@reinhold.is" class="social-link">
+    <a rel="me" href="mailto:jeppe@reinhold.is">
       <Icon name="heroicons-solid:mail" />
       jeppe@reinhold.is
     </a>
