@@ -99,7 +99,7 @@
 
   @media (max-width: 767px) {
     .container {
-      width: var(--size-13());
+      width: var(--size-13);
     }
   }
 
