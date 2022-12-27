@@ -10,7 +10,7 @@
   <div>
     <a rel="me" href="https://fosstodon.org/@reinhold">
       <Icon name="fa6-brands:mastodon" />
-      @reinhold@fosstodon.org
+      @reinhold
     </a>
     <a rel="me" href="https://discordapp.com/users/303516516039655427">
       <Icon name="fa6-brands:discord" />
@@ -38,7 +38,7 @@
 <style>
   div {
     display: grid;
-    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+    grid-template-columns: repeat(2, minmax(8rem, 1fr));
     align-items: center;
     gap: var(--size-4);
   }
@@ -47,6 +47,7 @@
     display: flex;
     flex-direction: column;
     place-items: center;
+    text-align: center;
     padding: var(--size-4);
     font-weight: var(--font-weight-5);
     gap: var(--size-3);
