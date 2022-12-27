@@ -20,11 +20,14 @@
     });
   }
 
-  const nextImage = () => {
-    if (window.innerWidth < 768) {
-      // disable interaction on mobile sizes
+  const nextImage = (event: PointerEvent) => {
+    if (window.matchMedia("(prefers-reduced-data: reduce)").matches) {
+      // disable multiple images on data saver mode
       return;
     }
+
+    (event.currentTarget as HTMLButtonElement).classList.remove("inactive");
+
     if (prefetchedImages.length < IMAGE_AMOUNT) {
       // prefetch next unprefetched image, if any
       rIC(() => {
@@ -41,9 +44,29 @@
       currentImage++;
     }
   };
+
+  let debounceTimeout: ReturnType<typeof setTimeout>;
+  const debouncedInactivateImage = (event: TouchEvent) => {
+    if (window.matchMedia("(prefers-reduced-data: reduce)").matches) {
+      // disable portrait interaction on data saver mode
+      return;
+    }
+
+    const element = event.currentTarget as HTMLButtonElement;
+    if (debounceTimeout) {
+      clearTimeout(debounceTimeout);
+    }
+    debounceTimeout = setTimeout(() => {
+      element.classList.add("inactive");
+    }, 1000);
+  };
 </script>
 
-<button on:click={nextImage} class="container">
+<button
+  on:pointerup={nextImage}
+  on:touchend={debouncedInactivateImage}
+  class="container"
+>
   {#key currentImage}
     <img
       src={`/portraits/${currentImage}.webp`}
@@ -56,37 +79,33 @@
 </button>
 
 <style>
+  .container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-blob-2);
+    height: var(--size-14);
+    padding: 0;
+    transform-origin: center center;
+    transition: transform 0.2s ease-in-out;
+  }
+  .container:hover:not(.inactive) {
+    transform: scale(1.1);
+  }
+
+  .container:hover:not(.inactive) > img {
+    max-height: 100%;
+    top: 0;
+  }
+
   @media (max-width: 767px) {
     .container {
-      z-index: -1;
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-blob-2);
-      height: var(--size-14);
-      width: var(--size-13);
-      padding: 0;
-      cursor: default;
+      width: var(--size-13());
     }
   }
 
   @media (min-width: 768px) {
     .container {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-blob-2);
-      height: var(--size-14);
       width: var(--size-12);
-      padding: 0;
-      transform-origin: center center;
-      transition: transform 0.2s ease-in-out;
-    }
-    .container:hover {
-      transform: scale(1.1);
-    }
-
-    .container:hover > img {
-      max-height: 100%;
-      top: 0;
     }
   }
 
