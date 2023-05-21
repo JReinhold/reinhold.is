@@ -27,7 +27,7 @@ Sincerely yours, `;
     return nextLength < previousLength ? nextLength - 1 : nextLength + 1;
   };
 
-  const onInput: svelteHTML.FormEventHandler<HTMLTextAreaElement> = (event) => {
+  const onInput: svelte.JSX.FormEventHandler<HTMLTextAreaElement> = (event) => {
     const textArea = event.currentTarget as HTMLTextAreaElement;
     const prevLength =
       (textArea.textContent && textArea.textContent.length) || 0;

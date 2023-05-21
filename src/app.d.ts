@@ -9,7 +9,9 @@ declare namespace App {
 
   interface Platform {}
 
-  interface PrivateEnv {}
+  interface PrivateEnv {
+    GITHUB_TOKEN: string;
+  }
 
   interface PublicEnv {}
 }

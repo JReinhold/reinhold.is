@@ -7,7 +7,9 @@
   import FakeWriting from "../components/index-sections/fake-writing/fake-writing-section.svelte";
   import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
   import Footer from "../components/footer.svelte";
+  import Blogging from "../components/index-sections/blogging.svelte";
 
+  export let data;
   let title = "Jeppe Reinhold";
   let description = "reinhold.is Jeppe's Personal Website";
   let permalink = "https://reinhold.is/";
@@ -16,6 +18,7 @@
 <BaseHead {title} {description} {permalink} />
 <div class="sections-container">
   <Hero />
+  <Blogging posts={data.posts} />
   <SocialLinks />
   <AboutMe />
   <Ratings />

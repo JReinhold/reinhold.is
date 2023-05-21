@@ -8,27 +8,31 @@
 <section {id}>
   <SectionHeading>🤝/{id}</SectionHeading>
   <div>
-    <a rel="me" href="https://fosstodon.org/@reinhold">
+    <a rel="me" target="_blank" href="https://fosstodon.org/@reinhold">
       <Icon name="fa6-brands:mastodon" />
       @reinhold
     </a>
-    <a rel="me" href="https://discordapp.com/users/303516516039655427">
+    <a
+      rel="me"
+      target="_blank"
+      href="https://discordapp.com/users/303516516039655427"
+    >
       <Icon name="fa6-brands:discord" />
       JReinhold#4884
     </a>
-    <a rel="me" href="https://twitter.com/drreinhold">
+    <a rel="me" target="_blank" href="https://twitter.com/drreinhold">
       <Icon name="fa-brands:twitter-square" />
       @DrReinhold
     </a>
-    <a rel="me" href="https://github.com/jreinhold">
+    <a rel="me" target="_blank" href="https://github.com/jreinhold">
       <Icon name="fa-brands:github-square" />
       JReinhold
     </a>
-    <a rel="me" href="https://linkedin.com/in/jeppereinhold">
+    <a rel="me" target="_blank" href="https://linkedin.com/in/jeppereinhold">
       <Icon name="fa-brands:linkedin" />
       Jeppe Reinhold
     </a>
-    <a rel="me" href="mailto:jeppe@reinhold.is">
+    <a rel="me" target="_blank" href="mailto:jeppe@reinhold.is">
       <Icon name="heroicons-solid:mail" />
       jeppe@reinhold.is
     </a>
@@ -51,7 +55,7 @@
     padding: var(--size-4);
     font-weight: var(--font-weight-5);
     gap: var(--size-3);
-    border-radius: 1.1rem;
+    border-radius: var(--radius-3);
     transition: transform 0.1s ease-out;
   }
 
