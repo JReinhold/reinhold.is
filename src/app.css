@@ -18,7 +18,7 @@ footer {
   padding: var(--size-fluid-2);
   gap: var(--size-1);
 
-  border-radius: var(--radius-4);
+  border-radius: var(--radius-3);
 }
 
 @supports (backdrop-filter: blur(30px)) {
