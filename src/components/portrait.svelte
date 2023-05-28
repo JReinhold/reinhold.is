@@ -72,8 +72,8 @@
       src={`/portraits/${currentImage}.webp`}
       alt="portrait of me"
       class={`portrait-${currentImage}`}
-      in:fly={{ x: 160, opacity: 1, duration: 300, delay: 0 }}
-      out:fly={{ x: -160, opacity: 1, duration: 300, delay: 0 }}
+      in:fly|local={{ x: 160, opacity: 1, duration: 300, delay: 0 }}
+      out:fly|local={{ x: -160, opacity: 1, duration: 300, delay: 0 }}
     />
   {/key}
 </button>
