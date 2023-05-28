@@ -31,7 +31,7 @@
   {/each}
 </div>
 
-<style>
+<style lang="postcss">
   .text {
     justify-self: end;
     text-align: end;
@@ -44,9 +44,5 @@
 
   .misaligned {
     margin-left: -1rem;
-  }
-
-  :global([svelte-icon]) {
-    width: var(--size-6);
   }
 </style>

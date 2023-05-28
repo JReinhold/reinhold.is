@@ -29,3 +29,9 @@
 </script>
 
 {@html svgElement}
+
+<style lang="postcss">
+  :global([svelte-icon]) {
+    width: var(--size-6);
+  }
+</style>

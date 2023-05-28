@@ -1,11 +1,15 @@
+<script lang="ts">
+  import H2 from "./h2.svelte";
+</script>
+
 <div>
   <subtitle> reinhold.is </subtitle>
-  <h2>
+  <H2>
     <slot />
-  </h2>
+  </H2>
 </div>
 
-<style>
+<style lang="postcss">
   div {
     display: flex;
     flex-direction: column;

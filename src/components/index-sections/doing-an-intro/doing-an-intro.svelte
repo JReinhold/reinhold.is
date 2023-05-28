@@ -1,5 +1,6 @@
 <script lang="ts">
-  import SectionHeading from "../../section-heading.svelte";
+  import SectionHeading from "../../atoms/section-heading.svelte";
+  import Section from "../../atoms/section.svelte";
   import Long from "./long.svelte";
   import Short from "./short.svelte";
   let isShortText = true;
@@ -10,14 +11,14 @@
   };
 </script>
 
-<section id="doing-a-quick-intro">
+<Section id="doing-a-quick-intro">
   <SectionHeading>
     🙋‍♂️/doing-a-<button on:click={toggle}>{toggleText}</button>-intro
   </SectionHeading>
   <svelte:component this={Content} />
-</section>
+</Section>
 
-<style>
+<style lang="postcss">
   button {
     font-size: var(--font-size-fluid-2);
     background: transparent;

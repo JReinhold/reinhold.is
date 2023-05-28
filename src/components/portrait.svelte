@@ -78,7 +78,7 @@
   {/key}
 </button>
 
-<style>
+<style lang="postcss">
   .container {
     position: relative;
     overflow: hidden;

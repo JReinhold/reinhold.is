@@ -1,6 +1,10 @@
 <script lang="ts">
   import Portrait from "../portrait.svelte";
   import { page } from "$app/stores";
+  import Title from "../atoms/title.svelte";
+  import Link from "../atoms/link.svelte";
+  import Paragraph from "../atoms/paragraph.svelte";
+  import Section from "../atoms/section.svelte";
 
   const { theme } = $page.data;
 </script>
@@ -9,42 +13,46 @@
   <div class="portrait-positioner">
     <Portrait />
   </div>
-  <section>
-    <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
+  <Section>
+    <Title>👋 Hi, Jeppe Reinhold.is me!</Title>
     <div>
-      <p>I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾 and entrepreneur 🚀.</p>
-      <p>
+      <Paragraph>
+        I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾 and entrepreneur 🚀.
+      </Paragraph>
+      <Paragraph>
         I enjoy nature, building great user experiences and tractoring. My
         favorite part of the world is the forrest just outside my door near
-        <a
+        <Link
           href="https://goo.gl/maps/ae3A6dXX89v"
           target="_blank"
           aria-label="see aarhus google maps"
         >
           Aarhus, Denmark 🇩🇰
-        </a>
+        </Link>
         where I live with my wonderful family 👨‍👩‍👧‍👦.
-      </p>
-      <p>
+      </Paragraph>
+      <Paragraph>
         I'm also passionate about
-        <a href="https://typescriptlang.org" target="_blank"> TypeScript</a>,
-        <a href="https://svelte.dev" target="_blank"> Svelte</a>,
-        <a href="https://reactjs.org" target="_blank"> React</a>,
-        <a href="https://astro.build" target="_blank"> Astro</a>,
-        <a href="https://nodejs.org" target="_blank"> Node.js</a>, and the
+        <Link href="https://typescriptlang.org" target="_blank">
+          TypeScript</Link
+        >,
+        <Link href="https://svelte.dev" target="_blank">Svelte</Link>,
+        <Link href="https://reactjs.org" target="_blank">React</Link>,
+        <Link href="https://astro.build" target="_blank">Astro</Link>,
+        <Link href="https://nodejs.org" target="_blank">Node.js</Link>, and the
         JavaScript ecosystem in general.
-      </p>
-      <p>
-        You're currently <a
+      </Paragraph>
+      <Paragraph>
+        You're currently <Link
           href="https://github.com/JReinhold/reinhold.is/pull/33"
-          >getting the {theme.key.substring(2)} experience</a
+          >getting the {theme.key.substring(2)} experience</Link
         > on this site, come back later for another experience.
-      </p>
+      </Paragraph>
     </div>
-  </section>
+  </Section>
 </div>
 
-<style>
+<style lang="postcss">
   .container {
     position: relative;
     display: flex;

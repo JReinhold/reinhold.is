@@ -53,7 +53,7 @@ Sincerely yours, `;
   </div>
 </div>
 
-<style>
+<style lang="postcss">
   .container {
     display: flex;
     justify-content: center;

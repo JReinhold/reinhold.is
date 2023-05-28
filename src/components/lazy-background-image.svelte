@@ -25,7 +25,7 @@
   alt=""
 />
 
-<style>
+<style lang="postcss">
   img {
     position: fixed;
     top: 0;

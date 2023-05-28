@@ -2,9 +2,9 @@
   import BaseHead from "../components/base-head.svelte";
 
   import Hero from "../components/index-sections/hero.svelte";
-  import SocialLinks from "../components/index-sections/social-links.svelte";
-  import AboutMe from "../components/index-sections/about-me/about-me-section.svelte";
-  import FakeWriting from "../components/index-sections/fake-writing/fake-writing-section.svelte";
+  import SocialLinks from "../components/index-sections/reachable-at/reachable-at-section.svelte";
+  import AboutMe from "../components/index-sections/doing-an-intro/doing-an-intro.svelte";
+  import FakeWriting from "../components/index-sections/writing-with-you/writing-with-you.svelte";
   import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
   import Footer from "../components/footer.svelte";
   import Blogging from "../components/index-sections/blogging.svelte";
@@ -26,7 +26,7 @@
   <Footer />
 </div>
 
-<style>
+<style lang="postcss">
   .sections-container {
     display: flex;
     flex-direction: column;
