@@ -1,17 +1,59 @@
 <script lang="ts">
+  import Giscus from "@giscus/svelte";
   import { toLocaleDateString } from "$lib/format-date";
+  import Section from "../../../components/atoms/section.svelte";
+  import SectionContainer from "../../../components/atoms/section-container.svelte";
+  import H2 from "../../../components/atoms/h2.svelte";
 
   export let data;
 </script>
 
-{#each data.post as post}
-  <h3>{post.title}</h3>
-  <p>{post.subtitle}</p>
+<SectionContainer>
+  <Section element="header">
+    <h1>{data.post.title}</h1>
+    <p role="doc-subtitle">{data.post.subtitle}</p>
+    <div class="meta">
+      <span>
+        {data.post.publishedAt
+          ? "Published: " + toLocaleDateString(data.post.publishedAt)
+          : "Unpublished draft"}
+      </span>
+      <span>{data.post.readingTime.text}</span>
+    </div>
+  </Section>
 
-  <div>
-    Published: {toLocaleDateString(post.publishedAt)}
-  </div>
-  <div>{post.readingTime.text}</div>
+  <Section>
+    {@html data.post.html}
+  </Section>
+  <Section>
+    <H2>Comments</H2>
+    <Giscus
+      src="https://giscus.app/client.js"
+      repo="jreinhold/reinhold.is"
+      repoId="MDEwOlJlcG9zaXRvcnk5ODkxOTIyMw=="
+      mapping="number"
+      term={data.post.discussionNumber}
+      reactionsEnabled="1"
+      inputPosition="bottom"
+      theme="light"
+      lang="en"
+      crossorigin="anonymous"
+      loading="lazy"
+      async
+    />
+  </Section>
+</SectionContainer>
 
-  {@html post.html}
-{/each}
+<style>
+  .meta {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--size-5);
+    align-items: center;
+
+    & span {
+      font-weight: var(--font-weight-5);
+    }
+  }
+</style>

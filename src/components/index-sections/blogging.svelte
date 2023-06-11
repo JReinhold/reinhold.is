@@ -3,6 +3,7 @@
   import Section from "../atoms/section.svelte";
   import Link from "../atoms/link.svelte";
   import SectionHeading from "../atoms/section-heading.svelte";
+  import Paragraph from "../atoms/paragraph.svelte";
 
   const id = "blogging";
 
@@ -23,6 +24,8 @@
           <span>{post.readingTime.text} read</span>
         </p>
       </Link>
+    {:else}
+      <Paragraph>... but none of them are published yet. 🙃</Paragraph>
     {/each}
   </div>
 </Section>

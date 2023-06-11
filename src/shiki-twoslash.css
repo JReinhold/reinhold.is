@@ -1,4 +1,4 @@
-/*  Start of Shiki Twoslash CSS:
+/*
 
 Code blocks structurally look like: 
 
@@ -11,54 +11,66 @@ Code blocks structurally look like:
   </pre> 
 */
 
+/* Line numbering */
+.code-container code::before {
+  counter-reset: listing;
+}
+.code-container .line {
+  counter-increment: listing;
+
+  &::before {
+    content: counter(listing);
+    display: inline-block;
+    text-align: right;
+    width: 4ch;
+    padding-right: var(--size-3);
+    color: var(--gray-7);
+  }
+}
+
 pre {
   /* In theory shiki will overwrite these, but this is to make sure there are defaults regardless */
   background-color: white;
   color: black;
 
-  /* Give it some space to breathe */
-  padding: 12px;
-
-  /* All code samples get a grey border, twoslash ones get a different color */
-  border-left: 1px solid #999;
-  border-bottom: 1px solid #999;
-
-  margin-bottom: 3rem;
+  border-radius: var(--radius-2);
+  padding: var(--size-2);
 
   /* Important to allow the code to move horizontally; */
   overflow-x: auto;
   position: relative;
-}
-pre.shiki {
-  overflow-x: auto;
-}
-pre.shiki:hover .dim {
-  opacity: 1;
-}
-pre.shiki div.dim {
-  opacity: 0.5;
-}
-pre.shiki div.dim,
-pre.shiki div.highlight {
-  margin: 0;
-  padding: 0;
-}
-pre.shiki div.highlight {
-  opacity: 1;
-  background-color: #f1f8ff;
-}
-pre.shiki div.line {
-  min-height: 1rem;
-}
 
-/** Don't show the language identifiers */
-pre.shiki .language-id {
-  display: none;
-}
+  &.shiki {
+    overflow-x: auto;
 
-/* Visually differentiates twoslash code samples  */
-pre.twoslash {
-  border-color: #719af4;
+    :hover .dim {
+      opacity: 1;
+    }
+
+    .dim {
+      opacity: 0.5;
+    }
+
+    .dim,
+    .highlight {
+      margin: 0;
+      padding: 0;
+    }
+
+    .highlight {
+      opacity: 1;
+      background-color: var(--gray-8);
+    }
+
+    .line {
+      min-height: 1rem;
+    }
+
+    /** Don't show the language identifiers */
+    .language-id {
+      display: none;
+    }
+  }
 }
 
 /** When you mouse over the pre, show the underlines */
@@ -71,14 +83,14 @@ pre.twoslash data-lsp:hover::before {
   content: attr(lsp);
   position: absolute;
   transform: translate(0, 1rem);
+  border-radius: var(--radius-2);
 
-  background-color: #3f3f3f;
-  color: #fff;
+  background-color: var(--gray-10);
+  border: solid 2px var(--gray-12);
+  color: var(--gray-2);
   text-align: left;
-  padding: 5px 8px;
-  border-radius: 2px;
-  font-family: "JetBrains Mono", Menlo, Monaco, Consolas, Courier New, monospace;
-  font-size: 14px;
+  padding: var(--size-1) var(--size-2);
+  font-size: var(--font-size-1);
   white-space: pre-wrap;
   z-index: 100;
 }

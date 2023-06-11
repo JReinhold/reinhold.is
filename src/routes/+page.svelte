@@ -8,6 +8,7 @@
   import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
   import Footer from "../components/footer.svelte";
   import Blogging from "../components/index-sections/blogging.svelte";
+  import SectionContainer from "../components/atoms/section-container.svelte";
 
   export let data;
   let title = "Jeppe Reinhold";
@@ -16,7 +17,7 @@
 </script>
 
 <BaseHead {title} {description} {permalink} />
-<div class="sections-container">
+<SectionContainer>
   <Hero />
   <Blogging posts={data.posts} />
   <SocialLinks />
@@ -24,16 +25,4 @@
   <Ratings />
   <FakeWriting />
   <Footer />
-</div>
-
-<style lang="postcss">
-  .sections-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--size-fluid-3);
-    max-width: calc(75ch + var(--size-fluid-2));
-    margin: auto;
-    padding: var(--size-7) 0;
-  }
-</style>
+</SectionContainer>

@@ -31,12 +31,10 @@ export const parseMarkdown = async (
     .use(remarkParse)
     .use(remarkFrontmatter)
     .use(remarkGfm)
-    .use(remarkShikiTwoslash, { theme: "github-dark" })
+    .use(remarkShikiTwoslash, { theme: "github-dark-dimmed" })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
-
-  console.log("LOG html:", vfile);
 
   return { data, html: String(vfile) };
 };

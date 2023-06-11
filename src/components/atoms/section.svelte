@@ -1,7 +1,13 @@
-<section {...$$restProps}><slot /></section>
+<script lang="ts">
+  export let element: keyof HTMLElementTagNameMap = "section";
+</script>
+
+<svelte:element this={element} {...$$restProps} class="section"
+  ><slot /></svelte:element
+>
 
 <style lang="postcss">
-  section {
+  .section {
     display: flex;
     flex-direction: column;
 

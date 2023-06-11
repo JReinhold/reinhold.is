@@ -8,3 +8,7 @@ html {
   font-family: var(--font-sans);
   background-color: var(--gray-9);
 }
+
+pre > div[class*="code-container"] > code {
+  padding: 0;
+}

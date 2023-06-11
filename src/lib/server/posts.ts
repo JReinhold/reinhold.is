@@ -13,19 +13,32 @@ const markdownDataSchema = z.object({
   matter: z.object({
     subtitle: z.string(),
     slug: z.string(),
-    publishedAt: z.string().optional().pipe(z.coerce.date()),
+    publishedAt: z
+      .string()
+      .optional()
+      .transform((arg) => {
+        if (!arg) return undefined;
+        return new Date(arg);
+      }),
   }),
 });
 
-export const getPost = async (slug: Post["slug"]): Promise<Post[]> => {
+export const getPost = async (slug: Post["slug"]): Promise<Post> => {
   const discussions = await getDiscussions();
   const posts = await Promise.all(discussions.map(mapDiscussionToPost));
-  return posts;
+  const post = posts.find((post) => post.slug === slug);
+  if (!post) {
+    throw new Error(`Post not found: ${slug}`);
+  }
+  return post;
 };
 
-export const getPosts = async (): Promise<Post[]> => {
+export const getPosts = async (publishedOnly = true): Promise<Post[]> => {
   const discussions = await getDiscussions();
   const posts = await Promise.all(discussions.map(mapDiscussionToPost));
+  if (publishedOnly) {
+    return posts.filter((post) => post.publishedAt);
+  }
   return posts;
 };
 
@@ -36,6 +49,7 @@ const mapDiscussionToPost = async (discussion: Discussion): Promise<Post> => {
   return postSchema.parse({
     title: discussion.title,
     html,
+    discussionNumber: discussion.number,
     readingTime,
     ...matter,
   });

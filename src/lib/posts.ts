@@ -6,6 +6,7 @@ export const postSchema = z.object({
   html: z.string(),
   slug: z.string(),
   publishedAt: z.date().optional(),
+  discussionNumber: z.number(),
   readingTime: z.object({
     text: z.string(),
     minutes: z.number(),

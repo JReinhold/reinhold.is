@@ -1,5 +1,6 @@
 <script lang="ts">
   import Link from "../../atoms/link.svelte";
+  import Paragraph from "../../atoms/paragraph.svelte";
 </script>
 
 <Paragraph>

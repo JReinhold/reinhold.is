@@ -15,6 +15,7 @@ const gql = graphql.defaults({
 const discussionSchema = z.object({
   body: z.string(),
   title: z.string(),
+  number: z.number(),
 });
 export type Discussion = z.infer<typeof discussionSchema>;
 
@@ -39,6 +40,7 @@ export const getDiscussions = async (): Promise<Discussion[]> => {
               node {
                 body
                 title
+                number
               }
             }
           }
