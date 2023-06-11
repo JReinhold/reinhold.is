@@ -5,7 +5,7 @@
   import SectionHeading from "../atoms/section-heading.svelte";
   import Paragraph from "../atoms/paragraph.svelte";
 
-  const id = "blogging";
+  const id = "writing";
 
   export let posts: Post[];
 </script>
@@ -14,7 +14,7 @@
   <SectionHeading>💭/{id}</SectionHeading>
   <div>
     {#each posts as post}
-      <Link href={`/blogging-about/${post.slug}`} rel="noopener">
+      <Link href={`/writing-about/${post.slug}`} rel="noopener">
         <h3>{post.title}</h3>
         <p>{post.subtitle}</p>
         <p class="meta">

@@ -7,7 +7,7 @@
   import FakeWriting from "../components/index-sections/writing-with-you/writing-with-you.svelte";
   import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
   import Footer from "../components/footer.svelte";
-  import Blogging from "../components/index-sections/blogging.svelte";
+  import Writing from "../components/index-sections/writing.svelte";
   import SectionContainer from "../components/atoms/section-container.svelte";
 
   export let data;
@@ -19,7 +19,7 @@
 <BaseHead {title} {description} {permalink} />
 <SectionContainer>
   <Hero />
-  <Blogging posts={data.posts} />
+  <Writing posts={data.posts} />
   <SocialLinks />
   <AboutMe />
   <Ratings />
