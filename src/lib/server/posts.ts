@@ -33,7 +33,9 @@ export const getPost = async (slug: Post["slug"]): Promise<Post> => {
   return post;
 };
 
-export const getPosts = async (publishedOnly = true): Promise<Post[]> => {
+export const getPosts = async ({ publishedOnly = true } = {}): Promise<
+  Post[]
+> => {
   const discussions = await getDiscussions();
   const posts = await Promise.all(discussions.map(mapDiscussionToPost));
   if (publishedOnly) {
