@@ -12,10 +12,10 @@
   <section>
     <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
     <div>
-      <p>I’m a software engineer 👨‍💻, hobby farmer 🧑‍🌾 and entrepreneur 🚀.</p>
+      <p>I’m a software engineer 👨‍💻, hobby lumber jack 🪵, husband 👩‍❤️‍👨 and dad.</p>
       <p>
-        I enjoy nature, building great user experiences and tractoring. My
-        favorite part of the world is the forrest just outside my door near
+        I enjoy the nature and building great user experiences - especially if the users are likeminded engineers.
+        My favorite part of the world is the forrest just outside my door near
         <a
           href="https://goo.gl/maps/ae3A6dXX89v"
           target="_blank"
@@ -29,7 +29,6 @@
         I'm also passionate about
         <a href="https://typescriptlang.org" target="_blank"> TypeScript</a>,
         <a href="https://svelte.dev" target="_blank"> Svelte</a>,
-        <a href="https://reactjs.org" target="_blank"> React</a>,
         <a href="https://astro.build" target="_blank"> Astro</a>,
         <a href="https://nodejs.org" target="_blank"> Node.js</a>, and the
         JavaScript ecosystem in general.

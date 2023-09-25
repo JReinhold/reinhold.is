@@ -1,20 +1,26 @@
 <script lang="ts">
   import SectionHeading from "../../section-heading.svelte";
-  import Long from "./long.svelte";
-  import Short from "./short.svelte";
-  let isShortText = true;
-  $: toggleText = isShortText ? "quick" : "longer";
-  $: Content = isShortText ? Short : Long;
-  const toggle = () => {
-    isShortText = !isShortText;
-  };
 </script>
 
-<section id="doing-a-quick-intro">
+<section id="introducing-himself">
   <SectionHeading>
-    🙋‍♂️/doing-a-<button on:click={toggle}>{toggleText}</button>-intro
+    🙋‍♂️/introducing-himself
   </SectionHeading>
-  <svelte:component this={Content} />
+  <p>
+    I've always <strong>loved</strong> tinkering with software, electronics and
+    engaging with the open source community. I currently work as an Open Sourcerer
+    🧙‍♂️ at <a href="https://chromatic.com" target="_blank">Chromatic</a>, spending
+    all my time making
+    <a href="https://storybook.js.org" target="_blank">Storybook 📚</a> better for
+    everyone.
+  </p>
+  <p>
+    I enjoy combining creativity and empathy to solve actual problems for real
+    people, eg. by building excellent developer tooling, UX focused interfaces or
+    facilitating communication between different stakeholders. I have a background
+    in the intersection between development and design, but most of my career has
+    gravitated towards frontend development and the JavaScript ecosystem.
+  </p>
 </section>
 
 <style>

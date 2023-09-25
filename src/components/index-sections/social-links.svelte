@@ -14,10 +14,10 @@
     </a>
     <a rel="me" href="https://discordapp.com/users/303516516039655427">
       <Icon name="fa6-brands:discord" />
-      JReinhold#4884
+      JReinhold
     </a>
-    <a rel="me" href="https://twitter.com/drreinhold">
-      <Icon name="fa-brands:twitter-square" />
+    <a rel="me" href="https://x.com/drreinhold">
+      <Icon name="fa-brands:x-square" />
       @DrReinhold
     </a>
     <a rel="me" href="https://github.com/jreinhold">
