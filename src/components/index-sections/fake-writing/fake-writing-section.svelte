@@ -1,10 +1,11 @@
 <script lang="ts">
+  import Emoji from "../../emoji.svelte";
   import SectionHeading from "../../section-heading.svelte";
   import Paper from "./paper.svelte";
 </script>
 
 <section>
-  <SectionHeading>✍️/writing-with-you</SectionHeading>
+  <SectionHeading><Emoji>✍️</Emoji>/writing-with-you</SectionHeading>
   <p>
     I could write pages and pages about myself, but that would be useless. True
     value comes in interaction with other people, likeminded or not. So, who do <em
