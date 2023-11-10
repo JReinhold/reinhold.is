@@ -17,7 +17,7 @@
       JReinhold
     </a>
     <a rel="me" href="https://x.com/drreinhold">
-      <Icon name="fa-brands:x-square" />
+      <Icon name="fa-brands:x-twitter" />
       @DrReinhold
     </a>
     <a rel="me" href="https://github.com/jreinhold">
