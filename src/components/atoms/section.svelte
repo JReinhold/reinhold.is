@@ -1,9 +1,15 @@
 <script lang="ts">
-  export let element: keyof HTMLElementTagNameMap = "section";
+  import type { Snippet } from "svelte";
+
+  const {
+    element = "section",
+    children,
+    ...props
+  }: { element: keyof HTMLElementTagNameMap; children: Snippet } = $props();
 </script>
 
-<svelte:element this={element} {...$$restProps} class="section"
-  ><slot /></svelte:element
+<svelte:element this={element} {...props} class="section"
+  >{@render children()}</svelte:element
 >
 
 <style lang="postcss">

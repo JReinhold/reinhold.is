@@ -1,11 +1,14 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import H2 from "./h2.svelte";
+
+  const { children }: { children: Snippet } = $props();
 </script>
 
 <div>
-  <subtitle> reinhold.is </subtitle>
+  <subtitle>reinhold.is</subtitle>
   <H2>
-    <slot />
+    {@render children()}
   </H2>
 </div>
 

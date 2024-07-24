@@ -1,4 +1,10 @@
-<div {...$$restProps}><slot /></div>
+<script lang="ts">
+  import type { Snippet } from "svelte";
+
+  const { children, ...props }: { children: Snippet } = $props();
+</script>
+
+<div {...props}>{@render children()}</div>
 
 <style lang="postcss">
   div {
