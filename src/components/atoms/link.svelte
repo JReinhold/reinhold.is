@@ -1,4 +1,3 @@
-<!-- svelte-ignore a11y-missing-attribute -->
 <a {...$$restProps}><slot /></a>
 
 <style lang="postcss">

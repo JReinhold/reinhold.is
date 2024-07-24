@@ -1,7 +1,7 @@
 import { getSunTheme } from "$lib/get-sun-theme";
 import type { LayoutServerLoad } from "./$types";
 
-export const load: LayoutServerLoad = async ({ request, platform }) => {
+export const load: LayoutServerLoad = async ({ platform }) => {
   // default fallback to somewhere at the center of USA, as that's where most visitors are from
   let clientGeolocation = {
     lat: 37.156767,

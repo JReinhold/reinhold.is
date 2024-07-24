@@ -7,7 +7,7 @@
   import "../../../shiki.css";
   import "../../../twoslash.css";
 
-  // workaround for https://github.com/sveltejs/language-tools/issues/1026
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- workaround for https://github.com/sveltejs/language-tools/issues/1026
   const UntypedGiscus = Giscus as any;
 
   export let data;
@@ -28,6 +28,7 @@
   </Section>
 
   <Section>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html data.post.html}
   </Section>
   <Section>

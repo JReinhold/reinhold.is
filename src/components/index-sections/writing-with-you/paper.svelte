@@ -50,7 +50,8 @@ Sincerely yours, `;
 
 <div class="container">
   <div class="paper">
-    <textarea on:input={onInput} bind:value={text} maxlength={maxLength} />
+    <textarea on:input={onInput} bind:value={text} maxlength={maxLength}
+    ></textarea>
   </div>
 </div>
 

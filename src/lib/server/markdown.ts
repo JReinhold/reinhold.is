@@ -26,7 +26,7 @@ export const parseMarkdown = async (
 
   
   \`\`\`
-  `
+  `;
   const processor = unified()
     .use(remarkParse)
     .use(remarkReadingTime as Plugin)
@@ -38,6 +38,7 @@ export const parseMarkdown = async (
   const { data } = await processor().use(remarkStringify).process(markdown);
 
   const vfile = await processor()
+    .use(remarkGfm)
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeShiki, {
       theme: "github-dark-dimmed",
