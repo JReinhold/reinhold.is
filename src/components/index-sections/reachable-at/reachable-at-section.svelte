@@ -23,7 +23,7 @@
     </ReachableAtLink>
     <ReachableAtLink
       href="https://twitter.com/drreinhold"
-      iconName="fa-brands:twitter-square"
+      iconName="fa-brands:x-twitter"
     >
       @DrReinhold
     </ReachableAtLink>

@@ -5,8 +5,8 @@
 <footer>
   <span>
     Built by Jeppe with help from <Link href="https://jkelstrup.com">Jonas</Link
-    >, using <Link href="https://svelte.dev" target="_blank">Svelte</Link>,
-    source on
+    >, using <Link href="https://kit.svelte.dev" target="_blank">SvelteKit</Link
+    >, source on
     <Link href="https://github.com/jreinhold/reinhold.is">GitHub</Link>,
     deployed to
     <Link href="https://pages.cloudflare.com">Cloudflare Pages</Link>.

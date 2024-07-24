@@ -9,12 +9,10 @@ export const load: LayoutServerLoad = async ({ request }) => {
   };
 
   try {
-    // a special cf property available in Cloudflare Workers
+    // cf is a special property available in Cloudflare Workers
     // see https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const cf = (request as any).cf;
-    const lat = Number.parseFloat(cf.latitude);
-    const long = Number.parseFloat(cf.longitude);
+    const lat = Number.parseFloat(request.cf.latitude);
+    const long = Number.parseFloat(request.cf.longitude);
     if (lat && long) {
       clientGeolocation = { lat, long };
     }

@@ -5,45 +5,49 @@ type ClientGeolocation = { lat: number; long: number };
 const FALLBACK_THEME: Theme = { mode: "light", key: "4-noon" };
 
 export const getSunTheme = ({ lat, long }: ClientGeolocation): Theme => {
+  let currentSunRadians: ReturnType<typeof SunCalc.getPosition>;
+
   try {
     //https://github.com/mourner/suncalc#sun-position
-    const currentSunRadians = SunCalc.getPosition(new Date(), lat, long);
-    // convert radians to degrees
-    // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
-    const currentSunDegrees = {
-      altitude: currentSunRadians.altitude * (180 / Math.PI),
-      azimuth: ((currentSunRadians.azimuth * 180) / Math.PI + 180) % 360,
-    };
-
-    // default to noon as fallback
-    const theme = { ...FALLBACK_THEME };
-
-    let smallestAltitudeDifference: number;
-    themeSunPositions
-      // only factor in the themes where the sun is on the same side (east/west)
-      // eg. in the morning disregard the 'sunset' theme
-      .filter(
-        ({ azimuth }) => currentSunDegrees.azimuth < 180 === azimuth < 180,
-      )
-      // select the theme whose altitude is closest to the current sun's altitude
-      .forEach(({ key, altitude, mode }) => {
-        const altitudeDifference = Math.abs(
-          currentSunDegrees.altitude - altitude,
-        );
-        if (
-          !smallestAltitudeDifference ||
-          altitudeDifference < smallestAltitudeDifference
-        ) {
-          smallestAltitudeDifference = altitudeDifference;
-          theme.key = key;
-          theme.mode = mode;
-        }
-      });
-
-    return theme;
+    currentSunRadians = SunCalc.getPosition(new Date(), lat, long);
   } catch {
     return FALLBACK_THEME;
   }
+  
+  // convert radians to degrees
+  // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
+  const currentSunDegrees = {
+    altitude: currentSunRadians.altitude * (180 / Math.PI),
+    azimuth: ((currentSunRadians.azimuth * 180) / Math.PI + 180) % 360,
+  };
+
+  let result = FALLBACK_THEME;
+  let smallestAltitudeDifference = Infinity;
+  
+  themeSunPositions
+    // only factor in the themes where the sun is on the same side (east/west)
+    // eg. in the morning disregard the 'sunset' theme
+    .filter(
+      (theme) => currentSunDegrees.azimuth < 180 === theme.azimuth < 180,
+    )
+    // select the theme whose altitude is closest to the current sun's altitude
+    .forEach((theme) => {
+      const altitudeDifference = Math.abs(
+        currentSunDegrees.altitude - theme.altitude,
+      );
+      if (
+        altitudeDifference >= smallestAltitudeDifference
+      ) { 
+        return;
+      }
+      smallestAltitudeDifference = altitudeDifference;
+      result = {
+        key: theme.key,
+        mode: theme.mode
+      };
+    });
+
+  return result;
 };
 
 export type Theme = { key: ThemeKey; mode: ThemeMode };

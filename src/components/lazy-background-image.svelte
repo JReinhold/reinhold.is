@@ -22,7 +22,7 @@
 <img
   class:blur={!highResLoaded}
   src={highResLoaded ? highResImageSource : lowResImageSource}
-  alt=""
+  alt="background image, sandy beach"
 />
 
 <style lang="postcss">
@@ -33,10 +33,7 @@
     width: 100%;
 
     /* from https://taylor.callsen.me/working-with-hero-image-height-in-mobile-browsers/ */
-    height: 100vh;
-    height: -moz-available;
-    height: -webkit-fill-available;
-    height: fill-available;
+    height: 100lvh;
 
     z-index: -1;
     user-select: none;
