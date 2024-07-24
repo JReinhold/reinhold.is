@@ -5,7 +5,7 @@
   "author": "jreinhold <jeppe@reinhold.is>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@8.6.1",
+  "packageManager": "pnpm@9.6.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
