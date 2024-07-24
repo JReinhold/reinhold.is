@@ -1,10 +1,14 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
 
-  const { children }: { children: Snippet } = $props();
+  const { children, ...props }: HTMLAttributes<HTMLHeadingElement> = $props();
 </script>
 
-<h1>{@render children()}</h1>
+<h1 {...props}>
+  {#if children}
+    {@render children()}
+  {/if}
+</h1>
 
 <style lang="postcss">
   h1 {

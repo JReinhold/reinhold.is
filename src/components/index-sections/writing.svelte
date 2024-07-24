@@ -7,7 +7,7 @@
 
   const id = "writing";
 
-  export let posts: Post[];
+  const { posts }: { posts: Post[] } = $props();
 </script>
 
 <Section {id}>

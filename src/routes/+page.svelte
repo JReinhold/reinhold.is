@@ -10,10 +10,11 @@
   import Writing from "../components/index-sections/writing.svelte";
   import SectionContainer from "../components/atoms/section-container.svelte";
 
-  export let data;
-  let title = "Jeppe Reinhold";
-  let description = "reinhold.is Jeppe's Personal Website";
-  let permalink = "https://reinhold.is/";
+  const title = "Jeppe Reinhold";
+  const description = "reinhold.is Jeppe's Personal Website";
+  const permalink = "https://reinhold.is/";
+
+  const { data } = $props();
 </script>
 
 <BaseHead {title} {description} {permalink} />

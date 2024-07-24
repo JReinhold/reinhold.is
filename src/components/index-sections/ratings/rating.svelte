@@ -1,17 +1,29 @@
 <script lang="ts">
   import Icon from "../../static-icon.svelte";
 
-  export let text: string;
-  export let amount: number;
-  export let max = 5;
-  export let iconFilled = "ic:round-star";
-  export let iconHalf = "ic:round-star-half";
-  export let iconEmpty = "ic:round-star-outline";
-  export let misalign = false;
+  type Props = {
+    text: string;
+    amount: number;
+    max?: number;
+    iconFilled?: string;
+    iconHalf?: string;
+    iconEmpty?: string;
+    misalign?: boolean;
+  };
 
-  const filledStars = Array.from({ length: Math.floor(amount) });
-  const halfStars = Array.from({ length: (amount / 0.5) % 2 });
-  const emptyStars = Array.from({ length: Math.floor(max - amount) });
+  const {
+    text,
+    amount,
+    max = 5,
+    iconFilled = "ic:round-star",
+    iconHalf = "ic:round-star-half",
+    iconEmpty = "ic:round-star-outline",
+    misalign = false,
+  }: Props = $props();
+
+  const filledStars = $derived(Array.from({ length: Math.floor(amount) }));
+  const halfStars = $derived(Array.from({ length: (amount / 0.5) % 2 }));
+  const emptyStars = $derived(Array.from({ length: Math.floor(max - amount) }));
 </script>
 
 <span class="text">{text}</span>
@@ -20,12 +32,15 @@
   role="img"
   aria-label={`${amount} out of ${max} stars`}
 >
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each filledStars as _}
     <Icon name={iconFilled} />
   {/each}
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each halfStars as _}
     <Icon name={iconHalf} />
   {/each}
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each emptyStars as _}
     <Icon name={iconEmpty} />
   {/each}

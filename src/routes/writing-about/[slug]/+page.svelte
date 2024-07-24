@@ -1,16 +1,19 @@
+<script context="module">
+  import "../../../shiki.css";
+  import "../../../twoslash.css";
+</script>
+
 <script lang="ts">
   import Giscus from "@giscus/svelte";
   import { toLocaleDateString } from "$lib/format-date";
   import Section from "../../../components/atoms/section.svelte";
   import SectionContainer from "../../../components/atoms/section-container.svelte";
   import H2 from "../../../components/atoms/h2.svelte";
-  import "../../../shiki.css";
-  import "../../../twoslash.css";
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- workaround for https://github.com/sveltejs/language-tools/issues/1026
   const UntypedGiscus = Giscus as any;
 
-  export let data;
+  const { data } = $props();
 </script>
 
 <SectionContainer>

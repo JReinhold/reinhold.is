@@ -1,10 +1,14 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { HTMLAnchorAttributes } from "svelte/elements";
 
-  const { children, ...props }: { children: Snippet } = $props();
+  const { children, ...props }: HTMLAnchorAttributes = $props();
 </script>
 
-<a {...props}>{@render children()}</a>
+<a {...props}>
+  {#if children}
+    {@render children()}
+  {/if}
+</a>
 
 <style lang="postcss">
   a {

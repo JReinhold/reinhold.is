@@ -1,15 +1,19 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import Link from "../../atoms/link.svelte";
   import Icon from "../../static-icon.svelte";
 
-  export let iconName: string;
-  export let href: string;
+  const {
+    iconName,
+    href,
+    children,
+  }: { iconName: string; href: string; children: Snippet } = $props();
 </script>
 
 <Link rel="me" target="_blank" {href}>
   <div class="link">
     <Icon name={iconName} />
-    <slot />
+    {@render children()}
   </div>
 </Link>
 

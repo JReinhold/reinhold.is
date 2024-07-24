@@ -1,8 +1,10 @@
 <script lang="ts">
+  import type { PointerEventHandler, TouchEventHandler } from "svelte/elements";
   import { fly } from "svelte/transition";
 
   const IMAGE_AMOUNT = 9;
-  let currentImage = 0;
+  let currentImage = $state(0);
+  let prefetchedImages = $state([0, 1]);
 
   // polyfill requestIdleCallback
   const rIC =
@@ -10,7 +12,6 @@
       ? (callback: () => void) => callback()
       : requestIdleCallback;
 
-  let prefetchedImages = [0, 1];
   // prefetch the second image on load
   if (typeof Image !== "undefined") {
     rIC(() => {
@@ -20,13 +21,13 @@
     });
   }
 
-  const nextImage = (event: PointerEvent) => {
+  const nextImage: PointerEventHandler<HTMLButtonElement> = (event) => {
     if (window.matchMedia("(prefers-reduced-data: reduce)").matches) {
       // disable multiple images on data saver mode
       return;
     }
 
-    (event.currentTarget as HTMLButtonElement).classList.remove("inactive");
+    event.currentTarget.classList.remove("inactive");
 
     if (prefetchedImages.length < IMAGE_AMOUNT) {
       // prefetch next unprefetched image, if any
@@ -46,25 +47,26 @@
   };
 
   let debounceTimeout: ReturnType<typeof setTimeout>;
-  const debouncedInactivateImage = (event: TouchEvent) => {
+  const debouncedInactivateImage: TouchEventHandler<HTMLButtonElement> = (
+    event,
+  ) => {
     if (window.matchMedia("(prefers-reduced-data: reduce)").matches) {
       // disable portrait interaction on data saver mode
       return;
     }
 
-    const element = event.currentTarget as HTMLButtonElement;
     if (debounceTimeout) {
       clearTimeout(debounceTimeout);
     }
     debounceTimeout = setTimeout(() => {
-      element.classList.add("inactive");
+      event.currentTarget.classList.add("inactive");
     }, 1000);
   };
 </script>
 
 <button
-  on:pointerup={nextImage}
-  on:touchend={debouncedInactivateImage}
+  onpointerup={nextImage}
+  ontouchend={debouncedInactivateImage}
   class="container"
 >
   {#key currentImage}

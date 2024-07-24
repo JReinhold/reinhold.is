@@ -1,11 +1,33 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import type { HTMLAttributes } from "svelte/elements";
 
-  const {
-    element = "section",
-    children,
-    ...props
-  }: { element: keyof HTMLElementTagNameMap; children: Snippet } = $props();
+  /**
+   * This type allows for two scenarios:
+   * 1. An optional 'element' property defaulting to 'section' if not specified.
+   * 2. A specific HTML element type when 'element' is explicitly set.
+   *
+   * The type ensures that only valid HTML attributes for the specified element
+   * (or generic HTMLElement attributes for 'section') are allowed.
+   *
+   * The type leverages TypeScript's discriminated union and mapped types to
+   * provide precise type checking and autocompletion based on the 'element' prop.
+   *
+   * Thank you Claude 3.5 Sonnet 🤖
+   */
+  type Props =
+    | ({
+        element?: "section";
+        children: Snippet;
+      } & HTMLAttributes<HTMLElement>)
+    | {
+        [K in keyof HTMLElementTagNameMap]: {
+          element?: K;
+          children: Snippet;
+        } & HTMLAttributes<HTMLElementTagNameMap[K]>;
+      }[keyof HTMLElementTagNameMap];
+
+  const { element = "section", children, ...props }: Props = $props();
 </script>
 
 <svelte:element this={element} {...props} class="section"

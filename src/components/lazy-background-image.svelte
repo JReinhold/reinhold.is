@@ -2,12 +2,12 @@
   import type { Theme } from "$lib/get-sun-theme";
   import { onMount } from "svelte";
 
-  export let theme: Theme;
+  const { theme }: { theme: Theme } = $props();
 
-  const lowResImageSource = `/backgrounds/${theme.key}-200.webp`;
-  const highResImageSource = `/backgrounds/${theme.key}-2000.webp`;
+  const lowResImageSource = $derived(`/backgrounds/${theme.key}-200.webp`);
+  const highResImageSource = $derived(`/backgrounds/${theme.key}-2000.webp`);
 
-  let highResLoaded = false;
+  let highResLoaded = $state(false);
 
   onMount(() => {
     const highResImage = new Image();
