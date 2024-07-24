@@ -1,9 +1,14 @@
 <script lang="ts">
+  import { Component } from "svelte";
   import Link from "../../atoms/link.svelte";
   import Paragraph from "../../atoms/paragraph.svelte";
   import SectionHeading from "../../atoms/section-heading.svelte";
   import Section from "../../atoms/section.svelte";
   import Rating from "./rating.svelte";
+
+  import StarIcon from "virtual:icons/ion/star";
+  import StarHalfIcon from "virtual:icons/ion/star-half";
+  import StarOutlineIcon from "virtual:icons/ion/star-outline";
 
   const id = "rating-himself";
 </script>
@@ -27,9 +32,9 @@
     <Rating
       text="Consistency"
       amount={2.5}
-      iconFilled="ion:star"
-      iconHalf="ion:star-half"
-      iconEmpty="ion:star-outline"
+      iconFilled={StarIcon as unknown as Component}
+      iconHalf={StarHalfIcon as unknown as Component}
+      iconEmpty={StarOutlineIcon as unknown as Component}
     />
     <Rating text="Going to bed early" amount={2} />
     <Rating text="CSS Layout" amount={4} misalign />

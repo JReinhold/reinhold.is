@@ -1,13 +1,16 @@
 <script lang="ts">
-  import Icon from "../../static-icon.svelte";
+  import type { Component } from "svelte";
+  import RoundStarIcon from "virtual:icons/ic/round-star";
+  import RoundStarHalfIcon from "virtual:icons/ic/round-star-half";
+  import RoundStarOutlineIcon from "virtual:icons/ic/round-star-outline";
 
   type Props = {
     text: string;
     amount: number;
     max?: number;
-    iconFilled?: string;
-    iconHalf?: string;
-    iconEmpty?: string;
+    iconFilled?: Component;
+    iconHalf?: Component;
+    iconEmpty?: Component;
     misalign?: boolean;
   };
 
@@ -15,9 +18,9 @@
     text,
     amount,
     max = 5,
-    iconFilled = "ic:round-star",
-    iconHalf = "ic:round-star-half",
-    iconEmpty = "ic:round-star-outline",
+    iconFilled = RoundStarIcon as unknown as Component,
+    iconHalf = RoundStarHalfIcon as unknown as Component,
+    iconEmpty = RoundStarOutlineIcon as unknown as Component,
     misalign = false,
   }: Props = $props();
 
@@ -34,15 +37,15 @@
 >
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each filledStars as _}
-    <Icon name={iconFilled} />
+    <svelte:component this={iconFilled} />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each halfStars as _}
-    <Icon name={iconHalf} />
+    <svelte:component this={iconHalf} />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each emptyStars as _}
-    <Icon name={iconEmpty} />
+    <svelte:component this={iconEmpty} />
   {/each}
 </div>
 
@@ -59,5 +62,9 @@
 
   .misaligned {
     margin-left: -1rem;
+  }
+
+  :global(.stars > svg) {
+    width: var(--size-6);
   }
 </style>
