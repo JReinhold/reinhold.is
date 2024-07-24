@@ -4,6 +4,8 @@
   import Section from "../../../components/atoms/section.svelte";
   import SectionContainer from "../../../components/atoms/section-container.svelte";
   import H2 from "../../../components/atoms/h2.svelte";
+  import "../../../shiki.css";
+  import "../../../twoslash.css";
 
   export let data;
 </script>

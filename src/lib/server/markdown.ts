@@ -7,7 +7,8 @@ import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkStringify from "remark-stringify";
 import remarkReadingTime from "remark-reading-time";
-import remarkShikiTwoslash from "remark-shiki-twoslash";
+import rehypeShiki from "@shikijs/rehype";
+import { transformerTwoslash } from "@shikijs/twoslash";
 
 export type ParsedMarkdown = {
   data: unknown;
@@ -17,22 +18,32 @@ export type ParsedMarkdown = {
 export const parseMarkdown = async (
   markdown: string,
 ): Promise<ParsedMarkdown> => {
-  const { data } = await unified()
+  markdown = `${markdown}
+  \`\`\`ts twoslash
+  const hello = "world";
+
+
+
+  
+  \`\`\`
+  `
+  const processor = unified()
     .use(remarkParse)
     .use(remarkReadingTime as Plugin)
     .use(remarkFrontmatter)
     .use(() => (_, content) => {
       matter(content);
-    })
-    .use(remarkStringify)
-    .process(markdown);
+    });
 
-  const vfile = await unified()
-    .use(remarkParse)
-    .use(remarkFrontmatter)
-    .use(remarkGfm)
-    .use(remarkShikiTwoslash, { theme: "github-dark-dimmed" })
+  const { data } = await processor().use(remarkStringify).process(markdown);
+
+  const vfile = await processor()
     .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeShiki, {
+      theme: "github-dark-dimmed",
+      transformers: [transformerTwoslash({ explicitTrigger: true })],
+      defaultLanguage: "typescript",
+    })
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(markdown);
 

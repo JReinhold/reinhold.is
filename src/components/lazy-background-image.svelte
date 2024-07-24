@@ -22,7 +22,7 @@
 <img
   class:blur={!highResLoaded}
   src={highResLoaded ? highResImageSource : lowResImageSource}
-  alt="background image, sandy beach"
+  alt="background, sandy beach"
 />
 
 <style lang="postcss">

@@ -1,6 +1,5 @@
 <script context="module" lang="ts">
   import "../app.css";
-  import "../shiki-twoslash.css";
 </script>
 
 <script lang="ts">

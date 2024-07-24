@@ -64,11 +64,14 @@ Sincerely yours, `;
     width: 100%;
     max-width: 34rem;
     /* shadow around paper */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 0 5px rgba(0, 0, 0, 0.2),
+      inset 0 0 50px rgba(0, 0, 0, 0.1);
     /* slight border around paper, to "make it pop" */
     border: 1px solid #b5b5b577;
     /* top whitespace, followed by repeating blue lines */
-    background: linear-gradient(white, white) 0 0 / 100% 65px no-repeat,
+    background:
+      linear-gradient(white, white) 0 0 / 100% 65px no-repeat,
       linear-gradient(#dfe8ec 0%, white 8%) 0 65px / 100% 30px;
 
     color: var(--gray-9);
