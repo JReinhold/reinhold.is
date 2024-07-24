@@ -1,6 +1,9 @@
 /// <reference types="@sveltejs/kit" />
 /// <reference types="@sveltejs/adapter-cloudflare" />
 
+// See https://github.com/unplugin/unplugin-icons#frameworks
+import "unplugin-icons/types/svelte";
+
 // See https://kit.svelte.dev/docs/types#app
 
 declare global {

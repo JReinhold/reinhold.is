@@ -1,18 +1,12 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import Link from "../../atoms/link.svelte";
-  import Icon from "../../static-icon.svelte";
 
-  const {
-    iconName,
-    href,
-    children,
-  }: { iconName: string; href: string; children: Snippet } = $props();
+  const { href, children }: { href: string; children: Snippet } = $props();
 </script>
 
 <Link rel="me" target="_blank" {href}>
   <div class="link">
-    <Icon name={iconName} />
     {@render children()}
   </div>
 </Link>
@@ -44,7 +38,7 @@
     }
   }
 
-  :global([svelte-icon]) {
+  :global(.link > svg) {
     width: var(--size-7);
     height: var(--size-7);
   }
