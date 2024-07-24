@@ -26,15 +26,3 @@
     ecosystem.
   </Paragraph>
 </Section>
-
-<style>
-  button {
-    font-size: var(--font-size-fluid-2);
-    background: transparent;
-    color: var(--link);
-    padding: 0;
-  }
-  button:hover {
-    text-decoration: underline;
-  }
-</style>

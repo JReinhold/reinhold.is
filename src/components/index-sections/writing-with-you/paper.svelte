@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { FormEventHandler } from "svelte/elements";
   const predefinedText = `Dear Jeppe,
 
 I actually think you are a pretty nice guy. I'm regularly amazed by your amount of creativity and the stuff you can come up with.
@@ -27,7 +28,7 @@ Sincerely yours, `;
     return nextLength < previousLength ? nextLength - 1 : nextLength + 1;
   };
 
-  const onInput: svelte.JSX.FormEventHandler<HTMLTextAreaElement> = (event) => {
+  const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
     const textArea = event.currentTarget as HTMLTextAreaElement;
     const prevLength =
       (textArea.textContent && textArea.textContent.length) || 0;

@@ -7,6 +7,9 @@
   import "../../../shiki.css";
   import "../../../twoslash.css";
 
+  // workaround for https://github.com/sveltejs/language-tools/issues/1026
+  const UntypedGiscus = Giscus as any;
+
   export let data;
 </script>
 
@@ -29,19 +32,16 @@
   </Section>
   <Section>
     <H2>Comments</H2>
-    <Giscus
-      src="https://giscus.app/client.js"
+    <UntypedGiscus
       repo="jreinhold/reinhold.is"
       repoId="MDEwOlJlcG9zaXRvcnk5ODkxOTIyMw=="
       mapping="number"
-      term={data.post.discussionNumber}
+      term={String(data.post.discussionNumber)}
       reactionsEnabled="1"
-      inputPosition="bottom"
+      inputPosition="top"
       theme="light"
       lang="en"
-      crossorigin="anonymous"
       loading="lazy"
-      async
     />
   </Section>
 </SectionContainer>

@@ -61,12 +61,6 @@
     gap: var(--size-4);
   }
 
-  @media (max-width: 767px) {
-    section {
-      margin-top: calc(-1 * var(--size-12));
-    }
-  }
-
   @media (min-width: 768px) {
     .portrait-positioner {
       position: absolute;
