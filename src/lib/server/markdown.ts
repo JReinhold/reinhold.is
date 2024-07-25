@@ -18,15 +18,6 @@ export type ParsedMarkdown = {
 export const parseMarkdown = async (
   markdown: string,
 ): Promise<ParsedMarkdown> => {
-  markdown = `${markdown}
-  \`\`\`ts twoslash
-  const hello = "world";
-
-
-
-  
-  \`\`\`
-  `;
   const processor = unified()
     .use(remarkParse)
     .use(remarkReadingTime as Plugin)
