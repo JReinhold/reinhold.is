@@ -14,14 +14,16 @@
     <SectionHeading>💭/{id}</SectionHeading>
     <div>
       {#each posts as post}
-        <Link href={`/writing-about/${post.slug}`} rel="noopener">
-          <h3>{post.title}</h3>
-          <p>{post.subtitle}</p>
+        <Link href={`/writing-about/${post.metadata.slug}`} rel="noopener">
+          <h3>{post.metadata.title}</h3>
+          <p>{post.metadata.subtitle}</p>
           <p class="meta">
-            {#if post.publishedAt}
-              <span>Published: {post.publishedAt.toLocaleDateString()}</span>
+            {#if post.metadata.publishedAt}
+              <span
+                >Published: {post.metadata.publishedAt.toLocaleDateString()}</span
+              >
             {/if}
-            <span>{post.readingTime.text} read</span>
+            <span>{post.metadata.readingTime.text} read</span>
           </p>
         </Link>
       {/each}

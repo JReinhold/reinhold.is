@@ -4,7 +4,7 @@
 </script>
 
 <script lang="ts">
-  import LazyBackgroundImage from "../components/lazy-background-image.svelte";
+  import LazyBackgroundImage from "$lib/components/lazy-background-image.svelte";
   import type { LayoutData } from "./$types";
 
   const { data, children }: { data: LayoutData; children: Snippet } = $props();

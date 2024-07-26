@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Component } from "svelte";
+  import type { Component } from "svelte";
   import Link from "../../atoms/link.svelte";
   import Paragraph from "../../atoms/paragraph.svelte";
   import SectionHeading from "../../atoms/section-heading.svelte";
