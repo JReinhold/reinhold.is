@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from "$lib/posts";
+  import type { ExternalPost, Post } from "$lib/posts";
   import Section from "../atoms/section.svelte";
   import Link from "../atoms/link.svelte";
   import SectionHeading from "../atoms/section-heading.svelte";
@@ -15,7 +15,12 @@
     <div>
       {#each posts as post}
         <Link href={`/writing-about/${post.metadata.slug}`} rel="noopener">
-          <h3>{post.metadata.title}</h3>
+          <h3>
+            {#if (post as ExternalPost).url}
+              <span>🔗</span>
+            {/if}
+            {post.metadata.title}
+          </h3>
           <p>{post.metadata.subtitle}</p>
           <p class="meta">
             {#if post.metadata.publishedAt}

@@ -1,5 +1,40 @@
 import type { Component } from "svelte";
 
+export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
+  "storybook-module-mocking": {
+    url: "https://storybook.js.org/blog/type-safe-module-mocking",
+    metadata: {
+      slug: "storybook-module-mocking",
+      title: "Type-safe module mocking in Storybook",
+      subtitle: "A new, standards-based mocking approach",
+      summary: "something",
+      publishedAt: new Date("2023-05-29"),
+      readingTime: {
+        text: "8 min read",
+        minutes: 8,
+        time: 480000,
+        words: 2041,
+      },
+    },
+  },
+  "storybook-for-sveltekit": {
+    url: "https://storybook.js.org/blog/storybook-for-sveltekit/",
+    metadata: {
+      slug: "storybook-for-sveltekit",
+      title: "Storybook for SvelteKit",
+      subtitle: "Zero-config support for SvelteKit 1.0 with our new framework",
+      summary: "something",
+      publishedAt: new Date("2023-02-28"),
+      readingTime: {
+        text: "4 min read",
+        minutes: 4,
+        time: 240000,
+        words: 857,
+      },
+    },
+  },
+};
+
 export type PostMetadata = {
   slug: string;
   title: string;
@@ -13,10 +48,15 @@ export type PostMetadata = {
     words: number;
   };
 };
-export type Post = {
+export type InternalPost = {
   Content: Component;
   metadata: PostMetadata;
 };
+export type ExternalPost = {
+  url: string;
+  metadata: PostMetadata;
+};
+export type Post = InternalPost | ExternalPost;
 
 type BasePostModule = {
   module: { default?: Component } & { metadata: PostMetadata };
@@ -55,8 +95,8 @@ export const getAllPosts = () => {
         path,
       }),
     )
+    .concat(Object.values(EXTERNAL_POSTS))
     .filter((post) => {
-      console.log("LOG: ", { post });
       return post.metadata.publishedAt !== undefined;
     })
     .toSorted((a, b) => {
