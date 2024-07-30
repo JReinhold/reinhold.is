@@ -22,5 +22,3 @@ export const load: PageLoad = async ({ params }) => {
 export const entries: EntryGenerator = async () => {
   return getAllPosts().map(({ metadata: { slug } }) => ({ slug }));
 };
-
-export const prerender = true;

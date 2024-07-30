@@ -7,7 +7,7 @@
   "author": "jreinhold <jeppe@reinhold.is>",
   "type": "module",
   "scripts": {
-    "build": "vite build && rm .svelte-kit/cloudflare/_worker.js.map",
+    "build": "vite build && echo \"_worker.js: $(du -k .svelte-kit/cloudflare/_worker.js | cut -f1) KB\"",
     "dev": "vite dev",
     "format": "prettier --write .",
     "format:check": "prettier --list-different .",

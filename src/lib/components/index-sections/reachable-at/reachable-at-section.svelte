@@ -22,7 +22,7 @@
     </ReachableAtLink>
     <ReachableAtLink href="https://discordapp.com/users/303516516039655427">
       <DiscordIcon />
-      JReinhold#4884
+      jreinhold
     </ReachableAtLink>
     <ReachableAtLink href="https://github.com/jreinhold">
       <GitHubIcon />
