@@ -9,7 +9,7 @@ export const load: PageLoad = async ({ params }) => {
     redirect(301, EXTERNAL_POSTS[params.slug].url);
   }
   try {
-    const postModule = await import(`../../../lib/posts/${params.slug}.svx`);
+    const postModule = await import(`$posts/${params.slug}.svx`);
 
     return {
       post: normalizePost({ module: postModule, slug: params.slug }),

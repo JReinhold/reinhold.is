@@ -84,7 +84,7 @@ export const normalizePost = ({ module, path, slug }: PostModule): Post => {
 };
 
 export const getAllPosts = () => {
-  const postModules = import.meta.glob("./posts/*.svx", {
+  const postModules = import.meta.glob("$posts/*.svx", {
     eager: true,
   });
 

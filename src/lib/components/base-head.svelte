@@ -1,7 +1,10 @@
 <script lang="ts">
-  export let title: string;
-  export let description: string;
-  export let permalink: string;
+  type Props = {
+    title: string;
+    description: string;
+    permalink: string;
+  };
+  const { title, description, permalink }: Props = $props();
 </script>
 
 <svelte:head>

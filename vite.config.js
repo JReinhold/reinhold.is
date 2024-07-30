@@ -14,6 +14,12 @@ const config = {
       filename: "stats.html",
     }),
   ],
+  server: {
+    fs: {
+      // Allow serving files from one level up to the project root
+      allow: ["./posts"],
+    },
+  },
 };
 
 export default config;

@@ -9,12 +9,15 @@
   import Section from "$lib/components/atoms/section.svelte";
   import SectionContainer from "$lib/components/atoms/section-container.svelte";
   import H2 from "$lib/components/atoms/h2.svelte";
+  import type { InternalPost } from "$lib/posts";
+  import Link from "$lib/components/atoms/link.svelte";
+  import Emoji from "$lib/components/emoji.svelte";
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- workaround for https://github.com/sveltejs/language-tools/issues/1026
   const UntypedGiscus = Giscus as any;
 
   const { data } = $props();
-  const post = data.post;
+  const post = data.post as InternalPost;
   const Content = post.Content;
 </script>
 
@@ -34,6 +37,10 @@
 
   <Section>
     <Content />
+    <Link
+      href={`https://github.com/JReinhold/reinhold.is/edit/main/posts/${post.metadata.slug}.svx`}
+      class="edit-suggestion"><Emoji>✏️</Emoji> Suggest an edit</Link
+    >
   </Section>
   <Section>
     <H2>Comments</H2>
@@ -65,5 +72,9 @@
     & span {
       font-weight: var(--font-weight-5);
     }
+  }
+
+  :global(.edit-suggestion) {
+    align-self: flex-end;
   }
 </style>
