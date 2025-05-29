@@ -36,11 +36,20 @@
 
 <style lang="postcss">
   .section {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns:
+      [full-start] var(--size-fluid-2)
+      [main-start] 1fr [main-end]
+      var(--size-fluid-2) [full-end];
+
+    :global(& > *) {
+      grid-column: main;
+    }
+    /* display: flex;
+    flex-direction: column; */
 
     margin: 0 var(--size-fluid-1);
-    padding: var(--size-fluid-2);
+    padding: var(--size-fluid-2) 0;
     gap: var(--size-1);
 
     border-radius: var(--radius-3);

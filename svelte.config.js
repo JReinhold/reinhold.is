@@ -31,7 +31,7 @@ const config = {
         [
           rehypeShiki,
           {
-            theme: "github-dark-dimmed",
+            theme: "github-dark",
             transformers: [
               transformerNotationDiff(),
               transformerMetaHighlight(),
@@ -42,6 +42,7 @@ const config = {
         ],
       ],
       highlight: false,
+      layout: "./src/lib/components/blog/layout.svelte",
     }),
     sveltePreprocess({
       defaults: {

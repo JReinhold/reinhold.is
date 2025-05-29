@@ -1,5 +1,4 @@
 <script context="module">
-  import "../../../shiki.css";
   import "../../../twoslash.css";
 </script>
 
@@ -26,12 +25,13 @@
     <h1>{post.metadata.title}</h1>
     <p role="doc-subtitle">{post.metadata.subtitle}</p>
     <div class="meta">
-      <span>
-        {post.metadata.publishedAt
-          ? "Published: " + toLocaleDateString(post.metadata.publishedAt)
-          : "Unpublished draft"}
-      </span>
-      <span>{post.metadata.readingTime.text}</span>
+      {#if post.metadata.publishedAt}
+        {toLocaleDateString(post.metadata.publishedAt)}
+      {:else}
+        Unpublished draft
+      {/if}
+      —
+      {post.metadata.readingTime.text}
     </div>
   </Section>
 
@@ -39,7 +39,7 @@
     <Content />
     <Link
       href={`https://github.com/JReinhold/reinhold.is/edit/main/posts/${post.metadata.slug}.svx`}
-      class="edit-suggestion"><Emoji>✏️</Emoji> Suggest an edit</Link
+      style="text-align: end;"><Emoji>✏️</Emoji> Suggest an edit</Link
     >
   </Section>
   <Section>
@@ -63,18 +63,10 @@
 
 <style>
   .meta {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: var(--size-5);
-    align-items: center;
-
-    & span {
-      font-weight: var(--font-weight-5);
-    }
+    color: hsl(var(--text-2-hsl) / 70%);
   }
 
   :global(.edit-suggestion) {
-    align-self: flex-end;
+    text-align: end;
   }
 </style>

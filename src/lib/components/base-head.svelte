@@ -8,10 +8,6 @@
 </script>
 
 <svelte:head>
-  <!-- Global Metadata -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
-
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="title" content={title} />
