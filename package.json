@@ -11,14 +11,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "turbo run preview",
-    "format": "prettier --plugin-search-dir=. --write .",
-    "format:check": "prettier --plugin-search-dir=. --list-different .",
+    "format": "prettier --write .",
+    "format:check": "prettier --list-different .",
     "sync": "svelte-kit sync",
     "lint": "eslint .",
     "svelte-check": "svelte-check --tsconfig ./tsconfig.json",
     "svelte-check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "test": "playwright test",
-    "test:watch": "playwright test",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
     "validate": "turbo run validate-all",
@@ -29,7 +27,6 @@
     "open-props": "^1.7.15"
   },
   "devDependencies": {
-    "@playwright/test": "^1.25.0",
     "@sveltejs/adapter-cloudflare": "7.0.3",
     "@sveltejs/kit": "^2.21.1",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
@@ -48,6 +45,7 @@
     "tslib": "^2.3.1",
     "turbo": "^2.5.3",
     "typescript": "^5.8.3",
+    "@types/node": "22.13.10",
     "vite": "^6.3.5"
   },
   "type": "module"

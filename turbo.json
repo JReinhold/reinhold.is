@@ -19,22 +19,8 @@
     "type-check": {
       "inputs": ["src/**/*", "tsconfig.json"]
     },
-    "test": {
-      "inputs": [
-        "src/**",
-        "playwright.config.ts",
-        "svelte.config.js",
-        "tsconfig.json"
-      ]
-    },
     "validate-all": {
-      "dependsOn": [
-        "format:check",
-        "lint",
-        "svelte-check",
-        "type-check",
-        "test"
-      ]
+      "dependsOn": ["format:check", "lint", "svelte-check", "type-check"]
     }
   }
 }

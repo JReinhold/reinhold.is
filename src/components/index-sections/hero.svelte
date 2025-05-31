@@ -13,10 +13,14 @@
   <section>
     <h1>👋 Hi, Jeppe Reinhold.is me!</h1>
     <div>
-      <p>I’m a software engineer 👨‍💻, hobby lumber jack 🪵, husband and dad of 3. 👨‍🌾☀️⚓🌱👩‍🌾</p>
       <p>
-        I enjoy the nature and building great user experiences - especially if the users are likeminded engineers.
-        My favorite part of the world is the forrest just outside my door near
+        I’m a software engineer 👨‍💻, hobby lumber jack 🪵, husband and dad of 3.
+        👨‍🌾☀️⚓🌱👩‍🌾
+      </p>
+      <p>
+        I enjoy the nature and building great user experiences - especially if
+        the users are likeminded engineers. My favorite part of the world is the
+        forrest just outside my door near
         <a
           href="https://maps.app.goo.gl/yBCzYPgqvTeXWSbd9"
           target="_blank"
@@ -29,8 +33,8 @@
       <p>
         I'm passionate about
         <a href="https://svelte.dev" target="_blank">Svelte</a>,
-        <a href="https://vite.dev" target="_blank">Vite</a>, building great APIs, and the
-        JavaScript ecosystem in general.
+        <a href="https://vite.dev" target="_blank">Vite</a>, building great
+        APIs, and the JavaScript ecosystem in general.
       </p>
       <p>
         You're currently <a
@@ -40,16 +44,40 @@
       </p>
     </div>
     <div class="social-links">
-      <a rel="me" href="https://bsky.app/profile/reinhold.is" target="_blank" title="@reinhold.is" aria-label="Follow me on Bluesky, I'm reinhold.is">
+      <a
+        rel="me"
+        href="https://bsky.app/profile/reinhold.is"
+        target="_blank"
+        title="@reinhold.is"
+        aria-label="Follow me on Bluesky, I'm reinhold.is"
+      >
         <Icon name="fa6-brands:bluesky" />
       </a>
-      <a rel="me" href="https://discordapp.com/users/303516516039655427" target="_blank" title="@JReinhold" aria-label="Connect with me on Discord, I'm JReinhold">
+      <a
+        rel="me"
+        href="https://discordapp.com/users/303516516039655427"
+        target="_blank"
+        title="@JReinhold"
+        aria-label="Connect with me on Discord, I'm JReinhold"
+      >
         <Icon name="fa6-brands:discord" />
       </a>
-      <a rel="me" href="https://github.com/jreinhold" target="_blank" title="@JReinhold" aria-label="View my GitHub profile, I'm JReinhold">
+      <a
+        rel="me"
+        href="https://github.com/jreinhold"
+        target="_blank"
+        title="@JReinhold"
+        aria-label="View my GitHub profile, I'm JReinhold"
+      >
         <Icon name="fa-brands:github-square" />
       </a>
-      <a rel="me" href="https://linkedin.com/in/jeppereinhold" target="_blank" title="Jeppe Reinhold" aria-label="Connect with me on LinkedIn, I'm Jeppe Reinhold">
+      <a
+        rel="me"
+        href="https://linkedin.com/in/jeppereinhold"
+        target="_blank"
+        title="Jeppe Reinhold"
+        aria-label="Connect with me on LinkedIn, I'm Jeppe Reinhold"
+      >
         <Icon name="fa-brands:linkedin" />
       </a>
     </div>
