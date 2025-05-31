@@ -3,10 +3,11 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "outputs": ["build/**/*"]
+      "outputs": [".svelte-kit/output"]
     },
     "preview": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "persistent": true
     },
     "format:check": {},
     "lint": {
