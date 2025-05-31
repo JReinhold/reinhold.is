@@ -11,8 +11,8 @@ export const load: LayoutServerLoad = async ({ request }) => {
   try {
     // cf is a special property available in Cloudflare Workers
     // see https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
-    const lat = Number.parseFloat(request.cf.latitude);
-    const long = Number.parseFloat(request.cf.longitude);
+    const lat = Number.parseFloat((request as any).cf.latitude);
+    const long = Number.parseFloat((request as any).cf.longitude);
     if (lat && long) {
       clientGeolocation = { lat, long };
     }

@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "open-props": "^1.4.13"
+    "open-props": "^1.7.15"
   },
   "devDependencies": {
     "@playwright/test": "^1.25.0",
