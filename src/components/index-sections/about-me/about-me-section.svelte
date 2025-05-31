@@ -22,15 +22,3 @@
     gravitated towards frontend development and the JavaScript ecosystem.
   </p>
 </section>
-
-<style>
-  button {
-    font-size: var(--font-size-fluid-2);
-    background: transparent;
-    color: var(--link);
-    padding: 0;
-  }
-  button:hover {
-    text-decoration: underline;
-  }
-</style>
