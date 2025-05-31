@@ -2,7 +2,6 @@
   import BaseHead from "../components/base-head.svelte";
 
   import Hero from "../components/index-sections/hero.svelte";
-  import SocialLinks from "../components/index-sections/social-links.svelte";
   import AboutMe from "../components/index-sections/about-me/about-me-section.svelte";
   import FakeWriting from "../components/index-sections/fake-writing/fake-writing-section.svelte";
   import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
@@ -16,7 +15,6 @@
 <BaseHead {title} {description} {permalink} />
 <div class="sections-container">
   <Hero />
-  <SocialLinks />
   <AboutMe />
   <Ratings />
   <FakeWriting />

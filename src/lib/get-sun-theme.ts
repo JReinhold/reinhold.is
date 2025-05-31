@@ -13,7 +13,7 @@ export const getSunTheme = ({ lat, long }: ClientGeolocation): Theme => {
   } catch {
     return FALLBACK_THEME;
   }
-  
+
   // convert radians to degrees
   // from https://github.com/mourner/suncalc/issues/13#issuecomment-36289006
   const currentSunDegrees = {
@@ -23,27 +23,23 @@ export const getSunTheme = ({ lat, long }: ClientGeolocation): Theme => {
 
   let result = FALLBACK_THEME;
   let smallestAltitudeDifference = Infinity;
-  
+
   themeSunPositions
     // only factor in the themes where the sun is on the same side (east/west)
     // eg. in the morning disregard the 'sunset' theme
-    .filter(
-      (theme) => currentSunDegrees.azimuth < 180 === theme.azimuth < 180,
-    )
+    .filter((theme) => currentSunDegrees.azimuth < 180 === theme.azimuth < 180)
     // select the theme whose altitude is closest to the current sun's altitude
     .forEach((theme) => {
       const altitudeDifference = Math.abs(
         currentSunDegrees.altitude - theme.altitude,
       );
-      if (
-        altitudeDifference >= smallestAltitudeDifference
-      ) { 
+      if (altitudeDifference >= smallestAltitudeDifference) {
         return;
       }
       smallestAltitudeDifference = altitudeDifference;
       result = {
         key: theme.key,
-        mode: theme.mode
+        mode: theme.mode,
       };
     });
 

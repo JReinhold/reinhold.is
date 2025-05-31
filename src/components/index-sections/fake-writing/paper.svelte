@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { FormEventHandler } from "svelte/elements";
+
   const predefinedText = `Dear Jeppe,
 
 I actually think you are a pretty nice guy. I'm regularly amazed by your amount of creativity and the stuff you can come up with.
@@ -27,7 +29,7 @@ Sincerely yours, `;
     return nextLength < previousLength ? nextLength - 1 : nextLength + 1;
   };
 
-  const onInput: svelteHTML.FormEventHandler<HTMLTextAreaElement> = (event) => {
+  const onInput: FormEventHandler<HTMLTextAreaElement> = (event) => {
     const textArea = event.currentTarget as HTMLTextAreaElement;
     const prevLength =
       (textArea.textContent && textArea.textContent.length) || 0;
@@ -49,7 +51,8 @@ Sincerely yours, `;
 
 <div class="container">
   <div class="paper">
-    <textarea on:input={onInput} bind:value={text} maxlength={maxLength} />
+    <textarea on:input={onInput} bind:value={text} maxlength={maxLength}
+    ></textarea>
   </div>
 </div>
 
@@ -64,11 +67,14 @@ Sincerely yours, `;
     width: 100%;
     max-width: 34rem;
     /* shadow around paper */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 0 5px rgba(0, 0, 0, 0.2),
+      inset 0 0 50px rgba(0, 0, 0, 0.1);
     /* slight border around paper, to "make it pop" */
     border: 1px solid #b5b5b577;
     /* top whitespace, followed by repeating blue lines */
-    background: linear-gradient(white, white) 0 0 / 100% 65px no-repeat,
+    background:
+      linear-gradient(white, white) 0 0 / 100% 65px no-repeat,
       linear-gradient(#dfe8ec 0%, white 8%) 0 65px / 100% 30px;
 
     color: var(--gray-9);

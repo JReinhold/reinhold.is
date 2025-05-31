@@ -1,8 +1,13 @@
+import path from "node:path";
 import { sveltekit } from "@sveltejs/kit/vite";
+import { defineConfig } from "vite";
 
-/** @type {import('vite').UserConfig} */
-const config = {
+export default defineConfig({
   plugins: [sveltekit()],
-};
 
-export default config;
+  server: {
+    fs: {
+      allow: [path.resolve("../../../kit")],
+    },
+  },
+});
