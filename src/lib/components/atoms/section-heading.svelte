@@ -12,7 +12,7 @@
   </H2>
 </div>
 
-<style lang="postcss">
+<style>
   div {
     display: flex;
     flex-direction: column;

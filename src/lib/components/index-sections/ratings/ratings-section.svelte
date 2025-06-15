@@ -43,7 +43,7 @@
   </div>
 </Section>
 
-<style lang="postcss">
+<style>
   .ratings {
     display: grid;
     gap: var(--size-2);

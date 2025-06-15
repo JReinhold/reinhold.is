@@ -44,12 +44,6 @@ const config = {
       highlight: false,
       layout: "./src/lib/components/blog/layout.svelte",
     }),
-    sveltePreprocess({
-      defaults: {
-        style: "postcss",
-      },
-      postcss: true,
-    }),
   ],
   kit: {
     adapter: adapter(),

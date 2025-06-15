@@ -25,7 +25,7 @@
   alt="background, sandy beach"
 />
 
-<style lang="postcss">
+<style>
   img {
     position: fixed;
     top: 0;

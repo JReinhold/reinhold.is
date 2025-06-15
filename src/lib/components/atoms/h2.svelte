@@ -10,7 +10,7 @@
   {/if}
 </h2>
 
-<style lang="postcss">
+<style>
   h2 {
     font-size: var(--font-size-fluid-2);
     font-weight: var(--font-weight-6);

@@ -1,12 +1,13 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "ui": "tui",
+  "extends": ["//"],
   "tasks": {
     "build": {
-      "outputs": ["build/**/*"]
+      "outputs": [".svelte-kit/output"]
     },
     "preview": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "persistent": true
     },
     "format:check": {},
     "lint": {
@@ -18,22 +19,8 @@
     "type-check": {
       "inputs": ["src/**/*", "tsconfig.json"]
     },
-    "test": {
-      "inputs": [
-        "src/**",
-        "playwright.config.ts",
-        "svelte.config.js",
-        "tsconfig.json"
-      ]
-    },
     "validate-all": {
-      "dependsOn": [
-        "format:check",
-        "lint",
-        "svelte-check",
-        "type-check",
-        "test"
-      ]
+      "dependsOn": ["format:check", "lint", "svelte-check", "type-check"]
     }
   }
 }

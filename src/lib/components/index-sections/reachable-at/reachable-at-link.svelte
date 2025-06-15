@@ -11,7 +11,7 @@
   </div>
 </Link>
 
-<style lang="postcss">
+<style>
   .link {
     display: flex;
     flex-direction: column;

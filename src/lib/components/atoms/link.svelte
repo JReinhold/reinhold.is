@@ -10,7 +10,7 @@
   {/if}
 </a>
 
-<style lang="postcss">
+<style>
   a {
     text-decoration-color: var(--theme-accent);
   }

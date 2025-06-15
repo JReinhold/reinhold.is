@@ -1,7 +1,7 @@
 import { getSunTheme } from "$lib/get-sun-theme";
 import type { LayoutServerLoad } from "./$types";
 
-export const load: LayoutServerLoad = async ({ platform }) => {
+export const load: LayoutServerLoad = async (request) => {
   // default fallback to somewhere at the center of USA, as that's where most visitors are from
   let clientGeolocation = {
     lat: 37.156767,
@@ -11,8 +11,8 @@ export const load: LayoutServerLoad = async ({ platform }) => {
   try {
     // cf is a special property available in Cloudflare Workers
     // see https://developers.cloudflare.com/workers/runtime-apis/request/#incomingrequestcfproperties
-    const lat = Number.parseFloat(platform?.cf?.latitude ?? "");
-    const long = Number.parseFloat(platform?.cf?.longitude ?? "");
+    const lat = Number.parseFloat(request.platform?.cf?.latitude ?? "");
+    const long = Number.parseFloat(request.platform?.cf?.longitude ?? "");
     if (lat && long) {
       clientGeolocation = { lat, long };
     }

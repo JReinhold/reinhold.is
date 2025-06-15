@@ -80,7 +80,7 @@
   {/key}
 </button>
 
-<style lang="postcss">
+<style>
   .container {
     position: relative;
     overflow: hidden;

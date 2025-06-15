@@ -10,7 +10,7 @@
 
 <div {...props}>{@render children()}</div>
 
-<style lang="postcss">
+<style>
   div {
     display: flex;
     flex-direction: column;

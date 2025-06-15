@@ -34,7 +34,7 @@
   >{@render children()}</svelte:element
 >
 
-<style lang="postcss">
+<style>
   .section {
     display: grid;
     grid-template-columns:

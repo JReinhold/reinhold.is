@@ -43,7 +43,7 @@
   </div>
 </Section>
 
-<style lang="postcss">
+<style>
   .links {
     display: grid;
     grid-template-columns: repeat(2, minmax(8rem, 1fr));

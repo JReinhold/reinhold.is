@@ -10,7 +10,7 @@
   {/if}
 </p>
 
-<style lang="postcss">
+<style>
   p {
     padding-bottom: var(--size-2);
   }

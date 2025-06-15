@@ -49,7 +49,7 @@
   {/each}
 </div>
 
-<style lang="postcss">
+<style>
   .text {
     justify-self: end;
     text-align: end;
