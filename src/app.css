@@ -4,12 +4,62 @@
 @import "open-props/colors-hsl";
 @import "open-props/gradients";
 
+:root {
+  interpolate-size: allow-keywords;
+}
+
 body {
   font-family: var(--font-sans);
   overscroll-behavior-y: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-rounded-sans);
+}
+
+/* https://nerdy.dev/open-and-close-transitions-for-the-details-element */
+details {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
+  &::details-content {
+    opacity: 0;
+    block-size: 0;
+    overflow-y: clip;
+    transition:
+      content-visibility 0.5s allow-discrete,
+      opacity 0.5s,
+      block-size 0.5s;
+  }
+
+  &[open]::details-content {
+    opacity: 1;
+    block-size: auto;
+  }
+}
+
+details,
+summary {
+  margin: 0;
+  padding: 0;
+  background: unset;
+}
+
+p,
+details,
+summary {
+  font-family: var(--font-geometric-humanist);
+  font-size: var(--font-size-3);
+}
+
 pre.shiki {
+  font-family: var(--font-monospace-code);
   border-radius: var(--radius-3);
   max-inline-size: unset;
   padding: var(--size-fluid-1);

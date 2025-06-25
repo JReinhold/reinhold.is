@@ -20,17 +20,30 @@
 </script>
 
 <Section element="header">
+  {#if post.metadata.image}
+    <img
+      src={`/images/${post.metadata.image}`}
+      alt={post.metadata.imageAlt}
+      class="post-image"
+    />
+  {/if}
   <h1>{post.metadata.title}</h1>
-  <p role="doc-subtitle">{post.metadata.subtitle}</p>
-  <div class="meta">
-    {#if post.metadata.publishedAt}
-      {toLocaleDateString(post.metadata.publishedAt)}
-    {:else}
-      Unpublished draft
-    {/if}
-    —
-    {post.metadata.readingTime.text}
+  <div class="sub-container">
+    <p role="doc-subtitle">{post.metadata.subtitle}</p>
+    <p class="meta">
+      {#if post.metadata.publishedAt}
+        {toLocaleDateString(post.metadata.publishedAt)}
+      {:else}
+        Unpublished draft
+      {/if}
+      —
+      {post.metadata.readingTime.text}
+    </p>
   </div>
+  <details>
+    <summary>tl;dr</summary>
+    <p>{post.metadata.tldr}</p>
+  </details>
 </Section>
 
 <Section>
@@ -59,8 +72,27 @@
 </Section>
 
 <style>
+  .sub-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--size-fluid-1);
+  }
   .meta {
-    color: hsl(var(--text-2-hsl) / 70%);
+    color: hsl(var(--text-2-hsl) / 80%);
+    font-size: var(--font-size-2);
+  }
+
+  .post-image {
+    grid-column: full;
+    margin-top: calc(var(--size-fluid-2) * -1);
+    margin-bottom: var(--size-fluid-1);
+    max-height: var(--size-14);
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: var(--radius-3);
+    border-top-right-radius: var(--radius-3);
   }
 
   :global(.edit-suggestion) {

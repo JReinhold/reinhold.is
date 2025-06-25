@@ -7,7 +7,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       slug: "storybook-module-mocking",
       title: "Type-safe module mocking in Storybook",
       subtitle: "A new, standards-based mocking approach",
-      summary: "something",
+      tldr: "something",
       publishedAt: new Date("2023-05-29"),
       readingTime: {
         text: "8 min read",
@@ -23,7 +23,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       slug: "storybook-for-sveltekit",
       title: "Storybook for SvelteKit",
       subtitle: "Zero-config support for SvelteKit 1.0 with our new framework",
-      summary: "something",
+      tldr: "something",
       publishedAt: new Date("2023-02-28"),
       readingTime: {
         text: "4 min read",
@@ -39,7 +39,7 @@ export type PostMetadata = {
   slug: string;
   title: string;
   subtitle?: string;
-  summary: string;
+  tldr?: string;
   publishedAt: Date | undefined;
   readingTime: {
     text: string;
@@ -47,7 +47,16 @@ export type PostMetadata = {
     time: number;
     words: number;
   };
-};
+} & (
+  | {
+      image: string;
+      imageAlt: string;
+    }
+  | {
+      image?: never;
+      imageAlt?: never;
+    }
+);
 export type InternalPost = {
   Content: Component;
   metadata: PostMetadata;

@@ -1,14 +1,17 @@
 ---
   title: 'This is the title'
   subtitle: 'And here is a subtitle'
+  image: 'unsplash-test.jpg'
+  imageAlt: 'A test image'
   publishedAt: '2021-02-09'
+  tldr: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in leo sed magna laoreet blandit. Phasellus non lobortis nisi. Nullam lacinia nunc ut turpis ultrices euismod in condimentum ex. Maecenas a est at mauris consectetur mattis et ut sem. Duis non velit eget nibh cursus luctus. Aliquam suscipit libero non tellus condimentum, eu gravida mi bibendum. Donec id lectus tempus, venenatis dolor id, dictum massa. Nullam faucibus nulla urna, nec consequat ligula tempor vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus.'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in leo sed magna laoreet blandit. Phasellus non lobortis nisi. Nullam lacinia nunc ut turpis ultrices euismod in condimentum ex. Maecenas a est at mauris consectetur mattis et ut sem. Duis non velit eget nibh cursus luctus. Aliquam suscipit libero non tellus condimentum, eu gravida mi bibendum. Donec id lectus tempus, venenatis dolor id, dictum massa. Nullam faucibus nulla urna, nec consequat ligula tempor vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed vestibulum lectus a velit scelerisque finibus. Aliquam tincidunt nisi non nisl mattis semper. Phasellus pretium congue nibh ac convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed urna lorem, semper at dui sed, consequat aliquam purus.
 
 ## a heading 2
 
-Sed fringilla aliquet justo, et interdum quam porta nec. Nam porta nisi ipsum, eget euismod libero sollicitudin a. Nullam nec enim quis nisl commodo dapibus vitae quis est. Donec id lectus diam. Aliquam rhoncus nibh eu dolor rutrum suscipit. Ut vel enim lacinia, maximus neque et, semper nisi. Integer vitae aliquet lacus, et suscipit dui. Suspendisse ut tellus ex. Etiam ut magna dapibus, elementum elit ac, congue eros. Phasellus faucibus lectus risus, vel aliquet arcu rutrum et.
+Sed fringilla aliquet justo, `inline code = true` et interdum quam porta nec. Nam porta nisi ipsum, eget euismod libero sollicitudin a. Nullam nec enim quis nisl commodo dapibus vitae quis est. Donec id lectus diam. Aliquam rhoncus nibh eu dolor rutrum suscipit. Ut vel enim lacinia, maximus neque et, semper nisi. Integer vitae aliquet lacus, et suscipit dui. Suspendisse ut tellus ex. Etiam ut magna dapibus, elementum elit ac, congue eros. Phasellus faucibus lectus risus, vel aliquet arcu rutrum et.
 
 ```ts
 const wow: string = 'wow';
