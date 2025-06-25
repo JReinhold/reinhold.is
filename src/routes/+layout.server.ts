@@ -2,6 +2,8 @@ import { getSunTheme } from "$lib/get-sun-theme";
 import type { LayoutServerLoad } from "./$types";
 
 export const load: LayoutServerLoad = async (request) => {
+  const readingMode = request.cookies.get("readingMode") === "true";
+
   // default fallback to somewhere at the center of USA, as that's where most visitors are from
   let clientGeolocation = {
     lat: 37.156767,
@@ -29,5 +31,6 @@ export const load: LayoutServerLoad = async (request) => {
   const theme = getSunTheme(clientGeolocation);
   return {
     theme,
+    readingMode,
   };
 };

@@ -39,7 +39,11 @@
     user-select: none;
     object-fit: cover;
     pointer-events: none;
-    transition: 1s filter ease-out;
+    transition:
+      1s filter ease-out,
+      opacity 0.5s ease;
+
+    opacity: var(--image-background-opacity, 1);
   }
 
   .blur {

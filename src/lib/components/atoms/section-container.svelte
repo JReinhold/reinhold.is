@@ -18,6 +18,6 @@
     gap: var(--size-fluid-3);
     max-width: calc(75ch + var(--size-fluid-2));
     margin: auto;
-    padding: var(--size-7) 0;
+    padding: 0 0 var(--size-7) 0;
   }
 </style>
