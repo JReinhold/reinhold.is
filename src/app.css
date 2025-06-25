@@ -6,6 +6,7 @@
 
 body {
   font-family: var(--font-sans);
+  overscroll-behavior-y: none;
 }
 
 pre.shiki {
