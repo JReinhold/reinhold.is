@@ -39,8 +39,6 @@
 <svelte:head>
   {@html `<style>
     :root {
-      --image-background-opacity: ${readingMode ? "0.2" : "1"};
-
       @supports (backdrop-filter: blur(30px)) {
         --section-background-opacity: ${readingMode ? "100%" : "60%"};
         --section-background-blur: ${readingMode ? "initial" : "30px"};
