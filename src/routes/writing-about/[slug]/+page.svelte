@@ -19,6 +19,11 @@
   const Content = post.Content;
 </script>
 
+<svelte:head>
+  <title>{post.metadata.title} | Jeppe Reinhold</title>
+  <meta name="description" content={post.metadata.tldr} />
+</svelte:head>
+
 <Section element="header">
   {#if post.metadata.image}
     <img
