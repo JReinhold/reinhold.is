@@ -7,7 +7,7 @@
 
 <div>
   <subtitle>reinhold.is</subtitle>
-  <H2>
+  <H2 class="section-heading">
     {@render children()}
   </H2>
 </div>
@@ -19,6 +19,9 @@
     font-family: var(--font-mono);
     font-weight: var(--font-weight-8);
     padding-bottom: var(--size-2);
+  }
+  :global(.section-heading) {
+    font-family: var(--font-mono);
   }
   subtitle {
     color: hsl(var(--text-2-hsl) / 70%);
