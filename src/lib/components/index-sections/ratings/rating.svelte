@@ -8,9 +8,9 @@
     text: string;
     amount: number;
     max?: number;
-    iconFilled?: Component;
-    iconHalf?: Component;
-    iconEmpty?: Component;
+    IconFilled?: Component;
+    IconHalf?: Component;
+    IconEmpty?: Component;
     misalign?: boolean;
   };
 
@@ -18,9 +18,9 @@
     text,
     amount,
     max = 5,
-    iconFilled = RoundStarIcon as unknown as Component,
-    iconHalf = RoundStarHalfIcon as unknown as Component,
-    iconEmpty = RoundStarOutlineIcon as unknown as Component,
+    IconFilled = RoundStarIcon as unknown as Component,
+    IconHalf = RoundStarHalfIcon as unknown as Component,
+    IconEmpty = RoundStarOutlineIcon as unknown as Component,
     misalign = false,
   }: Props = $props();
 
@@ -37,15 +37,15 @@
 >
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each filledStars as _}
-    <svelte:component this={iconFilled} />
+    <IconFilled />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each halfStars as _}
-    <svelte:component this={iconHalf} />
+    <IconHalf />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
   {#each emptyStars as _}
-    <svelte:component this={iconEmpty} />
+    <IconEmpty />
   {/each}
 </div>
 

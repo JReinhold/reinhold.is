@@ -32,9 +32,9 @@
     <Rating
       text="Consistency"
       amount={2.5}
-      iconFilled={StarIcon as unknown as Component}
-      iconHalf={StarHalfIcon as unknown as Component}
-      iconEmpty={StarOutlineIcon as unknown as Component}
+      IconFilled={StarIcon as unknown as Component}
+      IconHalf={StarHalfIcon as unknown as Component}
+      IconEmpty={StarOutlineIcon as unknown as Component}
     />
     <Rating text="Going to bed early" amount={2} />
     <Rating text="CSS Layout" amount={4} misalign />
