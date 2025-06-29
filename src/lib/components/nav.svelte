@@ -10,29 +10,41 @@
 <Section element="nav" id="nav-container">
   <div class="nav">
     {#if page.url.pathname !== "/"}
-      <Link href="/">👈 Back to Home</Link>
+      <div class="sized-container">
+        <Link href="/" class="back-link"
+          >👈 <span class="long-label">Back to</span> Home</Link
+        >
+      </div>
     {/if}
-    <label class="reading-mode">
-      <input
-        name="reading-mode"
-        type="checkbox"
-        bind:checked={readingMode}
-        hidden
-        onchange={(event) => {
-          fetch("/api/reading-mode", {
-            method: "POST",
-            body: JSON.stringify({ readingMode: event.currentTarget.checked }),
-          });
-        }}
-      />
-      Switch to {readingMode ? "Fancy" : "Reading"} Mode <Emoji class="emoji"
-        >{readingMode
-          ? page.data.theme.mode === "light"
-            ? "🕶️"
-            : "👓"
-          : "🎩"}</Emoji
-      >
-    </label>
+    <div class="sized-container">
+      <label class="reading-mode">
+        <input
+          name="reading-mode"
+          type="checkbox"
+          bind:checked={readingMode}
+          hidden
+          onchange={(event) => {
+            fetch("/api/reading-mode", {
+              method: "POST",
+              body: JSON.stringify({
+                readingMode: event.currentTarget.checked,
+              }),
+            });
+          }}
+        />
+        <span
+          ><span class="long-label">Switch to</span>{readingMode
+            ? " Fancy"
+            : " Reading"} Mode <Emoji class="emoji"
+            >{readingMode
+              ? page.data.theme.mode === "light"
+                ? "🕶️"
+                : "👓"
+              : "🎩"}</Emoji
+          ></span
+        >
+      </label>
+    </div>
   </div>
 </Section>
 
@@ -70,11 +82,24 @@
     margin-top: -10px;
   }
 
+  .sized-container {
+    container-type: inline-size;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
   .reading-mode {
     margin-left: auto;
     display: flex;
     align-items: center;
     gap: var(--size-2);
     user-select: none;
+  }
+
+  @container (max-width: 12em) {
+    .long-label {
+      display: none;
+    }
   }
 </style>
