@@ -31,7 +31,7 @@ export async function GET() {
   <entry>
     <id>${siteUrl}/writing-about/${post.metadata.slug}</id>
     <title>${escapeXml(post.metadata.title)}</title>
-    <summary>${escapeXml(post.metadata.subtitle)} - ${post.metadata.readingTime.text}</summary>
+    <summary>${escapeXml(post.metadata.description ?? post.metadata.subtitle)} - ${post.metadata.readingTime.text}</summary>
     <link href="${siteUrl}/writing-about/${post.metadata.slug}" rel="alternate" type="text/html"/>
     ${
       "url" in post

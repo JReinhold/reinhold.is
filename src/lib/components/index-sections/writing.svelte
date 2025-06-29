@@ -28,7 +28,7 @@
                 >Published: {post.metadata.publishedAt.toLocaleDateString()}</span
               >
             {/if}
-            <span>{post.metadata.readingTime.text} read</span>
+            <span>{post.metadata.readingTime.text}</span>
           </p>
         </Link>
       {/each}

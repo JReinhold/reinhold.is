@@ -38,11 +38,12 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     metadata: {
       slug: "syntax-fm-908-storybook-has-evolved",
       title: "Syntax.fm #908: Storybook Has Evolved w/ Jeppe Reinhold",
-      subtitle:
+      subtitle: "The evolution of Storybook with Wes and Scott",
+      description:
         "Wes and Scott talk with Jeppe Reinhold about Storybook 9's powerful new features—including drastically reduced bloat, seamless Vite integration, and next-level component testing. They dive into visual regression testing, accessibility, performance, and best practices for writing robust, isolated UI components developers can actually enjoy testing and documenting.",
       publishedAt: new Date("2025-06-04"),
       readingTime: {
-        text: "50 min listen",
+        text: "50 min watch/listen",
         minutes: 50,
         time: 3000000,
         words: 0, // Not applicable for audio
@@ -53,8 +54,9 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     url: "https://www.youtube.com/watch?v=mdyRQDDp28s",
     metadata: {
       slug: "component-testing-w-storybook-svelte-summit-2025",
-      title: "Component Testing with Storybook, Svelte, and Vitest — Svelte Summit Spring 2025",
-      subtitle:
+      title: "Component Testing with Storybook, Svelte, and Vitest",
+      subtitle: "Talk at Svelte Summit Spring 2025",
+      description:
         "Discover how component testing bridges the gap between E2E and unit tests for UI. In this talk I'll showcase new tools in Storybook that provide automated component AND accessibility testing for Svelte. Learn how to create interactive, shareable tests in Storybook, that integrate with your existing Vitest setup while using the familiar Svelte syntax you know and love.",
       publishedAt: new Date("2025-06-04"),
       readingTime: {
@@ -71,6 +73,7 @@ export type PostMetadata = {
   slug: string;
   title: string;
   subtitle: string;
+  description?: string;
   tldr?: string;
   publishedAt: Date | undefined;
   readingTime: {
