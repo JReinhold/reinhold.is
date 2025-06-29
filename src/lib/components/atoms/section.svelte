@@ -30,7 +30,7 @@
   const { element = "section", children, ...props }: Props = $props();
 </script>
 
-<svelte:element this={element} {...props} class="section">
+<svelte:element this={element} {...props} class={["section", props.class]}>
   {@render children()}
 </svelte:element>
 

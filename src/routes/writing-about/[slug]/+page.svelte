@@ -22,9 +22,27 @@
 <svelte:head>
   <title>{post.metadata.title} | Jeppe Reinhold</title>
   <meta name="description" content={post.metadata.tldr} />
+  <meta property="og:title" content={post.metadata.title} />
+  <meta property="og:description" content={post.metadata.tldr} />
+  {#if post.metadata.image}
+    <meta property="og:image" content={`/images/${post.metadata.image}`} />
+  {/if}
+  <meta
+    property="og:url"
+    content={`https://reinhold.is/writing-about/${post.metadata.slug}`}
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Jeppe Reinhold" />
+  <meta property="article:author" content="Jeppe Reinhold" />
+  {#if post.metadata.publishedAt}
+    <meta
+      property="article:published_time"
+      content={post.metadata.publishedAt.toISOString()}
+    />
+  {/if}
 </svelte:head>
 
-<Section element="header">
+<Section element="header" class="post-header">
   {#if post.metadata.image}
     <img
       src={`/images/${post.metadata.image}`}
@@ -33,17 +51,19 @@
     />
   {/if}
   <h1>{post.metadata.title}</h1>
-  <div class="sub-container">
-    <p role="doc-subtitle">{post.metadata.subtitle}</p>
-    <p class="meta">
-      {#if post.metadata.publishedAt}
-        {toLocaleDateString(post.metadata.publishedAt)}
-      {:else}
-        Unpublished draft
-      {/if}
-      —
-      {post.metadata.readingTime.text}
-    </p>
+  <div class="meta-sized-container">
+    <div class="meta-layout">
+      <p role="doc-subtitle">{post.metadata.subtitle}</p>
+      <p class="date-time">
+        {#if post.metadata.publishedAt}
+          {toLocaleDateString(post.metadata.publishedAt)}
+        {:else}
+          Unpublished draft
+        {/if}
+        —
+        {post.metadata.readingTime.text}
+      </p>
+    </div>
   </div>
   <details>
     <summary>tl;dr</summary>
@@ -59,7 +79,29 @@
   >
 </Section>
 <Section>
-  <H2>Comments</H2>
+  <H2>Reactions</H2>
+  <span class="text-paragraph"
+    >Share on <a
+      href="https://bsky.app/intent/compose?text={encodeURIComponent(
+        `I just read "${post.metadata.title}" by @reinhold.is and I loved it!
+You should read it too at https://reinhold.is/writing-about/${post.metadata.slug}`,
+      )}"
+      target="_blank">🦋 Bluesky</a
+    >,
+    <a
+      href="https://x.com/intent/tweet?text={encodeURIComponent(
+        `I just read "${post.metadata.title}" by @jreinhold and I loved it!
+You should read it too at https://reinhold.is/writing-about/${post.metadata.slug}`,
+      )}"
+      target="_blank">🐦 𝕏</a
+    >, or
+    <a
+      href="https://www.linkedin.com/sharing/share-offsite/?url={encodeURIComponent(
+        `https://reinhold.is/writing-about/${post.metadata.slug}`,
+      )}"
+      target="_blank">👔 LinkedIn</a
+    >, or write a comment below. 👇</span
+  >
   <UntypedGiscus
     loading="lazy"
     repo="jreinhold/reinhold.is"
@@ -71,20 +113,32 @@
     strict="1"
     reactionsEnabled="1"
     inputPosition="bottom"
-    theme="light"
+    theme={data.theme.mode === "light" ? "light" : "dark_dimmed"}
     lang="en"
   />
 </Section>
 
 <style>
-  .sub-container {
+  .meta-sized-container {
+    container-type: inline-size;
+  }
+
+  .meta-layout {
     display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     gap: var(--size-fluid-1);
   }
-  .meta {
+  @container (max-width: 30rem) {
+    .meta-layout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .date-time {
     color: hsl(var(--text-2-hsl) / 80%);
     font-size: var(--font-size-2);
   }

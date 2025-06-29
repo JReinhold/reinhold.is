@@ -20,6 +20,7 @@ h4,
 h5,
 h6 {
   font-family: var(--font-rounded-sans);
+  text-wrap: balance;
 }
 
 /* https://nerdy.dev/open-and-close-transitions-for-the-details-element */
@@ -52,8 +53,10 @@ summary {
 }
 
 p,
+a,
 details,
-summary {
+summary,
+.text-paragraph {
   font-family: var(--font-geometric-humanist);
   font-size: var(--font-size-3);
 }
