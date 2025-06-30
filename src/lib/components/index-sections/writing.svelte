@@ -1,37 +1,82 @@
 <script lang="ts">
-  import type { ExternalPost, Post } from "$lib/posts";
+  import type { Post } from "$lib/posts";
   import Section from "../atoms/section.svelte";
   import Link from "../atoms/link.svelte";
   import SectionHeading from "../atoms/section-heading.svelte";
+  import ExternalLinkIcon from "virtual:icons/fa-solid/external-link-alt";
 
-  const id = "writing";
+  const id = "writing-and-speaking";
 
   const { posts }: { posts: Post[] } = $props();
 </script>
 
 {#if posts.length > 0}
   <Section {id}>
-    <SectionHeading>💭/{id}</SectionHeading>
-    <div>
+    <SectionHeading>💬/{id}</SectionHeading>
+    <ul class="post-list">
       {#each posts as post}
-        <Link href={`/writing-about/${post.metadata.slug}`} rel="noopener">
-          <h3>
-            {#if (post as ExternalPost).url}
-              <span>🔗</span>
-            {/if}
-            {post.metadata.title}
-          </h3>
-          <p>{post.metadata.subtitle}</p>
-          <p class="meta">
-            {#if post.metadata.publishedAt}
-              <span
-                >Published: {post.metadata.publishedAt.toLocaleDateString()}</span
-              >
-            {/if}
-            <span>{post.metadata.readingTime.text}</span>
-          </p>
-        </Link>
+        <li class="post-item">
+          <Link
+            href={`/writing-about/${post.metadata.slug}`}
+            rel="noopener"
+            class="link"
+            target={"url" in post ? "_blank" : "_self"}
+          >
+            <span class="title">
+              {post.metadata.title}<ExternalLinkIcon
+                class="external-link-icon"
+              />
+            </span>
+            <div class="subtitle">{post.metadata.subtitle}</div>
+            <div class="meta">
+              <span>{post.metadata.readingTime.text}</span>
+              <span>{post.metadata.publishedAt!.toLocaleDateString()}</span>
+            </div>
+          </Link>
+        </li>
       {/each}
-    </div>
+    </ul>
   </Section>
 {/if}
+
+<style>
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--size-4);
+  }
+
+  .post-item {
+    max-inline-size: none;
+    padding-inline-start: initial;
+  }
+
+  :global(.link) {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .title {
+    color: var(--theme-accent);
+    text-decoration: underline;
+  }
+
+  :global(.external-link-icon) {
+    height: var(--size-3);
+    display: inline-block;
+    vertical-align: baseline;
+    margin-inline-start: var(--size-1);
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--size-5);
+    font-size: var(--font-size-2);
+    color: var(--color-text-secondary);
+  }
+</style>

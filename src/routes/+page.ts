@@ -3,6 +3,6 @@ import type { PageLoad } from "./$types";
 
 export const load: PageLoad<{ posts: Post[] }> = async () => {
   return {
-    posts: getAllPosts(),
+    posts: getAllPosts().filter((post) => post.metadata.publishedAt),
   };
 };
