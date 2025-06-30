@@ -1,4 +1,5 @@
 ---
+  shortSlug: 'sec'
   title: 'Later'
   subtitle: 'Could work'
   publishedAt: '2021-02-11'

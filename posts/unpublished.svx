@@ -1,4 +1,5 @@
 ---
+  shortSlug: 'un'
   title: 'unpublished'
   subtitle: 'Could work'
 ---

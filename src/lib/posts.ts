@@ -5,6 +5,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     url: "https://storybook.js.org/blog/type-safe-module-mocking",
     metadata: {
       slug: "storybook-module-mocking",
+      shortSlug: "sb-mock",
       title: "Type-safe module mocking in Storybook",
       subtitle: "A new, standards-based mocking approach",
       tldr: "something",
@@ -21,6 +22,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     url: "https://storybook.js.org/blog/storybook-for-sveltekit/",
     metadata: {
       slug: "storybook-for-sveltekit",
+      shortSlug: "sb-sk",
       title: "Storybook for SvelteKit",
       subtitle: "Zero-config support for SvelteKit 1.0 with our new framework",
       tldr: "something",
@@ -37,6 +39,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     url: "https://syntax.fm/show/908/storybook-has-evolved-w-jeppe-reinhold",
     metadata: {
       slug: "syntax-fm-908-storybook-has-evolved",
+      shortSlug: "sx-908",
       title: "Syntax.fm #908: Storybook Has Evolved w/ Jeppe Reinhold",
       subtitle: "The evolution of Storybook with Wes and Scott",
       description:
@@ -54,6 +57,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
     url: "https://www.youtube.com/watch?v=mdyRQDDp28s",
     metadata: {
       slug: "component-testing-w-storybook-svelte-summit-2025",
+      shortSlug: "sum-2025",
       title: "Component Testing with Storybook, Svelte, and Vitest",
       subtitle: "Talk at Svelte Summit Spring 2025",
       description:
@@ -71,6 +75,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
 
 export type PostMetadata = {
   slug: string;
+  shortSlug: string;
   title: string;
   subtitle: string;
   description?: string;

@@ -1,4 +1,5 @@
 ---
+  shortSlug: 'fi'
   title: 'This is the title'
   subtitle: 'And here is a subtitle'
   image: 'unsplash-test.jpg'
