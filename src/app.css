@@ -52,6 +52,10 @@ summary {
   background: unset;
 }
 
+a {
+  text-decoration-line: underline;
+}
+
 p,
 a,
 details,
