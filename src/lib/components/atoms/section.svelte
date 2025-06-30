@@ -54,6 +54,12 @@
 
     backdrop-filter: blur(var(--section-background-blur));
     background: hsl(var(--surface-1-hsl) / var(--section-background-opacity));
+
+    @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+      backdrop-filter: initial;
+      background: var(--surface-1);
+    }
+
     transition:
       backdrop-filter 0.5s ease,
       background 0.5s ease;

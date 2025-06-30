@@ -97,6 +97,12 @@
     user-select: none;
   }
 
+  @media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+    .reading-mode {
+      display: none;
+    }
+  }
+
   @container (max-width: 12em) {
     .long-label {
       display: none;
