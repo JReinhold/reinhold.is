@@ -84,20 +84,20 @@
     >Share on <a
       href="https://bsky.app/intent/compose?text={encodeURIComponent(
         `I just read "${post.metadata.title}" by @reinhold.is and I loved it!
-You should read it too at https://rld.is/w/${post.metadata.shortSlug}`,
+You should read it too at https://rld.is/s/${post.metadata.shortSlug}`,
       )}"
       target="_blank">🦋 Bluesky</a
     >,
     <a
       href="https://x.com/intent/tweet?text={encodeURIComponent(
         `I just read "${post.metadata.title}" by @jreinhold and I loved it!
-You should read it too at https://rld.is/w/${post.metadata.shortSlug}`,
+You should read it too at https://rld.is/s/${post.metadata.shortSlug}`,
       )}"
       target="_blank">🐦 𝕏</a
     >, or
     <a
       href="https://www.linkedin.com/sharing/share-offsite/?url={encodeURIComponent(
-        `https://rld.is/w/${post.metadata.shortSlug}`,
+        `https://rld.is/s/${post.metadata.shortSlug}`,
       )}"
       target="_blank">👔 LinkedIn</a
     >, or write a comment below. 👇</span

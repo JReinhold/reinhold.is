@@ -15,17 +15,19 @@
     <SectionHeading>💬/{id}</SectionHeading>
     <ul class="post-list">
       {#each posts as post}
+        {@const isExternal = "url" in post && post.url}
         <li class="post-item">
           <Link
             href={`/writing-about/${post.metadata.slug}`}
             rel="noopener"
             class="link"
-            target={"url" in post ? "_blank" : "_self"}
+            target={isExternal ? "_blank" : "_self"}
           >
             <span class="title">
-              {post.metadata.title}<ExternalLinkIcon
-                class="external-link-icon"
-              />
+              {post.metadata.title}
+              {#if isExternal}
+                <ExternalLinkIcon class="external-link-icon" />
+              {/if}
             </span>
             <div class="subtitle">{post.metadata.subtitle}</div>
             <div class="meta">
