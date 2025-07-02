@@ -32,10 +32,10 @@ Vivamus feugiat magna facilisis magna commodo cursus. Mauris accumsan vehicula t
 
 Suspendisse finibus, tortor sit amet interdum tristique, libero turpis laoreet nisi, sit amet ultricies justo velit sit amet risus. Nunc mollis, ante in suscipit euismod, purus ante convallis nulla, non consequat odio risus eu nulla. Nulla facilisi. Suspendisse rutrum volutpat massa efficitur semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam ornare sed enim in congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque odio lorem, cursus at elit ut, euismod commodo purus. Morbi sed est tortor. Quisque volutpat augue eget mattis pharetra.
 
-```js {1,3-4}
+```js
 console.log('1')
 console.log('2')
-console.log('3')
+console.log('3') // [\!code highlight]
 console.log('4')
 ```
 

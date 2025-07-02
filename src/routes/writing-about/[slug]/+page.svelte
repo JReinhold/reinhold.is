@@ -1,7 +1,3 @@
-<script module>
-  import "../../../twoslash.css";
-</script>
-
 <script lang="ts">
   import Giscus from "@giscus/svelte";
   import { toLocaleDateString } from "$lib/format-date";

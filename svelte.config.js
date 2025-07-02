@@ -1,14 +1,19 @@
 import adapter from "@sveltejs/adapter-cloudflare";
-import { sveltePreprocess } from "svelte-preprocess";
-import { mdsvex } from "mdsvex";
+import { mdsvex, escapeSvelte } from "mdsvex";
 import remarkGfm from "remark-gfm";
 import mdsvexReadingTime from "mdsvex-reading-time";
-import rehypeShiki from "@shikijs/rehype";
-import { transformerTwoslash } from "@shikijs/twoslash";
 import {
   transformerNotationDiff,
-  transformerMetaHighlight,
+  transformerNotationHighlight,
 } from "@shikijs/transformers";
+
+import { createHighlighter } from "shiki";
+
+const theme = "github-dark-dimmed";
+const highlighter = await createHighlighter({
+  themes: [theme],
+  langs: ["javascript", "typescript"],
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -27,21 +32,22 @@ const config = {
   preprocess: [
     mdsvex({
       remarkPlugins: [mdsvexReadingTime, remarkGfm],
-      rehypePlugins: [
-        [
-          rehypeShiki,
-          {
-            theme: "github-dark",
-            transformers: [
-              transformerNotationDiff(),
-              transformerMetaHighlight(),
-              transformerTwoslash(),
-            ],
-            defaultLanguage: "typescript",
-          },
-        ],
-      ],
-      highlight: false,
+      highlight: {
+        highlighter: async (code, lang = "text") => {
+          const html = escapeSvelte(
+            highlighter.codeToHtml(code, {
+              lang,
+              theme,
+              defaultLanguage: "typescript",
+              transformers: [
+                transformerNotationHighlight(),
+                transformerNotationDiff(),
+              ],
+            }),
+          );
+          return `{@html \`${html}\` }`;
+        },
+      },
       layout: "./src/lib/components/blog/layout.svelte",
     }),
   ],

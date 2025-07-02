@@ -69,21 +69,48 @@ pre.shiki {
   font-family: var(--font-monospace-code);
   border-radius: var(--radius-3);
   max-inline-size: unset;
-  padding: var(--size-fluid-1);
+  padding-block: var(--size-fluid-2);
   margin: var(--size-fluid-1) 0;
 
   code {
     counter-reset: step;
     counter-increment: step 0;
+    display: block;
 
-    .line::before {
-      content: counter(step);
-      counter-increment: step;
-      width: var(--size-fluid-1);
-      margin-right: var(--size-fluid-1);
-      display: inline-block;
-      text-align: right;
-      color: hsl(var(--gray-1-hsl) / 30%);
+    .line {
+      padding-block: 2px;
+      margin-inline: 0;
+      margin-block: -12px;
+      padding-inline: var(--size-fluid-1);
+      display: block;
+
+      &::before {
+        content: counter(step);
+        counter-increment: step;
+        width: var(--size-fluid-1);
+        margin-right: var(--size-fluid-1);
+        display: inline-block;
+        text-align: right;
+        color: hsl(var(--gray-1-hsl) / 30%);
+      }
+
+      &.diff.remove {
+        background-color: hsl(var(--red-5-hsl) / 20%);
+
+        :first-child::before {
+          content: "- ";
+        }
+      }
+      &.diff.add {
+        background-color: hsl(var(--green-5-hsl) / 20%);
+
+        :first-child::before {
+          content: "+ ";
+        }
+      }
+      &.highlighted {
+        background-color: hsl(var(--gray-2-hsl) / 10%);
+      }
     }
   }
 }
