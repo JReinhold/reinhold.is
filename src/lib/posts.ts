@@ -53,7 +53,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       },
     },
   },
-    "component-testing-w-storybook-svelte-summit-2025": {
+  "component-testing-w-storybook-svelte-summit-2025": {
     url: "https://www.youtube.com/watch?v=mdyRQDDp28s",
     metadata: {
       slug: "component-testing-w-storybook-svelte-summit-2025",

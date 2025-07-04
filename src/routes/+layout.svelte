@@ -21,6 +21,7 @@
 <svelte:head>
   <link rel="stylesheet" href="/themes/{data.theme.key}.css" />
   <link rel="stylesheet" href="/themes/{data.theme.mode}.css" />
+  <!-- prettier-ignore-start -->
   <style>
     {@html `
       body {

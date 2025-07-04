@@ -36,15 +36,15 @@
   aria-label={`${amount} out of ${max} stars`}
 >
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each filledStars as _}
+  {#each filledStars as _ (_)}
     <IconFilled />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each halfStars as _}
+  {#each halfStars as _ (_)}
     <IconHalf />
   {/each}
   <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each emptyStars as _}
+  {#each emptyStars as _ (_)}
     <IconEmpty />
   {/each}
 </div>

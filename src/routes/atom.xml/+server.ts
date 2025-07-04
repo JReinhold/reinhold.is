@@ -5,9 +5,13 @@ export const prerender = true;
 export async function GET() {
   const siteUrl = "https://reinhold.is";
 
-  const posts = await getAllPosts().filter((post) => post.metadata.publishedAt).sort((a, b) => {
-    return b.metadata.publishedAt!.getTime() - a.metadata.publishedAt!.getTime();
-  });
+  const posts = await getAllPosts()
+    .filter((post) => post.metadata.publishedAt)
+    .sort((a, b) => {
+      return (
+        b.metadata.publishedAt!.getTime() - a.metadata.publishedAt!.getTime()
+      );
+    });
 
   const atom = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">

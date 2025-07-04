@@ -49,6 +49,7 @@
 </Section>
 
 <svelte:head>
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
   {@html `<style>
     :root {
       @supports (backdrop-filter: blur(30px)) {

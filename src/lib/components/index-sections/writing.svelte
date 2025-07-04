@@ -14,7 +14,7 @@
   <Section {id}>
     <SectionHeading>💬/{id}</SectionHeading>
     <ul class="post-list">
-      {#each posts as post}
+      {#each posts as post (post.metadata.slug)}
         {@const isExternal = "url" in post && post.url}
         <li class="post-item">
           <Link
