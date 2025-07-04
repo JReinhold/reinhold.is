@@ -7,7 +7,6 @@
   import Link from "$lib/components/atoms/link.svelte";
   import Emoji from "$lib/components/emoji.svelte";
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- workaround for https://github.com/sveltejs/language-tools/issues/1026
   const UntypedGiscus = Giscus as any;
 
   const { data } = $props();

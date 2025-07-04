@@ -1,5 +1,4 @@
 <script lang="ts">
-  // eslint-disable @typescript-eslint/no-explicit-any
   import type { Snippet } from "svelte";
   import type { HTMLAttributes } from "svelte/elements";
 
