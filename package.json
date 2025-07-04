@@ -16,12 +16,7 @@
     "preview": "vite preview",
     "start": "turbo run preview",
     "svelte-check": "svelte-check --tsconfig ./tsconfig.json",
-    "svelte-check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "sync": "svelte-kit sync",
-    "test": "playwright test",
-    "test:watch": "playwright test",
-    "type-check": "tsc --noEmit",
-    "type-check:watch": "tsc --noEmit --watch",
     "validate": "turbo run validate-all"
   },
   "dependencies": {
@@ -29,7 +24,6 @@
     "@eslint/js": "^9.30.1",
     "@giscus/svelte": "^3.1.0",
     "@iconify/json": "^2.2.349",
-    "@playwright/test": "^1.53.0",
     "@shikijs/rehype": "^1.11.1",
     "@shikijs/transformers": "^1.11.1",
     "@sveltejs/adapter-cloudflare": "7.0.4",

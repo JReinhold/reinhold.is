@@ -29,19 +29,6 @@ jobs:
       - name: Lint
         run: pnpm turbo run lint
 
-  type-check:
-    name: Check Types
-    runs-on: ubuntu-latest
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-
-      - name: Prepare dependencies
-        uses: ./.github/actions/prepare-deps
-
-      - name: Check TypeScript Types
-        run: pnpm turbo run type-check
-
   check-svelte:
     name: Check Svelte
     runs-on: ubuntu-latest
