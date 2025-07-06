@@ -4,57 +4,113 @@
 @import "open-props/colors-hsl";
 @import "open-props/gradients";
 
-html {
+:root {
+  interpolate-size: allow-keywords;
+}
+
+body {
   font-family: var(--font-sans);
-  background-color: var(--gray-9);
+  overscroll-behavior-y: none;
 }
 
-section,
-footer {
-  display: flex;
-  flex-direction: column;
-
-  margin: 0 var(--size-fluid-1);
-  padding: var(--size-fluid-2);
-  gap: var(--size-1);
-
-  border-radius: var(--radius-4);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-rounded-sans);
+  text-wrap: balance;
 }
 
-@supports (backdrop-filter: blur(30px)) {
-  section,
-  footer {
-    backdrop-filter: blur(30px);
-    background: hsl(var(--surface-1-hsl) / 60%);
+/* https://nerdy.dev/open-and-close-transitions-for-the-details-element */
+details {
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
+  &::details-content {
+    opacity: 0;
+    block-size: 0;
+    overflow-y: clip;
+    transition:
+      content-visibility 0.5s allow-discrete,
+      opacity 0.5s,
+      block-size 0.5s;
+  }
+
+  &[open]::details-content {
+    opacity: 1;
+    block-size: auto;
   }
 }
 
-/* stronger background color when backdrop cannot be blurred */
-@supports not (backdrop-filter: blur(30px)) {
-  section,
-  footer {
-    background: hsl(var(--surface-1-hsl) / 90%);
-  }
-}
-
-h1 {
-  font-size: var(--font-size-fluid-3);
-}
-
-h2 {
-  font-size: var(--font-size-fluid-2);
-  font-weight: var(--font-weight-6);
+details,
+summary {
+  margin: 0;
+  padding: 0;
+  background: unset;
 }
 
 a {
-  text-decoration-color: var(--theme-accent);
+  text-decoration-line: underline;
 }
 
-p {
-  padding-bottom: var(--size-2);
+p,
+a,
+details,
+summary,
+.text-paragraph {
+  font-family: var(--font-geometric-humanist);
+  font-size: var(--font-size-3);
 }
 
-.icon {
-  fill: currentColor;
-  width: var(--size-4);
+pre.shiki {
+  font-family: var(--font-monospace-code);
+  border-radius: var(--radius-3);
+  max-inline-size: unset;
+  padding-block: var(--size-fluid-2);
+  margin: var(--size-fluid-1) 0;
+
+  code {
+    counter-reset: step;
+    counter-increment: step 0;
+    display: block;
+
+    .line {
+      padding-block: 2px;
+      margin-inline: 0;
+      margin-block: -12px;
+      padding-inline: var(--size-fluid-1);
+      display: block;
+
+      &::before {
+        content: counter(step);
+        counter-increment: step;
+        width: var(--size-fluid-1);
+        margin-right: var(--size-fluid-1);
+        display: inline-block;
+        text-align: right;
+        color: hsl(var(--gray-1-hsl) / 30%);
+      }
+
+      &.diff.remove {
+        background-color: hsl(var(--red-5-hsl) / 20%);
+
+        :first-child::before {
+          content: "- ";
+        }
+      }
+      &.diff.add {
+        background-color: hsl(var(--green-5-hsl) / 20%);
+
+        :first-child::before {
+          content: "+ ";
+        }
+      }
+      &.highlighted {
+        background-color: hsl(var(--gray-2-hsl) / 10%);
+      }
+    }
+  }
 }

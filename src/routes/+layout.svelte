@@ -1,18 +1,32 @@
-<script context="module" lang="ts">
+<script module lang="ts">
   import "../app.css";
 </script>
 
 <script lang="ts">
-  import LazyBackgroundImage from "../components/lazy-background-image.svelte";
+  import type { Snippet } from "svelte";
+  import LazyBackgroundImage from "$lib/components/lazy-background-image.svelte";
   import type { LayoutData } from "./$types";
-  export let data: LayoutData;
-  const { theme } = data;
+  import Nav from "$lib/components/nav.svelte";
+  import SectionContainer from "$lib/components/atoms/section-container.svelte";
+
+  const { data, children }: { data: LayoutData; children: Snippet } = $props();
 </script>
 
-<LazyBackgroundImage {theme} />
-<slot />
+<LazyBackgroundImage theme={data.theme} />
+<SectionContainer>
+  <Nav />
+  {@render children()}
+</SectionContainer>
 
 <svelte:head>
-  <link rel="stylesheet" href="/themes/{theme.key}.css" />
-  <link rel="stylesheet" href="/themes/{theme.mode}.css" />
+  <link rel="stylesheet" href="/themes/{data.theme.key}.css" />
+  <link rel="stylesheet" href="/themes/{data.theme.mode}.css" />
+  <!-- prettier-ignore-start -->
+  <style>
+    {@html `
+      body {
+        background-color: ${data.theme.mode === "light" ? "var(--gray-1)" : "var(--gray-9)"};
+      }
+    `}
+  </style>
 </svelte:head>

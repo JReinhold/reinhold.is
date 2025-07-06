@@ -16,11 +16,8 @@
     "svelte-check": {
       "inputs": ["src/**", "svelte.config.js", "tsconfig.json"]
     },
-    "type-check": {
-      "inputs": ["src/**/*", "tsconfig.json"]
-    },
     "validate-all": {
-      "dependsOn": ["format:check", "lint", "svelte-check", "type-check"]
+      "dependsOn": ["format:check", "lint", "svelte-check"]
     }
   }
 }

@@ -1,34 +1,25 @@
 <script lang="ts">
-  import BaseHead from "../components/base-head.svelte";
+  import BaseHead from "$lib/components/base-head.svelte";
 
-  import Hero from "../components/index-sections/hero.svelte";
-  import AboutMe from "../components/index-sections/about-me/about-me-section.svelte";
-  import FakeWriting from "../components/index-sections/fake-writing/fake-writing-section.svelte";
-  import Ratings from "../components/index-sections/ratings/ratings-section.svelte";
-  import Footer from "../components/footer.svelte";
+  import Hero from "$lib/components/index-sections/hero.svelte";
+  import AboutMe from "$lib/components/index-sections/about-me/about-me-section.svelte";
+  import FakeWriting from "$lib/components/index-sections/writing-with-you/writing-with-you.svelte";
+  import Ratings from "$lib/components/index-sections/ratings/ratings-section.svelte";
+  import Footer from "$lib/components/footer.svelte";
+  import Writing from "$lib/components/index-sections/writing.svelte";
 
-  let title = "Jeppe Reinhold";
-  let description = "reinhold.is Jeppe's Personal Website";
-  let permalink = "https://reinhold.is/";
+  const title = "Jeppe Reinhold";
+  const description = "reinhold.is Jeppe's Personal Website";
+  const permalink = "https://reinhold.is/";
+
+  const { data } = $props();
 </script>
 
 <BaseHead {title} {description} {permalink} />
-<div class="sections-container">
-  <Hero />
-  <AboutMe />
-  <Ratings />
-  <FakeWriting />
-  <Footer />
-</div>
 
-<style>
-  .sections-container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--size-fluid-3);
-    max-width: calc(75ch + var(--size-fluid-2));
-    margin: auto;
-    padding: var(--size-7) 0;
-  }
-</style>
+<Hero />
+<Writing posts={data.posts} />
+<AboutMe />
+<Ratings />
+<FakeWriting />
+<Footer />
