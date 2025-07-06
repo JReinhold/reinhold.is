@@ -16,7 +16,7 @@
 <Section {id}>
   <SectionHeading>🌟/{id}</SectionHeading>
   <Paragraph>
-    As any succesful hiring manager will tell you, it's
+    As any successful hiring manager will tell you, it's
     <Link
       target="_blank"
       rel="noopener"
