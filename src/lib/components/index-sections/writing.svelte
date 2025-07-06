@@ -19,7 +19,7 @@
         <li class="post-item">
           <Link
             href={`/writing-about/${post.metadata.slug}`}
-            rel="noopener"
+            rel={isExternal ? "noopener me external" : undefined}
             class="link"
             target={isExternal ? "_blank" : "_self"}
           >
