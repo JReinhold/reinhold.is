@@ -12,10 +12,11 @@
     I've always <strong>loved</strong> tinkering with software, electronics and
     engaging with the open source community. I currently work as an Open
     Sourcerer 🧙‍♂️ at
-    <a href="https://chromatic.com" target="_blank">Chromatic</a>, spending all
-    my time making
-    <a href="https://storybook.js.org" target="_blank">Storybook 📚</a> better for
-    everyone.
+    <a href="https://chromatic.com" target="_blank" rel="noopener">Chromatic</a
+    >, spending all my time making
+    <a href="https://storybook.js.org" target="_blank" rel="noopener"
+      >Storybook 📚</a
+    > better for everyone.
   </Paragraph>
   <Paragraph>
     I enjoy combining creativity and empathy to solve actual problems for real

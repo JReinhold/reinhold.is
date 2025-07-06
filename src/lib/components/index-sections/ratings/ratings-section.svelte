@@ -19,6 +19,7 @@
     As any succesful hiring manager will tell you, it's
     <Link
       target="_blank"
+      rel="noopener"
       href="https://uxdesign.cc/things-i-honestly-dont-want-to-see-in-your-portfolio-3d3497666ca8"
       >very important
     </Link> to put fixed, absolute ratings on your skills so everyone can see what

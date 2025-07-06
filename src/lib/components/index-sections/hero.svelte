@@ -31,6 +31,7 @@
         <Link
           href="https://maps.app.goo.gl/yBCzYPgqvTeXWSbd9"
           target="_blank"
+          rel="noopener"
           aria-label="see Viborg Google Maps"
         >
           Viborg, Denmark 🇩🇰
@@ -39,9 +40,9 @@
       </Paragraph>
       <Paragraph>
         I'm passionate about
-        <a href="https://svelte.dev" target="_blank">Svelte</a>,
-        <a href="https://vite.dev" target="_blank">Vite</a>, building great
-        APIs, and the JavaScript ecosystem in general.
+        <a href="https://svelte.dev" rel="noopener" target="_blank">Svelte</a>,
+        <a href="https://vite.dev" rel="noopener" target="_blank">Vite</a>,
+        building great APIs, and the JavaScript ecosystem in general.
       </Paragraph>
       <Paragraph>
         You're currently <Link
@@ -51,7 +52,7 @@
       </Paragraph>
       <div class="social-links">
         <a
-          rel="me"
+          rel="me noopener"
           href="https://bsky.app/profile/reinhold.is"
           target="_blank"
           title="@reinhold.is"
@@ -60,7 +61,7 @@
           <BlueSkyIcon width={30} height={30} />
         </a>
         <a
-          rel="me"
+          rel="me noopener"
           href="https://discordapp.com/users/303516516039655427"
           target="_blank"
           title="@JReinhold"
@@ -69,7 +70,7 @@
           <DiscordIcon width={30} height={30} />
         </a>
         <a
-          rel="me"
+          rel="me noopener"
           href="https://github.com/jreinhold"
           target="_blank"
           title="@JReinhold"
@@ -78,7 +79,7 @@
           <GitHubIcon width={30} height={30} />
         </a>
         <a
-          rel="me"
+          rel="me noopener"
           href="https://linkedin.com/in/jeppereinhold"
           target="_blank"
           title="Jeppe Reinhold"

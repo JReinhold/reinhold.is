@@ -8,17 +8,27 @@
     <span class="text-paragraph">
       Built with <Link
         href="https://svelte.dev"
+        rel="noopener"
         target="_blank"
         class="footer-link">Svelte</Link
       > and
-      <Link href="https://open-props.style" target="_blank" class="footer-link"
-        >Open Props</Link
+      <Link
+        href="https://open-props.style"
+        rel="noopener"
+        target="_blank"
+        class="footer-link">Open Props</Link
       >. Source code is on
-      <Link href="https://github.com/jreinhold/reinhold.is" class="footer-link"
-        >GitHub</Link
+      <Link
+        href="https://github.com/jreinhold/reinhold.is"
+        rel="noopener"
+        target="_blank"
+        class="footer-link">GitHub</Link
       >, deployed to
-      <Link href="https://pages.cloudflare.com" class="footer-link"
-        >Cloudflare Pages</Link
+      <Link
+        href="https://pages.cloudflare.com"
+        rel="noopener"
+        target="_blank"
+        class="footer-link">Cloudflare Pages</Link
       >. Backgrounds by Apple.
     </span>
   </div>
