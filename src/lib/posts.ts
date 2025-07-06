@@ -71,6 +71,23 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       },
     },
   },
+  "storybook-and-vite-viteconf-2023": {
+    url: "https://www.youtube.com/watch?v=4wNkUQlStF8",
+    metadata: {
+      slug: "storybook-and-vite-viteconf-2023",
+      shortSlug: "viteconf-2023",
+      title: "Storybook & Vite: It Keeps Getting Better",
+      subtitle: "Talk at ViteConf 2023",
+      description: "Take a trip back to 2023 as Storybook and Vite hit their stride—expect performance leaps, smarter integrations, and fresh tools for testing and visual diffs. Perfect if you want to see what the buzz was about when these two were leveling up together.",
+      publishedAt: new Date("2023-10-20"),
+      readingTime: {
+        text: "17 min watch",
+        minutes: 17,
+        time: 1020000,
+        words: 0, // Not applicable for audio
+      },
+    },
+  },
 };
 
 export type PostMetadata = {
