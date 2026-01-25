@@ -1,37 +1,41 @@
 import type { Component } from "svelte";
 
 export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
-  "storybook-module-mocking": {
-    url: "https://storybook.js.org/blog/type-safe-module-mocking",
+  "devtools-fm-160-storybook-modernization": {
+    url: "https://youtu.be/BgydLnSwrUg?si=62P4gCxdi_kZh5zp",
     metadata: {
-      slug: "storybook-module-mocking",
-      shortSlug: "sb-mock",
-      title: "Type-safe module mocking in Storybook",
-      subtitle: "A new, standards-based mocking approach",
-      tldr: "something",
-      publishedAt: new Date("2023-05-29"),
+      slug: "devtools-fm-160-storybook-modernization",
+      shortSlug: "dt-160",
+      title: "devtools.fm #160: Storybook Modernization",
+      subtitle:
+        "How we modernized Storybook and what's in store for the future, with the devtools.fm folks",
+      description:
+        "I chatted with devtools.fm about Storybook's evolution—from Vite integration and ESM migration to our new Vitest testing support and AI integrations via MCP servers.",
+      publishedAt: new Date("2026-01-05"),
       readingTime: {
-        text: "8 min read",
-        minutes: 8,
-        time: 480000,
-        words: 2041,
+        text: "55 min watch/listen",
+        minutes: 55,
+        time: 3_326_000,
+        words: 0, // Not applicable for audio
       },
     },
   },
-  "storybook-for-sveltekit": {
-    url: "https://storybook.js.org/blog/storybook-for-sveltekit/",
+  "svelte-radio": {
+    url: "https://www.svelteradio.com/episodes/storybook-is-actually-good-now-with-jeppe-reinhold",
     metadata: {
-      slug: "storybook-for-sveltekit",
-      shortSlug: "sb-sk",
-      title: "Storybook for SvelteKit",
-      subtitle: "Zero-config support for SvelteKit 1.0 with our new framework",
-      tldr: "something",
-      publishedAt: new Date("2023-02-28"),
+      slug: "svelte-radio-84-storybook-is-actually-good-now",
+      shortSlug: "sr-84",
+      title: "Svelte Radio E84: Storybook Is Actually Good Now",
+      subtitle:
+        "How Storybook's Svelte integration has improved over the years, with the Svelte Radio team",
+      description:
+        "I chatted with the Svelte Radio team about how Storybook's Svelte integration has dramatically improved, covering new features like Svelte CSF for writing stories in native Svelte syntax, improved testing capabilities, support for async components, and upcoming features in Storybook 10. We explored component-driven development philosophy, integration challenges, and Storybook's future direction including AI support.",
+      publishedAt: new Date("2025-10-16"),
       readingTime: {
-        text: "4 min read",
-        minutes: 4,
-        time: 240000,
-        words: 857,
+        text: "42 min listen",
+        minutes: 42,
+        time: 2_535_000,
+        words: 0, // Not applicable for audio
       },
     },
   },
@@ -48,7 +52,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       readingTime: {
         text: "50 min watch/listen",
         minutes: 50,
-        time: 3000000,
+        time: 3_000_000,
         words: 0, // Not applicable for audio
       },
     },
@@ -62,11 +66,11 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       subtitle: "Talk at Svelte Summit Spring 2025",
       description:
         "Discover how component testing bridges the gap between E2E and unit tests for UI. In this talk I'll showcase new tools in Storybook that provide automated component AND accessibility testing for Svelte. Learn how to create interactive, shareable tests in Storybook, that integrate with your existing Vitest setup while using the familiar Svelte syntax you know and love.",
-      publishedAt: new Date("2025-06-04"),
+      publishedAt: new Date("2025-05-30"),
       readingTime: {
         text: "26 min watch",
         minutes: 26,
-        time: 1560000,
+        time: 1_560_000,
         words: 0, // Not applicable for audio
       },
     },
@@ -84,8 +88,42 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       readingTime: {
         text: "17 min watch",
         minutes: 17,
-        time: 1020000,
+        time: 1_020_000,
         words: 0, // Not applicable for audio
+      },
+    },
+  },
+  "storybook-module-mocking": {
+    url: "https://storybook.js.org/blog/type-safe-module-mocking",
+    metadata: {
+      slug: "storybook-module-mocking",
+      shortSlug: "sb-mock",
+      title: "Type-safe module mocking in Storybook",
+      subtitle: "A new, standards-based mocking approach",
+      tldr: "something",
+      publishedAt: new Date("2023-05-29"),
+      readingTime: {
+        text: "8 min read",
+        minutes: 8,
+        time: 480_000,
+        words: 2041,
+      },
+    },
+  },
+  "storybook-for-sveltekit": {
+    url: "https://storybook.js.org/blog/storybook-for-sveltekit/",
+    metadata: {
+      slug: "storybook-for-sveltekit",
+      shortSlug: "sb-sk",
+      title: "Storybook for SvelteKit",
+      subtitle: "Zero-config support for SvelteKit 1.0 with our new framework",
+      tldr: "something",
+      publishedAt: new Date("2023-02-28"),
+      readingTime: {
+        text: "4 min read",
+        minutes: 4,
+        time: 240_000,
+        words: 857,
       },
     },
   },
