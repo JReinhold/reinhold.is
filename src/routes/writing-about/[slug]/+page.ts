@@ -5,8 +5,11 @@ import { redirect } from "@sveltejs/kit";
 import { error } from "@sveltejs/kit";
 
 export const load: PageLoad = async ({ params }) => {
-  if (EXTERNAL_POSTS[params.slug]) {
-    redirect(301, EXTERNAL_POSTS[params.slug].url);
+  const externalPost = Object.values(EXTERNAL_POSTS).find(
+    (post) => post.metadata.slug === params.slug,
+  );
+  if (externalPost) {
+    redirect(301, externalPost.url);
   }
   try {
     const postModule = await import(`$posts/${params.slug}.svx`);

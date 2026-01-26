@@ -35,16 +35,16 @@
   role="img"
   aria-label={`${amount} out of ${max} stars`}
 >
-  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each filledStars as _ (_)}
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars svelte/require-each-key -->
+  {#each filledStars as _}
     <IconFilled />
   {/each}
-  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each halfStars as _ (_)}
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars svelte/require-each-key -->
+  {#each halfStars as _}
     <IconHalf />
   {/each}
-  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
-  {#each emptyStars as _ (_)}
+  <!-- eslint-disable-next-line @typescript-eslint/no-unused-vars svelte/require-each-key -->
+  {#each emptyStars as _}
     <IconEmpty />
   {/each}
 </div>

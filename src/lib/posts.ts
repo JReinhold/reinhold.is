@@ -20,7 +20,7 @@ export const EXTERNAL_POSTS: Record<string, ExternalPost> = {
       },
     },
   },
-  "svelte-radio": {
+  "svelte-radio-84-storybook-is-actually-good-now": {
     url: "https://www.svelteradio.com/episodes/storybook-is-actually-good-now-with-jeppe-reinhold",
     metadata: {
       slug: "svelte-radio-84-storybook-is-actually-good-now",
